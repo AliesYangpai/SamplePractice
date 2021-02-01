@@ -20,4 +20,6 @@ public:
 	float CalculateVol();
 	float CalculateSa();
 	bool IsSameCube(Cube* p_cube);
+	// + ºÅÔËËã·ûÖØÔØ
+	Cube operator+(Cube& cube);
 };

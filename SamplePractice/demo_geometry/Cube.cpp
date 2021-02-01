@@ -47,3 +47,12 @@ bool Cube::IsSameCube(Cube* p_cube)
 		&& p_cube->get_m_width() == this->m_width
 		&& p_cube->get_m_height() == this->m_height;
 }
+
+Cube Cube::operator+(Cube& cube) 
+{
+	Cube targetCube;
+	targetCube.set_m_lenth(this->m_lenth + cube.get_m_lenth());
+	targetCube.set_m_width(this->m_width + cube.get_m_width());
+	targetCube.set_m_height(this->m_height + cube.get_m_height());
+	return targetCube;
+}

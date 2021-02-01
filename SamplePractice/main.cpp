@@ -32,10 +32,23 @@ void Test02()
 	PRINT_T(sa);
 	PRINT_T(cube1.IsSameCube(&cube2));
 }
+
+/*
+ 运算符重载
+*/
+void Test03() 
+{
+	PRINT_T("===Test03");
+	Cube cube1(2, 2, 2), cube2(1, 1, 1);
+	Cube cube3 = cube1 + cube2; // 本质是 cube1.operator+(cube2);
+	PRINT_T(cube3.CalculateVol());
+}
+
 int main() 
 {
 	PRINT_T("===main()");
-//	Test01();
-	Test02();
+	//Test01();
+	//Test02();
+	Test03();
 	return 1;
 }
