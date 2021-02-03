@@ -1,13 +1,14 @@
 #define _CRT_SECURE_NO_WARNINGS 1
 #include "base_sort.h"
-void BubbleSortArrayInt(int* arr, const	int size, const	char order) 
+//1 冒泡排序 ：order: 1:asc,0:desc; 
+void BubbleSortArrayInt(int* arr, const	int size, const	char order)
 {
 	int i;
-	for ( i = 0; i < size - 1; i++)
+	for (i = 0; i < size - 1; i++)
 	{
 		int j;
 		char flag = 0;
-		for ( j = 0; j < size - i - 1; j++)
+		for (j = 0; j < size - i - 1; j++)
 		{
 			if (order)
 			{
@@ -21,7 +22,7 @@ void BubbleSortArrayInt(int* arr, const	int size, const	char order)
 			}
 			else
 			{
-				if (arr[j] < arr[j+1])
+				if (arr[j] < arr[j + 1])
 				{
 					int temp = arr[j];
 					arr[j] = arr[j + 1];
@@ -37,3 +38,36 @@ void BubbleSortArrayInt(int* arr, const	int size, const	char order)
 		}
 	}
 }
+//2 选择排序 ：order: 1:asc,0:desc; 
+void SelectionSortArryInt(int* arr, const int size, const char order)
+{
+	int i;
+	for (i = 0; i < size - 1; i++)
+	{
+		int targetIndex = i;
+		int j;
+		for (j = i+1; j < size; j++)
+		{
+			if (order)
+			{
+				// 如果是asc，则应该选出最小值
+				if (arr[targetIndex] > arr[j])
+				{
+					targetIndex = j;
+				}
+			}
+			else
+			{
+				// 如果是desc，则应该选最大值
+				if (arr[targetIndex] < arr[j])
+				{
+					targetIndex = j;
+				}
+			}
+		}
+		int temp = arr[i];
+		arr[i] = arr[targetIndex];
+		arr[targetIndex] = temp;
+	}
+}
+

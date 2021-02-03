@@ -44,11 +44,24 @@ void Test03()
 	PRINT_T(cube3.CalculateVol());
 }
 
+/*
+ —°‘Ò≈≈–Ú
+*/
+void Test04() 
+{
+	PRINT_T("===Test04");
+	int arr[] = { 1,9,5,7,3,8,2,6,4 };
+	int size = sizeof(arr) / sizeof(arr[0]);
+	SelectionSortArryInt(arr,size,0);
+	PrintArrayInt(arr,size);
+}
+
 int main() 
 {
 	PRINT_T("===main()");
 	//Test01();
 	//Test02();
-	Test03();
+//	Test03();
+	Test04();
 	return 1;
 }
