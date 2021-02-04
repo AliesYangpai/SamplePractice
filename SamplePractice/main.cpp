@@ -56,6 +56,62 @@ void Test04()
 	PrintArrayInt(arr,size);
 }
 
+
+class BasePlayer 
+{
+private:
+	int m_id;
+	short m_age;
+	char m_gender;
+public:
+	~BasePlayer(){}
+	BasePlayer() {
+		PRINT_T("===BasePlayer");
+	}
+	BasePlayer(int id,short age,char gender) 
+	{
+		PRINT_T("===BasePlayer 有参构造");
+		this->m_id = id;
+		this->m_age = age;
+		this->m_gender = gender;
+	}
+	 char get_m_gender() 
+	{
+		 return this->m_gender;
+	}
+};
+
+class SoccerPlayer:public BasePlayer
+{
+public:
+	~SoccerPlayer() {}
+	SoccerPlayer() {}
+	SoccerPlayer(int id, short age, char gender) :BasePlayer(id,age,gender)
+	{
+		//BasePlayer(id, age, gender);
+		PRINT_T("===SoccerPlayer 有参构造");
+	}
+	void PassBall() {
+		PRINT_T("PassBall");
+	}
+	void StopBall() {}
+	void Dribbling() {}
+	void ShotBall(){}
+	
+};
+
+/*
+ C++中的继承
+*/
+void Test05() 
+{
+	PRINT_T("Test05");
+	SoccerPlayer sp(1,15,1);
+	sp.PassBall();
+	
+	sp.get_m_gender() == 1 ? PRINT_T("男") : PRINT_T("女");
+}
+
 int main() 
 {
 	PRINT_T("===main()");
@@ -63,5 +119,6 @@ int main()
 	//Test02();
 //	Test03();
 	Test04();
+	Test05();
 	return 1;
 }
