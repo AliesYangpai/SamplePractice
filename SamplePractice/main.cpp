@@ -5,7 +5,7 @@ extern "C" {
 #include <iostream>
 #include "demo_print/base_print.h"
 #include "demo_geometry/Cube.h"
-#include "demo_player/soccer_player.h"
+#include "demo_player/bean/soccer_player.h"
 #include "demo_player/player_method.h"
 using namespace std;
 #define PRINT_T(T) cout << T << endl
@@ -60,7 +60,7 @@ void Test04()
 
 
 /*
- C++中的继承,多态传参那点事儿
+ C++中的继承,多态传参那点事儿 虚函数指针 
 */
 void Test05()
 {
@@ -73,13 +73,49 @@ void Test05()
 	
 }
 
+/*
+ C++中的继承，纯虚函数（类似java中的抽象函数）
+*/
+void Test06() 
+{
+	PRINT_T("==Test06");
+	KobePlayer kobe(1, 19, 1);
+	IversenPlayer iverson(2, 19, 1);
+	JorDonPlayer jordon(3, 35, 1);
+	ShowYourSelf(kobe);
+	ShowPlayerSkills(&kobe);
+	ShowYourSelf(iverson);
+	ShowPlayerSkills(&iverson);
+	ShowYourSelf(jordon);
+	ShowPlayerSkills(&jordon);
+}
+
+/*
+ C++中的继承，纯虚函数（类似java中的抽象函数）
+ 用堆内存中的实例化进行练习
+*/
+void Test06_1()  
+{
+	BaseketBallPlayer* kobe = new KobePlayer(1, 19, 1);
+	BaseketBallPlayer* iversen = new IversenPlayer(2, 19, 1);
+	BaseketBallPlayer* jordon = new JorDonPlayer(2, 35, 1);
+	ShowPlayerSkills(kobe);
+	ShowPlayerSkills(iversen);
+	ShowPlayerSkills(jordon);
+	delete kobe;
+	delete iversen;
+	delete jordon;
+}
+
 int main()
 {
 	PRINT_T("===main()");
 	//Test01();
 	//Test02();
-//	Test03();
-	Test04();
-	Test05();
+	//Test03();
+	//Test04();
+	//Test05();
+	//Test06();
+	Test06_1();
 	return 1;
 }

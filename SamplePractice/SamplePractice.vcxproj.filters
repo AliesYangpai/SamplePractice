@@ -27,13 +27,16 @@
     <ClCompile Include="demo_geometry\Cube.cpp">
       <Filter>源文件</Filter>
     </ClCompile>
-    <ClCompile Include="demo_player\base_player.cpp">
-      <Filter>源文件</Filter>
-    </ClCompile>
-    <ClCompile Include="demo_player\soccer_player.cpp">
-      <Filter>源文件</Filter>
-    </ClCompile>
     <ClCompile Include="demo_player\player_method.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="demo_player\bean\base_player.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="demo_player\bean\baseketball_player.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="demo_player\bean\soccer_player.cpp">
       <Filter>源文件</Filter>
     </ClCompile>
   </ItemGroup>
@@ -47,13 +50,16 @@
     <ClInclude Include="demo_geometry\Cube.h">
       <Filter>头文件</Filter>
     </ClInclude>
-    <ClInclude Include="demo_player\base_player.h">
-      <Filter>头文件</Filter>
-    </ClInclude>
-    <ClInclude Include="demo_player\soccer_player.h">
-      <Filter>头文件</Filter>
-    </ClInclude>
     <ClInclude Include="demo_player\player_method.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="demo_player\bean\base_player.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="demo_player\bean\baseketball_player.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="demo_player\bean\soccer_player.h">
       <Filter>头文件</Filter>
     </ClInclude>
   </ItemGroup>

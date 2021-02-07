@@ -124,18 +124,20 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClCompile Include="demo_geometry\Cube.cpp" />
-    <ClCompile Include="demo_player\base_player.cpp" />
+    <ClCompile Include="demo_player\bean\baseketball_player.cpp" />
+    <ClCompile Include="demo_player\bean\base_player.cpp" />
     <ClCompile Include="demo_player\player_method.cpp" />
-    <ClCompile Include="demo_player\soccer_player.cpp" />
+    <ClCompile Include="demo_player\bean\soccer_player.cpp" />
     <ClCompile Include="demo_print\base_print.cpp" />
     <ClCompile Include="demo_sort\base_sort.c" />
     <ClCompile Include="main.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="demo_geometry\Cube.h" />
-    <ClInclude Include="demo_player\base_player.h" />
+    <ClInclude Include="demo_player\bean\base_player.h" />
+    <ClInclude Include="demo_player\bean\baseketball_player.h" />
     <ClInclude Include="demo_player\player_method.h" />
-    <ClInclude Include="demo_player\soccer_player.h" />
+    <ClInclude Include="demo_player\bean\soccer_player.h" />
     <ClInclude Include="demo_print\base_print.h" />
     <ClInclude Include="demo_sort\base_sort.h" />
   </ItemGroup>
