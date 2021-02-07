@@ -1,8 +1,5 @@
 #define _CRT_SECURE_NO_WARNINGS 1
 #include "base_player.h"
-#include <iostream>
-#define PRINT_T(T) cout << T << endl
-using namespace std;
 BasePlayer::~BasePlayer() {}
 BasePlayer::BasePlayer()
 {

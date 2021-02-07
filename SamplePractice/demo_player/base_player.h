@@ -1,4 +1,7 @@
 #pragma once
+#include <iostream>
+using namespace std;
+#define PRINT_T(T) cout << T << endl
 class BasePlayer
 {
 private:
