@@ -30,13 +30,16 @@
     <ClCompile Include="demo_player\player_method.cpp">
       <Filter>源文件</Filter>
     </ClCompile>
-    <ClCompile Include="demo_player\bean\base_player.cpp">
+    <ClCompile Include="demo_player\bean\player_base.cpp">
       <Filter>源文件</Filter>
     </ClCompile>
-    <ClCompile Include="demo_player\bean\baseketball_player.cpp">
+    <ClCompile Include="demo_player\bean\player_base_basketball.cpp">
       <Filter>源文件</Filter>
     </ClCompile>
-    <ClCompile Include="demo_player\bean\soccer_player.cpp">
+    <ClCompile Include="demo_player\bean\player_basketball.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="demo_player\bean\player_base_soccer.cpp">
       <Filter>源文件</Filter>
     </ClCompile>
   </ItemGroup>
@@ -53,13 +56,16 @@
     <ClInclude Include="demo_player\player_method.h">
       <Filter>头文件</Filter>
     </ClInclude>
-    <ClInclude Include="demo_player\bean\base_player.h">
+    <ClInclude Include="demo_player\bean\player_base.h">
       <Filter>头文件</Filter>
     </ClInclude>
-    <ClInclude Include="demo_player\bean\baseketball_player.h">
+    <ClInclude Include="demo_player\bean\player_basketball.h">
       <Filter>头文件</Filter>
     </ClInclude>
-    <ClInclude Include="demo_player\bean\soccer_player.h">
+    <ClInclude Include="demo_player\bean\player_base_soccer.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="demo_player\bean\player_base_basketball.h">
       <Filter>头文件</Filter>
     </ClInclude>
   </ItemGroup>

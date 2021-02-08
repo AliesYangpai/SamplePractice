@@ -2,7 +2,7 @@
 #include <iostream>
 using namespace std;
 #define PRINT_T(T) cout << T << endl
-class BasePlayer
+class PlayerBase
 {
 private:
 	int m_id;
@@ -10,9 +10,9 @@ private:
 	char m_gender;
 	
 public:
-	~BasePlayer();
-	BasePlayer();
-	BasePlayer(int id, short age, char gender);
+	~PlayerBase();
+	PlayerBase();
+	PlayerBase(int id, short age, char gender);
 
 	void set_m_id(int id);
 	void set_m_age(short age);

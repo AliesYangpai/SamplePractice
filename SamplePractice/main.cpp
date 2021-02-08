@@ -5,7 +5,7 @@ extern "C" {
 #include <iostream>
 #include "demo_print/base_print.h"
 #include "demo_geometry/Cube.h"
-#include "demo_player/bean/soccer_player.h"
+#include "demo_player/bean/player_base_soccer.h"
 #include "demo_player/player_method.h"
 using namespace std;
 #define PRINT_T(T) cout << T << endl
@@ -65,7 +65,7 @@ void Test04()
 void Test05()
 {
 	PRINT_T("==Test05");
-	SoccerPlayer sp(1, 15, 1);
+	PlayerBaseSoccer sp(1, 15, 1);
 	sp.PassBall();
 	short age =sp.get_m_age();
 	PRINT_T(age);
@@ -96,9 +96,10 @@ void Test06()
 */
 void Test06_1()  
 {
-	BaseketBallPlayer* kobe = new KobePlayer(1, 19, 1);
-	BaseketBallPlayer* iversen = new IversenPlayer(2, 19, 1);
-	BaseketBallPlayer* jordon = new JorDonPlayer(2, 35, 1);
+	PRINT_T("==Test06");
+	PlayerBaseBasketball* kobe = new KobePlayer(1, 19, 1);
+	PlayerBaseBasketball* iversen = new IversenPlayer(2, 19, 1);
+	PlayerBaseBasketball* jordon = new JorDonPlayer(2, 35, 1);
 	ShowPlayerSkills(kobe);
 	ShowPlayerSkills(iversen);
 	ShowPlayerSkills(jordon);

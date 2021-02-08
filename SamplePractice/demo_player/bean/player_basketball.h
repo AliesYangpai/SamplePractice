@@ -1,19 +1,6 @@
 #pragma once
-#include "base_player.h"
-class BaseketBallPlayer :public BasePlayer
-{
-public:
-	~BaseketBallPlayer();
-	BaseketBallPlayer();
-	BaseketBallPlayer(int id, short age, char gender);
-
-	void ShowSlogan();
-	virtual void ThreePointer() = 0;
-	virtual void FadeAway() = 0;
-	virtual void Dribbling() = 0;
-};
-
-class KobePlayer :public BaseketBallPlayer
+#include "player_base_basketball.h"
+class KobePlayer :public PlayerBaseBasketball
 {
 public:
 	~KobePlayer();
@@ -25,7 +12,7 @@ public:
 	void Dribbling();
 };
 
-class IversenPlayer :public BaseketBallPlayer
+class IversenPlayer :public PlayerBaseBasketball
 {
 public:
 	~IversenPlayer();
@@ -37,7 +24,7 @@ public:
 	void Dribbling();
 };
 
-class JorDonPlayer :public BaseketBallPlayer
+class JorDonPlayer :public PlayerBaseBasketball
 {
 public:
 	~JorDonPlayer();

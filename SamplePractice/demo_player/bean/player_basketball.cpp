@@ -1,17 +1,8 @@
 #define _CRT_SECURE_NO_WARNINGS 1
-#include "baseketball_player.h"
-BaseketBallPlayer::~BaseketBallPlayer() {}
-BaseketBallPlayer::BaseketBallPlayer() {}
-BaseketBallPlayer::BaseketBallPlayer(int id, short age, char gender) :BasePlayer(id, age, gender) {}
-
-void BaseketBallPlayer::ShowSlogan()
-{
-	PRINT_T("I AM BASKETBALL PLAYER");
-}
-
+#include "player_basketball.h"
 KobePlayer::~KobePlayer() {}
 KobePlayer::KobePlayer() {}
-KobePlayer::KobePlayer(int id, short age, char gender):BaseketBallPlayer(id, age, gender) {}
+KobePlayer::KobePlayer(int id, short age, char gender) :PlayerBaseBasketball(id, age, gender) {}
 void KobePlayer::ShowSlogan()
 {
 	PRINT_T("I AM BASKETBALL PLAYER KOBE!!!");
@@ -34,7 +25,7 @@ void KobePlayer::Dribbling()
 
 IversenPlayer::~IversenPlayer() {}
 IversenPlayer::IversenPlayer() {}
-IversenPlayer::IversenPlayer(int id, short age, char gender) :BaseketBallPlayer(id, age, gender) {}
+IversenPlayer::IversenPlayer(int id, short age, char gender) :PlayerBaseBasketball(id, age, gender) {}
 void IversenPlayer::ShowSlogan()
 {
 	PRINT_T("I AM BASKETBALL PLAYER IVERSEN!!!");
@@ -57,7 +48,7 @@ void IversenPlayer::Dribbling()
 
 JorDonPlayer::~JorDonPlayer() {}
 JorDonPlayer::JorDonPlayer() {}
-JorDonPlayer::JorDonPlayer(int id, short age, char gender) :BaseketBallPlayer(id, age, gender) {}
+JorDonPlayer::JorDonPlayer(int id, short age, char gender) :PlayerBaseBasketball(id, age, gender) {}
 void JorDonPlayer::ShowSlogan()
 {
 	PRINT_T("I AM BASKETBALL PLAYER JORDON!!!");
