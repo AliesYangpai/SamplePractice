@@ -131,7 +131,8 @@ void Test07_1()
 void Test07_2()
 {
 	PRINT_T("===Test07_2");
-	char arr[] = "hello";
+	char arr[] = "hellow";
+	//char arr[] = {'h','e','l','l','o','w'};
 	char arr2[] = "alie";
 	Do_strcpy(arr, arr2);
 	int size = sizeof(arr) / sizeof(arr[0]);
@@ -139,18 +140,44 @@ void Test07_2()
 }
 
 /*
-  字符串拷贝（按量替换）
+  字符串拷贝（按量拷贝）
 */
 void Test07_3()
 {
 	PRINT_T("===Test07_3");
-	char arr[20] = "hello my friend";
+	//char arr[20] = "hello my friend";
+	char arr[20] = { '1','2','3','4','5','6' };
 	const char* des = "ni hao";
 	int lenth = Get_strlen(des) -1 ;
 	Do_strncpy(arr, des, lenth);
 	int count = sizeof(arr) / sizeof(arr[0]);
 	PrintArrayChar(arr, count);
 }
+/*
+  字符串追加（全量追加）
+*/
+void Test07_4() 
+{
+	PRINT_T("===Test07_4");
+	char arr[20] = "ni hao";
+	const char* p = "alie";
+	Do_strcat(arr, p);
+	int size = sizeof(arr) / sizeof(arr[0]);
+	PrintArrayChar(arr, size);
+}
+/*
+  字符串追加（按量追加）
+*/
+void Test07_5()
+{
+	PRINT_T("===Test07_5");
+	char arr[20] = "ni hao";
+	const char* p = "xixixix";
+	Do_strncat(arr, p, 5);
+	int size = sizeof(arr) / sizeof(arr[0]);
+	PrintArrayChar(arr, size);
+}
+
 int main()
 {
 	PRINT_T("===main()");
@@ -159,10 +186,12 @@ int main()
 	//Test03();
 	//Test04();
 	//Test05();
-	//Test06_1();
-	//Test06_2();
-	//Test07_1();
-	//Test07_2();
-	Test07_3();
+	//Test06_1(); // C++中的继承，纯虚函数（类似java中的抽象函数）
+	//Test06_2(); // C++中的继承，纯虚函数（类似java中的抽象函数）,用堆内存中的实例化进行练习
+	//Test07_1(); //【字符串操作函数】 求字符串长度
+	//Test07_2(); //【字符串操作函数】 字符串拷贝（全量替换+'\0'） 
+	//Test07_3(); //【字符串操作函数】 字符串拷贝（按量拷贝）
+	//Test07_4(); //【字符串操作函数】 字符串追加（全量追加+'\0'）
+	Test07_5(); //【字符串操作函数】 字符串追加（按量追加）
 	return 1;
 }
