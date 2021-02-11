@@ -39,7 +39,7 @@ void BubbleSortArrayInt(int* arr, const	int size, const	char order)
 	}
 }
 //2 —°‘Ò≈≈–Ú £∫order: 1:asc,0:desc; 
-void SelectionSortArryInt(int* arr, const int size, const char order)
+void SelectionSortArrayInt(int* arr, const int size, const char order)
 {
 	int i;
 	for (i = 0; i < size - 1; i++)
@@ -70,4 +70,12 @@ void SelectionSortArryInt(int* arr, const int size, const char order)
 		arr[targetIndex] = temp;
 	}
 }
+//3 ≤Â»Î≈≈–Ú
+void InsertionSortArrayInt(int* arr, const int size) 
+{
+	int i;
+	for ( i = 1; i < size; i++)
+	{
 
+	}
+}

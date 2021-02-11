@@ -1,6 +1,7 @@
 #define _CRT_SECURE_NO_WARNINGS 1
 extern "C" {
 #include "demo_sort/base_sort.h"
+#include "demo_str_operate/operate_string_method.h"
 }
 #include <iostream>
 #include "demo_print/base_print.h"
@@ -54,31 +55,31 @@ void Test04()
 	PRINT_T("===Test04");
 	int arr[] = { 1,9,5,7,3,8,2,6,4 };
 	int size = sizeof(arr) / sizeof(arr[0]);
-	SelectionSortArryInt(arr, size, 0);
+	SelectionSortArrayInt(arr, size, 0);
 	PrintArrayInt(arr, size);
 }
 
 
 /*
- C++中的继承,多态传参那点事儿 虚函数指针 
+ C++中的继承,多态传参那点事儿 虚函数指针
 */
 void Test05()
 {
 	PRINT_T("==Test05");
 	PlayerBaseSoccer sp(1, 15, 1);
 	sp.PassBall();
-	short age =sp.get_m_age();
+	short age = sp.get_m_age();
 	PRINT_T(age);
 	ShowYourSelf(sp);
-	
+
 }
 
 /*
  C++中的继承，纯虚函数（类似java中的抽象函数）
 */
-void Test06() 
+void Test06_1()
 {
-	PRINT_T("==Test06");
+	PRINT_T("==Test06_1");
 	KobePlayer kobe(1, 19, 1);
 	IversenPlayer iverson(2, 19, 1);
 	JorDonPlayer jordon(3, 35, 1);
@@ -94,9 +95,9 @@ void Test06()
  C++中的继承，纯虚函数（类似java中的抽象函数）
  用堆内存中的实例化进行练习
 */
-void Test06_1()  
+void Test06_2()
 {
-	PRINT_T("==Test06");
+	PRINT_T("==Test06_1");
 	PlayerBaseBasketball* kobe = new KobePlayer(1, 19, 1);
 	PlayerBaseBasketball* iversen = new IversenPlayer(2, 19, 1);
 	PlayerBaseBasketball* jordon = new JorDonPlayer(2, 35, 1);
@@ -108,6 +109,48 @@ void Test06_1()
 	delete jordon;
 }
 
+/*
+  【字符串操作函数】 求字符串长度
+*/
+void Test07_1()
+{
+	PRINT_T("===Test07_1");
+	const char arr[] = "hello alie";
+	PRINT_T(Get_strlen(arr));
+
+
+	const char arr2[] = { 'I','O' ,'V','E' };
+	PRINT_T(Get_strlen(arr2));
+	// 综上，strlen以'/0' 作为统计结束的标记，arr2中无'/0';
+	// 因此无法结算长度，便会给个随机值
+}
+
+/*
+  字符串拷贝（全量替换）
+*/
+void Test07_2()
+{
+	PRINT_T("===Test07_2");
+	char arr[] = "hello";
+	char arr2[] = "alie";
+	Do_strcpy(arr, arr2);
+	int size = sizeof(arr) / sizeof(arr[0]);
+	PrintArrayChar(arr, size);
+}
+
+/*
+  字符串拷贝（按量替换）
+*/
+void Test07_3()
+{
+	PRINT_T("===Test07_3");
+	char arr[20] = "hello my friend";
+	const char* des = "ni hao";
+	int lenth = Get_strlen(des) -1 ;
+	Do_strncpy(arr, des, lenth);
+	int count = sizeof(arr) / sizeof(arr[0]);
+	PrintArrayChar(arr, count);
+}
 int main()
 {
 	PRINT_T("===main()");
@@ -116,7 +159,10 @@ int main()
 	//Test03();
 	//Test04();
 	//Test05();
-	//Test06();
-	Test06_1();
+	//Test06_1();
+	//Test06_2();
+	//Test07_1();
+	//Test07_2();
+	Test07_3();
 	return 1;
 }

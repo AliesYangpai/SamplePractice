@@ -9,3 +9,11 @@ void PrintArrayInt(const int* arr, const int size)
 		cout << arr[i];
 	}
 }
+
+void PrintArrayChar(const char* arr, const int size) 
+{
+	for (size_t i = 0; i < size; i++)
+	{
+		cout << arr[i];
+	}
+}

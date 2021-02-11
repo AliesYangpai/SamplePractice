@@ -131,6 +131,7 @@
     <ClCompile Include="demo_player\bean\player_base_soccer.cpp" />
     <ClCompile Include="demo_print\base_print.cpp" />
     <ClCompile Include="demo_sort\base_sort.c" />
+    <ClCompile Include="demo_str_operate\operate_string_method.c" />
     <ClCompile Include="main.cpp" />
   </ItemGroup>
   <ItemGroup>
@@ -142,6 +143,7 @@
     <ClInclude Include="demo_player\bean\player_base_soccer.h" />
     <ClInclude Include="demo_print\base_print.h" />
     <ClInclude Include="demo_sort\base_sort.h" />
+    <ClInclude Include="demo_str_operate\operate_string_method.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

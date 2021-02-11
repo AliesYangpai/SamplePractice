@@ -42,6 +42,9 @@
     <ClCompile Include="demo_player\bean\player_base_soccer.cpp">
       <Filter>源文件</Filter>
     </ClCompile>
+    <ClCompile Include="demo_str_operate\operate_string_method.c">
+      <Filter>源文件</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="demo_sort\base_sort.h">
@@ -66,6 +69,9 @@
       <Filter>头文件</Filter>
     </ClInclude>
     <ClInclude Include="demo_player\bean\player_base_basketball.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="demo_str_operate\operate_string_method.h">
       <Filter>头文件</Filter>
     </ClInclude>
   </ItemGroup>
