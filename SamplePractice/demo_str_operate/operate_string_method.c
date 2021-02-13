@@ -56,3 +56,9 @@ char* Do_strstr(const char* str, const char* substr)
 	assert(substr != NULL);
 	return strstr(str, substr);
 }
+// 9.×Ö·û´®½ØÈ¡
+char* Do_strtok(char* str, const char* delim)
+{
+	assert(delim != NULL);
+	return strtok(str, delim);
+}

@@ -221,6 +221,24 @@ void Test07_8()
 	PRINT_T(p_ret + 2);
 
 }
+/*
+ 字符串截取
+*/
+void Test07_9() 
+{
+	PRINT_T("===Test07_9");
+	char arr[] = "www.aaa.com.cn";
+	const char* delim = ".";
+	//char* p1 = strtok(arr, delim);
+	char* p1 = Do_strtok(arr, delim);
+	PRINT_T(p1);
+	//char* p2 = strtok(NULL, delim);
+	char* p2 = Do_strtok(NULL, delim);
+	PRINT_T(p2);
+	//char* p3 = strtok(NULL, delim);
+	char* p3 = Do_strtok(NULL, delim);
+	PRINT_T(p3);
+}
 int main()
 {
 	PRINT_T("===main()");
@@ -238,6 +256,7 @@ int main()
 	//Test07_5(); //【字符串操作函数】 字符串追加（按量追加）
 	//Test07_6(); //【字符串操作函数】 字符串比较 (按量比较)
 	//Test07_7(); //【字符串操作函数】 字符串比较 (全量比较)
-	Test07_8(); //【字符串操作函数】 字符串查找 (全量查找)
+	//Test07_8(); //【字符串操作函数】 字符串查找 (全量查找)
+	Test07_9(); //【字符串操作函数】 字符串截取
 	return 1;
 }

@@ -28,3 +28,5 @@ int Do_strcmp(const char* lhs, const char* rhs);
 int Do_strncmp(const char* lhs, const char* rhs, size_t num);
 // 8.字符串查找（全两查找）
 char* Do_strstr(const char* str,const char* substr);
+// 9.字符串截取
+char* Do_strtok(char* str, const char* delim);
