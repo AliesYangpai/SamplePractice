@@ -35,3 +35,24 @@ char* Do_strncat(char * dest, const char* src, size_t num)
 	assert(src != NULL);
 	return strncat(dest, src, num);
 }
+// 6.字符串比较（这里比较的是ASCII 值）
+int Do_strcmp(const char* lhs, const char* rhs)
+{
+	assert(lhs != NULL);
+	assert(rhs != NULL);
+	return strcmp(lhs, rhs);
+}
+// 7.字符串比较（按量比较）
+int Do_strncmp(const char* lhs, const char* rhs, size_t num)
+{
+	assert(lhs != NULL);
+	assert(rhs != NULL);
+	return strncmp(lhs, rhs, num);
+}
+// 8.字符串查找（全量查找）
+char* Do_strstr(const char* str, const char* substr)
+{
+	assert(str != NULL);
+	assert(substr != NULL);
+	return strstr(str, substr);
+}

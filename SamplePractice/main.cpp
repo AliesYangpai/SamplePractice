@@ -126,7 +126,7 @@ void Test07_1()
 }
 
 /*
-  字符串拷贝（全量替换）
+  字符串拷贝（全量拷贝）
 */
 void Test07_2()
 {
@@ -148,7 +148,7 @@ void Test07_3()
 	//char arr[20] = "hello my friend";
 	char arr[20] = { '1','2','3','4','5','6' };
 	const char* des = "ni hao";
-	int lenth = Get_strlen(des) -1 ;
+	int lenth = Get_strlen(des) - 1;
 	Do_strncpy(arr, des, lenth);
 	int count = sizeof(arr) / sizeof(arr[0]);
 	PrintArrayChar(arr, count);
@@ -156,7 +156,7 @@ void Test07_3()
 /*
   字符串追加（全量追加）
 */
-void Test07_4() 
+void Test07_4()
 {
 	PRINT_T("===Test07_4");
 	char arr[20] = "ni hao";
@@ -172,12 +172,55 @@ void Test07_5()
 {
 	PRINT_T("===Test07_5");
 	char arr[20] = "ni hao";
-	const char* p = "xixixix";
-	Do_strncat(arr, p, 5);
+	const char* p = "xixi";
+	int lenth = Get_strlen(p);
+	PRINT_T(lenth);
+	Do_strncat(arr, p, lenth);
 	int size = sizeof(arr) / sizeof(arr[0]);
 	PrintArrayChar(arr, size);
 }
+/*
+ 字符换比较（全量比较）
+*/
+void Test07_6() 
+{
+	PRINT_T("===Test07_6");
+	const char name1[] = "Tom";
+	const char name2[] = "Tom";
+	int ret = Do_strcmp(name1,name2);
+	PRINT_T(ret);
+}
 
+/*
+ 字符串比较（按量比较）
+*/
+void Test07_7() 
+{
+	PRINT_T("===Test07_7");
+	const char name1[] = "Tom-Jordan";
+	const char name2[] = "Tom-Brain";
+	int ret = Do_strncmp(name1, name2, 3);
+	PRINT_T(ret);
+}
+/*
+ 字符串查找（全量查找）
+*/
+void Test07_8()
+{
+	PRINT_T("===Test07_8");
+	const char* a = "nihaoma";
+	const char* b = "hao";
+	char* p_ret = Do_strstr(a, b);
+	if (p_ret == NULL)
+	{
+		PRINT_T("target str not find");
+		return;
+	}
+	PRINT_T(p_ret);
+	PRINT_T(p_ret + 1);
+	PRINT_T(p_ret + 2);
+
+}
 int main()
 {
 	PRINT_T("===main()");
@@ -188,10 +231,13 @@ int main()
 	//Test05();
 	//Test06_1(); // C++中的继承，纯虚函数（类似java中的抽象函数）
 	//Test06_2(); // C++中的继承，纯虚函数（类似java中的抽象函数）,用堆内存中的实例化进行练习
-	//Test07_1(); //【字符串操作函数】 求字符串长度
-	//Test07_2(); //【字符串操作函数】 字符串拷贝（全量替换+'\0'） 
+	//Test07_1(); //【字符串操作函数】 字符串长度
+	//Test07_2(); //【字符串操作函数】 字符串拷贝（全量拷贝+'\0'） 
 	//Test07_3(); //【字符串操作函数】 字符串拷贝（按量拷贝）
 	//Test07_4(); //【字符串操作函数】 字符串追加（全量追加+'\0'）
-	Test07_5(); //【字符串操作函数】 字符串追加（按量追加）
+	//Test07_5(); //【字符串操作函数】 字符串追加（按量追加）
+	//Test07_6(); //【字符串操作函数】 字符串比较 (按量比较)
+	//Test07_7(); //【字符串操作函数】 字符串比较 (全量比较)
+	Test07_8(); //【字符串操作函数】 字符串查找 (全量查找)
 	return 1;
 }

@@ -70,7 +70,7 @@ void SelectionSortArrayInt(int* arr, const int size, const char order)
 		arr[targetIndex] = temp;
 	}
 }
-//3 插入排序
+//3.插入排序：order: 1:asc,0:desc;  扑克牌的起手排序~~
 void InsertionSortArrayInt(int* arr, const int size) 
 {
 	int i;
@@ -79,3 +79,4 @@ void InsertionSortArrayInt(int* arr, const int size)
 
 	}
 }
+
