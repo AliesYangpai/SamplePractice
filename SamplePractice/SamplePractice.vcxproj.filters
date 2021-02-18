@@ -42,7 +42,10 @@
     <ClCompile Include="demo_player\bean\player_base_soccer.cpp">
       <Filter>源文件</Filter>
     </ClCompile>
-    <ClCompile Include="demo_str_operate\operate_string_method.c">
+    <ClCompile Include="demo_lib_operate\lib_operate_str\operate_string_method.c">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="demo_lib_operate\lib_operate_mem\operate_mem_method.c">
       <Filter>源文件</Filter>
     </ClCompile>
   </ItemGroup>
@@ -71,7 +74,10 @@
     <ClInclude Include="demo_player\bean\player_base_basketball.h">
       <Filter>头文件</Filter>
     </ClInclude>
-    <ClInclude Include="demo_str_operate\operate_string_method.h">
+    <ClInclude Include="demo_lib_operate\lib_operate_str\operate_string_method.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="demo_lib_operate\lib_operate_mem\operate_mem_method.h">
       <Filter>头文件</Filter>
     </ClInclude>
   </ItemGroup>

@@ -1,7 +1,8 @@
 #define _CRT_SECURE_NO_WARNINGS 1
 extern "C" {
 #include "demo_sort/base_sort.h"
-#include "demo_str_operate/operate_string_method.h"
+#include "demo_lib_operate/lib_operate_str/operate_string_method.h"
+#include "demo_lib_operate/lib_operate_mem/operate_mem_method.h"
 }
 #include <iostream>
 #include "demo_print/base_print.h"
@@ -239,6 +240,31 @@ void Test07_9()
 	char* p3 = Do_strtok(NULL, delim);
 	PRINT_T(p3);
 }
+
+/*
+  内存拷贝 
+*/
+void Test08_01() 
+{
+	PRINT_T("===Test08_01");
+	int arr1[] = { 1,2,6,5 };
+	int arr2[6] = { 0 };
+	Do_memcpy(arr2,arr1,sizeof(arr1));
+	PrintArrayInt(arr2, sizeof(arr2) / sizeof(arr2[0]));
+	
+	PRINT_T("\t");
+	struct Student
+	{
+		char name[20];
+		short age;
+	};
+	struct Student stu1 = { "zhangsan",15 };
+	struct Student stu2 = {};
+	Do_memcpy(&stu2, &stu1, sizeof(stu1));
+	PRINT_T(stu2.age);
+	PrintArrayChar(stu2.name,sizeof(stu2.name)/sizeof(stu2.name[0]));
+}
+
 int main()
 {
 	PRINT_T("===main()");
@@ -257,6 +283,7 @@ int main()
 	//Test07_6(); //【字符串操作函数】 字符串比较 (按量比较)
 	//Test07_7(); //【字符串操作函数】 字符串比较 (全量比较)
 	//Test07_8(); //【字符串操作函数】 字符串查找 (全量查找)
-	Test07_9(); //【字符串操作函数】 字符串截取
+	//Test07_9(); //【字符串操作函数】 字符串截取
+	Test08_01(); //【内存操作函数】
 	return 1;
 }

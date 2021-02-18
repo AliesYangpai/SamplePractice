@@ -76,7 +76,7 @@ void InsertionSortArrayInt(int* arr, const int size)
 	int i;
 	for ( i = 1; i < size; i++)
 	{
-
+	
 	}
 }
 
