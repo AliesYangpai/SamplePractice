@@ -244,7 +244,7 @@ void Test07_9()
 /*
   内存拷贝 
 */
-void Test08_01() 
+void Test08_1() 
 {
 	PRINT_T("===Test08_01");
 	int arr1[] = { 1,2,6,5 };
@@ -265,6 +265,50 @@ void Test08_01()
 	PrintArrayChar(stu2.name,sizeof(stu2.name)/sizeof(stu2.name[0]));
 }
 
+/*
+ 内存拷贝，处理内存重叠的情况
+*/
+void Test08_2()
+{
+	PRINT_T("===Test08_02");
+	int arr[] = { 1,2,3,4,5,6,7 };
+	// 这里我们拷贝4个元素的总字节数（16个字节）
+	Do_memmove(arr + 2, arr, sizeof(int) * 4); 
+	PrintArrayInt(arr, sizeof(arr) / sizeof(arr[0]));
+}
+
+/*
+  内存比较
+*/
+void Test08_3() 
+{
+	PRINT_T("===Test08_03");
+	struct Teacher
+	{
+		char name[20];
+		short age;
+	};
+	Teacher teacher1 = {"张三",15};
+	Teacher teacher2 = { "张三",14 };
+	int ret = Do_memcmp(&teacher1, &teacher2, sizeof(teacher1));
+	PRINT_T(ret);
+}
+
+/*
+  内存设置 
+*/
+void Test08_4() 
+{
+	PRINT_T("===Test08_4");
+	char arr[] = "nihao";
+	Do_memset(arr,'h',5);
+	PrintArrayChar(arr, sizeof(arr) / sizeof(arr[0]));
+
+	PRINT_T("\t");
+	int arr1[] = { 1,2,3,4,5};
+	Do_memset(arr1, 'c', 20);
+	PrintArrayInt(arr1, sizeof(arr1) / sizeof(arr1[0]));
+}
 int main()
 {
 	PRINT_T("===main()");
@@ -284,6 +328,9 @@ int main()
 	//Test07_7(); //【字符串操作函数】 字符串比较 (全量比较)
 	//Test07_8(); //【字符串操作函数】 字符串查找 (全量查找)
 	//Test07_9(); //【字符串操作函数】 字符串截取
-	Test08_01(); //【内存操作函数】
+	//Test08_1(); //【内存操作函数】memcpy 
+	//Test08_2(); //【内存操作函数】memmove
+	//Test08_3(); // 【内存操作函数】memcmp
+	Test08_4(); // 【内存操作函数】memset
 	return 1;
 }
