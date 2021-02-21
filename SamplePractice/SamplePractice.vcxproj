@@ -123,6 +123,8 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="demo_computer_components\bean\GpuBase.cpp" />
+    <ClCompile Include="demo_computer_components\component_work_method.cpp" />
     <ClCompile Include="demo_geometry\Cube.cpp" />
     <ClCompile Include="demo_lib_operate\lib_operate_mem\operate_mem_method.c" />
     <ClCompile Include="demo_player\bean\player_base.cpp" />

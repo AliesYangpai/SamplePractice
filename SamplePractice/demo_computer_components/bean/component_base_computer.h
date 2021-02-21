@@ -19,7 +19,7 @@ public:
 	ComputerBase();
 	ComputerBase(string name,string brand);
 	ComputerBase(string name, string brand, CpuBase& cpu, GpuBase& gpu, MemoryBankBase& memory_bank);
-
+	
 	void set_m_id(int id);
 	void set_m_name(string name);
 	void set_m_brand(string brand);
