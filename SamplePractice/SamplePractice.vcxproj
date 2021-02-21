@@ -136,6 +136,15 @@
     <ClCompile Include="main.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="demo_computer_components\bean\component_base_computer.h" />
+    <ClInclude Include="demo_computer_components\bean\component_base_cpu.h" />
+    <ClInclude Include="demo_computer_components\bean\component_base_gpu.h" />
+    <ClInclude Include="demo_computer_components\bean\component_base_memory_bank.h" />
+    <ClInclude Include="demo_computer_components\bean\component_computer.h" />
+    <ClInclude Include="demo_computer_components\bean\component_cpu.h" />
+    <ClInclude Include="demo_computer_components\bean\component_gpu.h" />
+    <ClInclude Include="demo_computer_components\bean\component_memory_bank.h" />
+    <ClInclude Include="demo_computer_components\component_work_method.h" />
     <ClInclude Include="demo_geometry\Cube.h" />
     <ClInclude Include="demo_lib_operate\lib_operate_mem\operate_mem_method.h" />
     <ClInclude Include="demo_player\bean\player_base.h" />

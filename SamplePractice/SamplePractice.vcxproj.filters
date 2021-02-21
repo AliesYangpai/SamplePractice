@@ -80,5 +80,32 @@
     <ClInclude Include="demo_lib_operate\lib_operate_mem\operate_mem_method.h">
       <Filter>头文件</Filter>
     </ClInclude>
+    <ClInclude Include="demo_computer_components\bean\component_base_cpu.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="demo_computer_components\bean\component_base_gpu.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="demo_computer_components\bean\component_base_memory_bank.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="demo_computer_components\bean\component_base_computer.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="demo_computer_components\component_work_method.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="demo_computer_components\bean\component_cpu.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="demo_computer_components\bean\component_gpu.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="demo_computer_components\bean\component_memory_bank.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="demo_computer_components\bean\component_computer.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
   </ItemGroup>
 </Project>
