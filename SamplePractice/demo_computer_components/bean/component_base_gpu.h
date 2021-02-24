@@ -1,5 +1,6 @@
 #pragma once
 #include <iostream>
+#define PRINT_T(T) cout << T << endl
 using namespace std;
 class GpuBase 
 {

@@ -9,6 +9,7 @@ extern "C" {
 #include "demo_geometry/Cube.h"
 #include "demo_player/bean/player_base_soccer.h"
 #include "demo_player/player_method.h"
+#include "demo_computer_components/component_work_method.h"
 using namespace std;
 #define PRINT_T(T) cout << T << endl
 /*
@@ -309,6 +310,22 @@ void Test08_4()
 	Do_memset(arr1, 'c', 20);
 	PrintArrayInt(arr1, sizeof(arr1) / sizeof(arr1[0]));
 }
+/*
+  组装电脑
+*/
+void Test09()
+{
+
+	ComputerBase* c_alien = new ComputerAlienware(
+		"外星人电脑",
+		"外星人电脑",
+		new CpuAlienware("外星人CPU", "外星人CPU"),
+		new GpuAlienware("外星人GPI", "外星人GPU"),
+		new MemoryBankAlienware("外星人内存条", "外星人内存条"));
+
+		
+	DoPlayGames(c_alien);
+}
 int main()
 {
 	PRINT_T("===main()");
@@ -330,7 +347,9 @@ int main()
 	//Test07_9(); //【字符串操作函数】 字符串截取
 	//Test08_1(); //【内存操作函数】memcpy 
 	//Test08_2(); //【内存操作函数】memmove
-	//Test08_3(); // 【内存操作函数】memcmp
-	Test08_4(); // 【内存操作函数】memset
+	//Test08_3(); //【内存操作函数】memcmp
+	//Test08_4(); //【内存操作函数】memset
+
+	Test09(); //【组装电脑练习】
 	return 1;
 }

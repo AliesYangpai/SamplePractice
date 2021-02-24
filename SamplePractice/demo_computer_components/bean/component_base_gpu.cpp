@@ -21,11 +21,11 @@ void GpuBase::set_m_brand(string brand)
 	this->m_brand = brand;
 }
 
-int GpuBase::get_m_id() 
+int GpuBase::get_m_id()
 {
 	return this->m_id;
 }
-string GpuBase::get_m_name() 
+string GpuBase::get_m_name()
 {
 	return this->m_name;
 }

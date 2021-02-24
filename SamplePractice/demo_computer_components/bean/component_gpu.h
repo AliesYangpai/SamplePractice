@@ -5,15 +5,19 @@ class GpuDell :public GpuBase
 public:
 	~GpuDell();
 	GpuDell(string name, string brand);
+	virtual void DoGpuCalculate();
 };
 class GpuLenovo :public GpuBase
 {
 public:
 	~GpuLenovo();
 	GpuLenovo(string name, string brand);
+	virtual void DoGpuCalculate();
 };
-class GpuAlienware 
+class GpuAlienware:public GpuBase
 {
+public:
 	~GpuAlienware();
 	GpuAlienware(string name, string brand);
+	virtual void DoGpuCalculate();
 };
