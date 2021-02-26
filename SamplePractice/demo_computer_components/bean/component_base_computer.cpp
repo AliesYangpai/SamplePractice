@@ -1,6 +1,24 @@
 #define _CRT_SECURE_NO_WARNINGS 1
 #include "component_base_computer.h"
-ComputerBase::~ComputerBase() {}
+ComputerBase::~ComputerBase() 
+{
+	PRINT_T("===~ComputerBase");
+	if (m_cpu !=NULL)
+	{
+		delete m_cpu;
+		m_cpu = NULL;
+	}
+	if (m_gpu != NULL)
+	{
+		delete m_gpu;
+		m_gpu = NULL;
+	}
+	if (m_memory_bank !=NULL)
+	{
+		delete m_memory_bank;
+		m_memory_bank = NULL;
+	}
+}
 ComputerBase::ComputerBase() {}
 ComputerBase::ComputerBase(string name, string brand)
 {

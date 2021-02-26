@@ -184,19 +184,19 @@ void Test07_5()
 /*
  字符换比较（全量比较）
 */
-void Test07_6() 
+void Test07_6()
 {
 	PRINT_T("===Test07_6");
 	const char name1[] = "Tom";
 	const char name2[] = "Tom";
-	int ret = Do_strcmp(name1,name2);
+	int ret = Do_strcmp(name1, name2);
 	PRINT_T(ret);
 }
 
 /*
  字符串比较（按量比较）
 */
-void Test07_7() 
+void Test07_7()
 {
 	PRINT_T("===Test07_7");
 	const char name1[] = "Tom-Jordan";
@@ -226,7 +226,7 @@ void Test07_8()
 /*
  字符串截取
 */
-void Test07_9() 
+void Test07_9()
 {
 	PRINT_T("===Test07_9");
 	char arr[] = "www.aaa.com.cn";
@@ -243,16 +243,16 @@ void Test07_9()
 }
 
 /*
-  内存拷贝 
+  内存拷贝
 */
-void Test08_1() 
+void Test08_1()
 {
 	PRINT_T("===Test08_01");
 	int arr1[] = { 1,2,6,5 };
 	int arr2[6] = { 0 };
-	Do_memcpy(arr2,arr1,sizeof(arr1));
+	Do_memcpy(arr2, arr1, sizeof(arr1));
 	PrintArrayInt(arr2, sizeof(arr2) / sizeof(arr2[0]));
-	
+
 	PRINT_T("\t");
 	struct Student
 	{
@@ -263,7 +263,7 @@ void Test08_1()
 	struct Student stu2 = {};
 	Do_memcpy(&stu2, &stu1, sizeof(stu1));
 	PRINT_T(stu2.age);
-	PrintArrayChar(stu2.name,sizeof(stu2.name)/sizeof(stu2.name[0]));
+	PrintArrayChar(stu2.name, sizeof(stu2.name) / sizeof(stu2.name[0]));
 }
 
 /*
@@ -274,14 +274,14 @@ void Test08_2()
 	PRINT_T("===Test08_02");
 	int arr[] = { 1,2,3,4,5,6,7 };
 	// 这里我们拷贝4个元素的总字节数（16个字节）
-	Do_memmove(arr + 2, arr, sizeof(int) * 4); 
+	Do_memmove(arr + 2, arr, sizeof(int) * 4);
 	PrintArrayInt(arr, sizeof(arr) / sizeof(arr[0]));
 }
 
 /*
   内存比较
 */
-void Test08_3() 
+void Test08_3()
 {
 	PRINT_T("===Test08_03");
 	struct Teacher
@@ -289,42 +289,67 @@ void Test08_3()
 		char name[20];
 		short age;
 	};
-	Teacher teacher1 = {"张三",15};
+	Teacher teacher1 = { "张三",15 };
 	Teacher teacher2 = { "张三",14 };
 	int ret = Do_memcmp(&teacher1, &teacher2, sizeof(teacher1));
 	PRINT_T(ret);
 }
 
 /*
-  内存设置 
+  内存设置
 */
-void Test08_4() 
+void Test08_4()
 {
 	PRINT_T("===Test08_4");
 	char arr[] = "nihao";
-	Do_memset(arr,'h',5);
+	Do_memset(arr, 'h', 5);
 	PrintArrayChar(arr, sizeof(arr) / sizeof(arr[0]));
 
 	PRINT_T("\t");
-	int arr1[] = { 1,2,3,4,5};
+	int arr1[] = { 1,2,3,4,5 };
 	Do_memset(arr1, 'c', 20);
 	PrintArrayInt(arr1, sizeof(arr1) / sizeof(arr1[0]));
+
 }
 /*
   组装电脑
 */
 void Test09()
 {
-
 	ComputerBase* c_alien = new ComputerAlienware(
 		"外星人电脑",
 		"外星人电脑",
 		new CpuAlienware("外星人CPU", "外星人CPU"),
 		new GpuAlienware("外星人GPI", "外星人GPU"),
 		new MemoryBankAlienware("外星人内存条", "外星人内存条"));
-
-		
 	DoPlayGames(c_alien);
+	delete c_alien;
+	c_alien = NULL;
+	PRINT_T("===\t");
+
+	ComputerBase* c_dell = new ComputerDell(
+		"戴尔电脑",
+		"戴尔电脑",
+		new CpuDell("戴尔CPU", "戴尔CPU"),
+		new GpuDell("戴尔GPI", "戴尔GPU"),
+		new MemoryBankDell("戴尔内存条", "戴尔内存条")
+	);
+	DoPlayGames(c_dell);
+	delete c_dell;
+	c_dell = NULL;
+
+	PRINT_T("=== \t");
+	ComputerDiy* c_diy = new ComputerDiy
+	(
+		"组装电脑",
+		"组装电脑",
+		new CpuDell("戴尔CPU", "戴尔CPU"),
+		new GpuAlienware("外星人GPI", "外星人GPU"),
+		new MemoryBankLenovo("联想内存条", "联想内存条")
+	);
+	DoPlayGames(c_diy);
+	delete c_diy;
+	c_diy = NULL;
 }
 int main()
 {

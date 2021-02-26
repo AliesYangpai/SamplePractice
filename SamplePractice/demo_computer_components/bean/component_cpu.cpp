@@ -6,7 +6,6 @@ void CpuDell::DoCpuCalculate()
 {
 	PRINT_T("===CpuDell DoCpuCalculate");
 }
-
 CpuLenovo::~CpuLenovo() {};
 CpuLenovo::CpuLenovo(string name, string brand) :CpuBase(name, brand) {}
 void CpuLenovo::DoCpuCalculate()

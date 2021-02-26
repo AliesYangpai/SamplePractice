@@ -18,3 +18,9 @@ public:
 	~ComputerAlienware();
 	ComputerAlienware(string name, string brand, CpuBase* cpu, GpuBase* gpu, MemoryBankBase* memory_bank);
 };
+class ComputerDiy :public ComputerBase
+{
+public:
+	~ComputerDiy();
+	ComputerDiy(string name, string brand, CpuBase* cpu, GpuBase* gpu, MemoryBankBase* memory_bank);
+};
