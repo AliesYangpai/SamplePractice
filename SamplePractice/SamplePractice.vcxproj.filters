@@ -75,6 +75,12 @@
     <ClCompile Include="demo_computer_components\bean\component_computer.cpp">
       <Filter>源文件</Filter>
     </ClCompile>
+    <ClCompile Include="demo_file_operate\bean\order.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="demo_file_operate\order_file_operate.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="demo_sort\base_sort.h">
@@ -132,6 +138,12 @@
       <Filter>头文件</Filter>
     </ClInclude>
     <ClInclude Include="demo_computer_components\bean\component_computer.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="demo_file_operate\bean\order.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="demo_file_operate\order_file_operate.h">
       <Filter>头文件</Filter>
     </ClInclude>
   </ItemGroup>

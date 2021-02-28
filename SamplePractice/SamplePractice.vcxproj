@@ -132,6 +132,8 @@
     <ClCompile Include="demo_computer_components\bean\component_gpu.cpp" />
     <ClCompile Include="demo_computer_components\bean\component_memory_bank.cpp" />
     <ClCompile Include="demo_computer_components\component_work_method.cpp" />
+    <ClCompile Include="demo_file_operate\bean\order.cpp" />
+    <ClCompile Include="demo_file_operate\order_file_operate.cpp" />
     <ClCompile Include="demo_geometry\Cube.cpp" />
     <ClCompile Include="demo_lib_operate\lib_operate_mem\operate_mem_method.c" />
     <ClCompile Include="demo_player\bean\player_base.cpp" />
@@ -154,6 +156,8 @@
     <ClInclude Include="demo_computer_components\bean\component_gpu.h" />
     <ClInclude Include="demo_computer_components\bean\component_memory_bank.h" />
     <ClInclude Include="demo_computer_components\component_work_method.h" />
+    <ClInclude Include="demo_file_operate\bean\order.h" />
+    <ClInclude Include="demo_file_operate\order_file_operate.h" />
     <ClInclude Include="demo_geometry\Cube.h" />
     <ClInclude Include="demo_lib_operate\lib_operate_mem\operate_mem_method.h" />
     <ClInclude Include="demo_player\bean\player_base.h" />

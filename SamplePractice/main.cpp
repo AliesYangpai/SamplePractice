@@ -10,6 +10,7 @@ extern "C" {
 #include "demo_player/bean/player_base_soccer.h"
 #include "demo_player/player_method.h"
 #include "demo_computer_components/component_work_method.h"
+#include "demo_file_operate/order_file_operate.h"
 using namespace std;
 #define PRINT_T(T) cout << T << endl
 /*
@@ -316,6 +317,7 @@ void Test08_4()
 */
 void Test09()
 {
+	PRINT_T("===Test09");
 	ComputerBase* c_alien = new ComputerAlienware(
 		"外星人电脑",
 		"外星人电脑",
@@ -351,6 +353,18 @@ void Test09()
 	delete c_diy;
 	c_diy = NULL;
 }
+
+/*
+ 文件写入
+*/
+void Test10() 
+{
+	PRINT_T("===Test10");
+	Order* p_order = new Order("游戏机","2021-02-15",20000);
+	WriteOrderToFile(FILE_ORDER_PATH, p_order);
+	delete p_order;
+	p_order = NULL;
+}
 int main()
 {
 	PRINT_T("===main()");
@@ -374,7 +388,7 @@ int main()
 	//Test08_2(); //【内存操作函数】memmove
 	//Test08_3(); //【内存操作函数】memcmp
 	//Test08_4(); //【内存操作函数】memset
-
-	Test09(); //【组装电脑练习】
+	//Test09(); //【组装电脑练习】
+	Test10(); //【文件写入】
 	return 1;
 }
