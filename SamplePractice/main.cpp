@@ -355,16 +355,28 @@ void Test09()
 }
 
 /*
- 文件写入
+ 写文件 【写文本到外部文件】
 */
-void Test10() 
+void Test10_0() 
 {
-	PRINT_T("===Test10");
+	PRINT_T("===Test10_0");
 	Order* p_order = new Order("游戏机","2021-02-15",20000);
-	WriteOrderToFile(FILE_ORDER_PATH, p_order);
+	WriteTextToFile(FILE_ORDER_PATH, p_order);
 	delete p_order;
 	p_order = NULL;
 }
+/*
+  读文件 【读取文本到内存】
+*/
+void Test10_1() 
+{
+	PRINT_T("===Test10_1");
+	//ReadTextFromFile1(FILE_ORDER_PATH); // 第1种 ifs >> buffer
+	//ReadTextFromFile2(FILE_ORDER_PATH); // 第2种 ifs.getline(buffer,sizeof(buffer))
+	//ReadTextFromFile3(FILE_ORDER_PATH); // 第3种 getline(ifs,buffer)   buffer 是 string类型
+	ReadTextFromFile4(FILE_ORDER_PATH); // 第4种 (c = ifs.get()) != EOF （这尼玛是一个字节一个字节读取）
+}
+
 int main()
 {
 	PRINT_T("===main()");
@@ -388,7 +400,8 @@ int main()
 	//Test08_2(); //【内存操作函数】memmove
 	//Test08_3(); //【内存操作函数】memcmp
 	//Test08_4(); //【内存操作函数】memset
-	//Test09(); //【组装电脑练习】
-	Test10(); //【文件写入】
+	//Test09();   //【组装电脑练习】
+	//Test10_0(); //【文件写入】
+	Test10_1(); //【文件读取】
 	return 1;
 }
