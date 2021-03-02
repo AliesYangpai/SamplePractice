@@ -5,6 +5,7 @@
 #include  <fstream>
 #include <string>
 #define FILE_ORDER_PATH "my_order.txt"
+#define FILE_ORDER_PATH_BINARY "my_order_binary.txt"
 #define PRINT_T(T) cout << T << endl
 using namespace std;
 /*
@@ -31,3 +32,13 @@ void ReadTextFromFile3(const char* file_name);
  读文件 【文本读取】(c= ifs.get())!= EOF EOF 是end of file类型
 */
 void ReadTextFromFile4(const char* file_name);
+
+/*
+ 写文件 【二进制写出】
+*/
+void WriteBinaryToFile(const char* file_name, Order* order);
+
+/*
+ 读文件 【二进制读入】
+*/
+Order* ReadBinaryFromFile(const char* file_name,Order* order);

@@ -80,6 +80,9 @@ void ReadTextFromFile3(const char* file_name)
 	ifs.close();
 }
 
+/*
+ 读文件 【文本读取】(c= ifs.get())!= EOF EOF 是end of file类型
+*/
 void ReadTextFromFile4(const char* file_name) 
 {
 	ifstream ifs;
@@ -96,4 +99,30 @@ void ReadTextFromFile4(const char* file_name)
 		PRINT_T(c);
 	}
 	ifs.close();
+}
+
+/*
+ 写文件 【二进制写出】
+*/
+void WriteBinaryToFile(const char* file_name, Order* order) 
+{
+	ofstream ofs(FILE_ORDER_PATH_BINARY,ios::out|ios::binary);
+	ofs.write((const char*)order, sizeof(*order)); // 此处强转
+	ofs.close();
+}
+/*
+ 读文件 【二进制读入】
+*/
+Order* ReadBinaryFromFile(const char* file_name, Order* order) 
+{
+	ifstream ifs;
+	ifs.open(file_name, ios::in | ios::binary);
+	if (!ifs.is_open()) 
+	{
+		PRINT_T("=== ReadTextFromFile4 open fail");
+		return order;
+	}
+	ifs.read((char*)order,sizeof(*order));
+	ifs.close();
+	return order;
 }

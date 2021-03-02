@@ -377,6 +377,29 @@ void Test10_1()
 	ReadTextFromFile4(FILE_ORDER_PATH); // 第4种 (c = ifs.get()) != EOF （这尼玛是一个字节一个字节读取）
 }
 
+/*
+ 写文件 【写二进制到外部文件】
+*/
+void Test10_2()
+{
+	PRINT_T("===Test10_2");
+	Order* order = new Order("BloodXX","2021-02-15",76);
+	WriteBinaryToFile(FILE_ORDER_PATH_BINARY,order);
+	delete order;
+	order = NULL;
+}
+/*
+ 读文件 【读二进制到内存中（对象中）】
+*/
+void Test10_3() 
+{
+	PRINT_T("===Test10_3");
+	Order order;
+	ReadBinaryFromFile(FILE_ORDER_PATH_BINARY, &order);
+	PRINT_T(order.get_m_name());
+	PRINT_T(order.get_m_date());
+	PRINT_T(order.get_m_price());
+}
 int main()
 {
 	PRINT_T("===main()");
@@ -401,7 +424,9 @@ int main()
 	//Test08_3(); //【内存操作函数】memcmp
 	//Test08_4(); //【内存操作函数】memset
 	//Test09();   //【组装电脑练习】
-	//Test10_0(); //【文件写入】
-	Test10_1(); //【文件读取】
+	//Test10_0(); //【文件写】文本写到外部磁盘
+	//Test10_1(); //【文件读】文本读到内存
+	//Test10_2();// 【二进制写】二进制数据写到外部磁盘
+	Test10_3(); // 【二进制读】二进制数据去取到内存对象中
 	return 1;
 }
