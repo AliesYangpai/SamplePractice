@@ -81,6 +81,9 @@
     <ClCompile Include="demo_file_operate\order_file_operate.cpp">
       <Filter>源文件</Filter>
     </ClCompile>
+    <ClCompile Include="demo_lib_operate\lib_operate_mem_heap\operate_mem_heap_method.c">
+      <Filter>源文件</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="demo_sort\base_sort.h">
@@ -144,6 +147,9 @@
       <Filter>头文件</Filter>
     </ClInclude>
     <ClInclude Include="demo_file_operate\order_file_operate.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="demo_lib_operate\lib_operate_mem_heap\operate_mem_heap_method.h">
       <Filter>头文件</Filter>
     </ClInclude>
   </ItemGroup>

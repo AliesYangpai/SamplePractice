@@ -3,6 +3,7 @@ extern "C" {
 #include "demo_sort/base_sort.h"
 #include "demo_lib_operate/lib_operate_str/operate_string_method.h"
 #include "demo_lib_operate/lib_operate_mem/operate_mem_method.h"
+#include "demo_lib_operate/lib_operate_mem_heap/operate_mem_heap_method.h"
 }
 #include <iostream>
 #include "demo_print/base_print.h"
@@ -400,6 +401,27 @@ void Test10_3()
 	PRINT_T(order.get_m_date());
 	PRINT_T(order.get_m_price());
 }
+
+/*
+  内存操作函数使用
+*/
+void Test11() 
+{
+	PRINT_T("===Test11");
+	Do_malloc(5 * sizeof(int));
+	Do_calloc(5, sizeof(int));
+
+	//===============================
+   const int count = 5;
+   int size = count * sizeof(int);
+   int *p = (int*)malloc(size);
+   for (size_t i = 0; i < size; i++)
+   {
+	   p[i] = i * 10;
+   }
+   Do_realloc(p,size*2);
+	
+}
 int main()
 {
 	PRINT_T("===main()");
@@ -426,7 +448,8 @@ int main()
 	//Test09();   //【组装电脑练习】
 	//Test10_0(); //【文件写】文本写到外部磁盘
 	//Test10_1(); //【文件读】文本读到内存
-	//Test10_2();// 【二进制写】二进制数据写到外部磁盘
-	Test10_3(); // 【二进制读】二进制数据去取到内存对象中
+	//Test10_2(); //【二进制写】二进制数据写到外部磁盘
+	//Test10_3(); //【二进制读】二进制数据去取到内存对象中
+	Test11(); // 【内存函数】malloc calloc realloc 练习
 	return 1;
 }
