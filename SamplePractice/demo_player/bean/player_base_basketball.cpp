@@ -2,7 +2,7 @@
 #include "player_base_basketball.h"
 PlayerBaseBasketball::~PlayerBaseBasketball() {}
 PlayerBaseBasketball::PlayerBaseBasketball() {}
-PlayerBaseBasketball::PlayerBaseBasketball(int id,short age,char gender):PlayerBase(id,age,gender){}
+PlayerBaseBasketball::PlayerBaseBasketball(string name,short age,char gender):PlayerBase(name,age,gender){}
 
 void PlayerBaseBasketball::ShowSlogan() 
 {

@@ -3,7 +3,7 @@
 
 PlayerBaseSoccer::~PlayerBaseSoccer() {}
 PlayerBaseSoccer::PlayerBaseSoccer() {}
-PlayerBaseSoccer::PlayerBaseSoccer(int id, short age, char gender) :PlayerBase(id, age, gender) {}
+PlayerBaseSoccer::PlayerBaseSoccer(string name, short age, char gender) :PlayerBase(name, age, gender) {}
 void PlayerBaseSoccer::PassBall()
 {
 	PRINT_T("===PassBall===");

@@ -5,7 +5,7 @@ class PlayerBaseBasketball :public PlayerBase
 public:
 	~PlayerBaseBasketball();
 	PlayerBaseBasketball();
-	PlayerBaseBasketball(int id, short age, char gender);
+	PlayerBaseBasketball(string name, short age, char gender);
 
 	void ShowSlogan();
 	virtual void ThreePointer() = 0;

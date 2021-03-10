@@ -70,7 +70,7 @@ void Test04()
 void Test05()
 {
 	PRINT_T("==Test05");
-	PlayerBaseSoccer sp(1, 15, 1);
+	PlayerBaseSoccer sp("soccker", 15, 1);
 	sp.PassBall();
 	short age = sp.get_m_age();
 	PRINT_T(age);
@@ -84,9 +84,9 @@ void Test05()
 void Test06_1()
 {
 	PRINT_T("==Test06_1");
-	KobePlayer kobe(1, 19, 1);
-	IversenPlayer iverson(2, 19, 1);
-	JorDonPlayer jordon(3, 35, 1);
+	KobePlayer kobe("KOBE", 19, 1);
+	IversenPlayer iverson("IVERSON", 19, 1);
+	JorDonPlayer jordon("JORDON", 35, 1);
 	ShowYourSelf(kobe);
 	ShowPlayerSkills(&kobe);
 	ShowYourSelf(iverson);
@@ -102,9 +102,9 @@ void Test06_1()
 void Test06_2()
 {
 	PRINT_T("==Test06_1");
-	PlayerBaseBasketball* kobe = new KobePlayer(1, 19, 1);
-	PlayerBaseBasketball* iversen = new IversenPlayer(2, 19, 1);
-	PlayerBaseBasketball* jordon = new JorDonPlayer(2, 35, 1);
+	PlayerBaseBasketball* kobe = new KobePlayer("KOBE", 19, 1);
+	PlayerBaseBasketball* iversen = new IversenPlayer("IVERSON", 19, 1);
+	PlayerBaseBasketball* jordon = new JorDonPlayer("JORDON", 35, 1);
 	ShowPlayerSkills(kobe);
 	ShowPlayerSkills(iversen);
 	ShowPlayerSkills(jordon);
@@ -358,10 +358,10 @@ void Test09()
 /*
  写文件 【写文本到外部文件】
 */
-void Test10_0() 
+void Test10_0()
 {
 	PRINT_T("===Test10_0");
-	Order* p_order = new Order("游戏机","2021-02-15",20000);
+	Order* p_order = new Order("游戏机", "2021-02-15", 20000);
 	WriteTextToFile(FILE_ORDER_PATH, p_order);
 	delete p_order;
 	p_order = NULL;
@@ -369,7 +369,7 @@ void Test10_0()
 /*
   读文件 【读取文本到内存】
 */
-void Test10_1() 
+void Test10_1()
 {
 	PRINT_T("===Test10_1");
 	//ReadTextFromFile1(FILE_ORDER_PATH); // 第1种 ifs >> buffer
@@ -384,15 +384,15 @@ void Test10_1()
 void Test10_2()
 {
 	PRINT_T("===Test10_2");
-	Order* order = new Order("BloodXX","2021-02-15",76);
-	WriteBinaryToFile(FILE_ORDER_PATH_BINARY,order);
+	Order* order = new Order("BloodXX", "2021-02-15", 76);
+	WriteBinaryToFile(FILE_ORDER_PATH_BINARY, order);
 	delete order;
 	order = NULL;
 }
 /*
  读文件 【读二进制到内存中（对象中）】
 */
-void Test10_3() 
+void Test10_3()
 {
 	PRINT_T("===Test10_3");
 	Order order;
@@ -405,23 +405,118 @@ void Test10_3()
 /*
   内存操作函数使用
 */
-void Test11() 
+void Test11()
 {
 	PRINT_T("===Test11");
 	Do_malloc(5 * sizeof(int));
 	Do_calloc(5, sizeof(int));
 
 	//===============================
-   const int count = 5;
-   int size = count * sizeof(int);
-   int *p = (int*)malloc(size);
-   for (size_t i = 0; i < size; i++)
-   {
-	   p[i] = i * 10;
-   }
-   Do_realloc(p,size*2);
-	
+	const int count = 5;
+	int size = count * sizeof(int);
+	int *p = (int*)malloc(size);
+	for (size_t i = 0; i < size; i++)
+	{
+		p[i] = i * 10;
+	}
+	Do_realloc(p, size * 2);
+
 }
+
+//*******************模板相关方法开始****************************
+void Swap(int* a, int *b)
+{
+	PRINT_T("===Swap 普通方法");
+	int temp = *a;
+	*a = *b;
+	*b = temp;
+}
+
+template <class T>
+void Swap(T* a, T* b)
+{
+	PRINT_T("===Swap 模板方法");
+	T temp = *a;
+	*a = *b;
+	*b = temp;
+}
+
+template <class T> 
+T* Compare(T* t1,T* t2) 
+{
+	PRINT_T("===Compare 模板方法");
+	return *t1 > *t2 ? t1 : t2;
+}
+
+// 特定类型具体化操作
+template <> 
+PlayerBase* Compare(PlayerBase* p1, PlayerBase* p2) 
+{
+	return p1->get_m_age() > p2->get_m_age() ? p1 : p2;
+}
+//*******************模板相关方法结束****************************
+
+
+/*
+ 模板方法part1
+ 模板方法 普通方法 同名同参时，优先调用普通方法
+*/
+void Test12_1()
+{
+	PRINT_T("===Test12_1");
+	int a = 33;
+	int b = 56;
+	Swap(&a, &b);
+	PRINT_T(a);
+	PRINT_T(b);
+}
+
+/*
+ 模板方法part2
+ 模板方法 泛型优势
+*/
+void Test12_2() 
+{
+	PRINT_T("===Test12_2");
+	float a = 15;
+	float b = 95;
+	Swap<float>(&a, &b);
+	//Swap(&a, &b);
+	PRINT_T(a);
+	PRINT_T(b);
+}
+
+/*
+ 模板方法part3
+ 模板方法 比较一下
+*/
+void Test12_3() 
+{
+	PRINT_T("===Test12_3");
+	float a = 16;
+	float b = 29;
+	float* x = Compare<float>(&a, &b);
+	PRINT_T(*x);
+}
+/*
+ 模板方法part4
+ 特定类型具体化操作
+*/
+void Test12_4() 
+{
+	PRINT_T("===Test12_4");
+	PlayerBase* p_kobe = new KobePlayer("KOBE", 19, '0');
+	PlayerBase* p_jordon = new JorDonPlayer("JORDON", 35, '0');
+	PlayerBase* px = Compare(p_kobe, p_jordon);
+	PRINT_T(px->get_m_name());
+
+	delete p_kobe;
+	p_kobe = NULL;
+	delete p_jordon;
+	p_jordon = NULL;
+
+}
+
 int main()
 {
 	PRINT_T("===main()");
@@ -450,6 +545,10 @@ int main()
 	//Test10_1(); //【文件读】文本读到内存
 	//Test10_2(); //【二进制写】二进制数据写到外部磁盘
 	//Test10_3(); //【二进制读】二进制数据去取到内存对象中
-	Test11(); // 【内存函数】malloc calloc realloc 练习
+	//Test11(); //【内存函数】malloc calloc realloc 练习
+	Test12_1(); //【模板方法】相同方法签名（伪签名）优先调用普通方法
+	Test12_2(); //【模板方法】泛型优势
+	Test12_3(); //【模板方法】练习一下
+	Test12_4(); //【模板方法】特定类型具体化操作
 	return 1;
 }

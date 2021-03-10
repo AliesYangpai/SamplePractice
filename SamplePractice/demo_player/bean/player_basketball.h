@@ -5,7 +5,7 @@ class KobePlayer :public PlayerBaseBasketball
 public:
 	~KobePlayer();
 	KobePlayer();
-	KobePlayer(int id, short age, char gender);
+	KobePlayer(string name, short age, char gender);
 	void ShowSlogan();
 	void ThreePointer();
 	void FadeAway();
@@ -17,7 +17,7 @@ class IversenPlayer :public PlayerBaseBasketball
 public:
 	~IversenPlayer();
 	IversenPlayer();
-	IversenPlayer(int id, short age, char gender);
+	IversenPlayer(string name, short age, char gender);
 	void ShowSlogan();
 	void ThreePointer();
 	void FadeAway();
@@ -29,7 +29,7 @@ class JorDonPlayer :public PlayerBaseBasketball
 public:
 	~JorDonPlayer();
 	JorDonPlayer();
-	JorDonPlayer(int id, short age, char gender);
+	JorDonPlayer(string name, short age, char gender);
 	void ShowSlogan();
 	void ThreePointer();
 	void FadeAway();

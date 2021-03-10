@@ -5,18 +5,18 @@ PlayerBase::PlayerBase()
 {
 	PRINT_T("===PlayerBase()");
 }
-PlayerBase::PlayerBase(int id, short age, char gender)
+PlayerBase::PlayerBase(string name, short age, char gender)
 {
-	PRINT_T("===PlayerBase(id,age,gender)");
+	PRINT_T("===PlayerBase(name,age,gender)");
 
-	this->m_id = id;
+	this->m_name = name;
 	this->m_age = age;
 	this->m_gender = gender;
 }
 
-void PlayerBase::set_m_id(int id)
+void PlayerBase::set_m_name(string name)
 {
-	m_id = id;
+	m_name = name;
 }
 void PlayerBase::set_m_age(short age)
 {
@@ -27,9 +27,9 @@ void PlayerBase::set_m_gender(char gender)
 	m_gender = gender;
 }
 
-int PlayerBase::get_m_id()
+string PlayerBase::get_m_name()
 {
-	return this->m_id;
+	return this->m_name;
 }
 short PlayerBase::get_m_age()
 {

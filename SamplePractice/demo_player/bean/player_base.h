@@ -5,20 +5,20 @@ using namespace std;
 class PlayerBase
 {
 private:
-	int m_id;
+	string m_name;
 	short m_age;
 	char m_gender;
 	
 public:
 	~PlayerBase();
 	PlayerBase();
-	PlayerBase(int id, short age, char gender);
+	PlayerBase(string name, short age, char gender);
 
-	void set_m_id(int id);
+	void set_m_name(string name);
 	void set_m_age(short age);
 	void set_m_gender(char gender);
 
-	int get_m_id();
+	string get_m_name();
 	short get_m_age();
 	char get_m_gender();
 	virtual void ShowSlogan();

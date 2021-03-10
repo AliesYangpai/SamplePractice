@@ -2,7 +2,7 @@
 #include "player_basketball.h"
 KobePlayer::~KobePlayer() {}
 KobePlayer::KobePlayer() {}
-KobePlayer::KobePlayer(int id, short age, char gender) :PlayerBaseBasketball(id, age, gender) {}
+KobePlayer::KobePlayer(string name, short age, char gender) :PlayerBaseBasketball(name, age, gender) {}
 void KobePlayer::ShowSlogan()
 {
 	PRINT_T("I AM BASKETBALL PLAYER KOBE!!!");
@@ -25,7 +25,7 @@ void KobePlayer::Dribbling()
 
 IversenPlayer::~IversenPlayer() {}
 IversenPlayer::IversenPlayer() {}
-IversenPlayer::IversenPlayer(int id, short age, char gender) :PlayerBaseBasketball(id, age, gender) {}
+IversenPlayer::IversenPlayer(string name, short age, char gender) :PlayerBaseBasketball(name, age, gender) {}
 void IversenPlayer::ShowSlogan()
 {
 	PRINT_T("I AM BASKETBALL PLAYER IVERSEN!!!");
@@ -48,7 +48,7 @@ void IversenPlayer::Dribbling()
 
 JorDonPlayer::~JorDonPlayer() {}
 JorDonPlayer::JorDonPlayer() {}
-JorDonPlayer::JorDonPlayer(int id, short age, char gender) :PlayerBaseBasketball(id, age, gender) {}
+JorDonPlayer::JorDonPlayer(string name, short age, char gender) :PlayerBaseBasketball(name, age, gender) {}
 void JorDonPlayer::ShowSlogan()
 {
 	PRINT_T("I AM BASKETBALL PLAYER JORDON!!!");
