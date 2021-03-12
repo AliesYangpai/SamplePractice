@@ -590,8 +590,13 @@ void Test12_5()
 	PRINT_T("===Test12_5");
 	Person<string, short> person1("李宁", 25);
 	Person<string, short> person2("李小双", 20);
+	Person<string, short> *p_person1 = new Person<string,short>("李宁", 20);
+	Person<string, int> *p_person2 = new Person<string, int>("李小双",15);
 	person1.ShowInfo();
 	person2.ShowInfo();
+
+	delete p_person1;
+	delete p_person2;
 }
 /*
  模板类part2
@@ -636,7 +641,7 @@ int main()
 	//Test12_2(); //【模板方法】泛型优势
 	//Test12_3(); //【模板方法】练习一下
 	//Test12_4(); //【模板方法】特定类型具体化操作
-	//Test12_5();//【模板类】part1
-	Test12_6();//【模板类】传参
+	Test12_5();//【模板类】part1
+	//Test12_6();//【模板类】传参
 	return 1;
 }
