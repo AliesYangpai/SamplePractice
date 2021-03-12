@@ -423,7 +423,9 @@ void Test11()
 
 }
 
-//*******************模板相关方法开始****************************
+//*******************模板相关开始****************************
+
+//===================模板方法开始
 void Swap(int* a, int *b)
 {
 	PRINT_T("===Swap 普通方法");
@@ -441,20 +443,83 @@ void Swap(T* a, T* b)
 	*b = temp;
 }
 
-template <class T> 
-T* Compare(T* t1,T* t2) 
+template <class T>
+T* Compare(T* t1, T* t2)
 {
 	PRINT_T("===Compare 模板方法");
 	return *t1 > *t2 ? t1 : t2;
 }
 
 // 特定类型具体化操作
-template <> 
-PlayerBase* Compare(PlayerBase* p1, PlayerBase* p2) 
+template <>
+PlayerBase* Compare(PlayerBase* p1, PlayerBase* p2)
 {
 	return p1->get_m_age() > p2->get_m_age() ? p1 : p2;
 }
-//*******************模板相关方法结束****************************
+//===================模板方法结束
+
+//===================模板类开始
+template <class T, class V>
+class Person
+{
+private:
+	T t;
+	V v;
+public:
+	~Person() {}
+	Person() {}
+	Person(T t, V v)
+	{
+		this->t = t;
+		this->v = v;
+	}
+	//template <class T>
+	//void set_t(T, t) 
+	//{
+	//	this->t = t;
+	//}
+	//template <class V>
+	//void set_v(V, v) 
+	//{
+	//	this->v = v;
+	//}
+
+
+	//template<class T> T get_t() 
+	//{
+	//	return this->t;
+	//}
+	//template<class V> V get_v() 
+	//{
+	//	return this->v;
+	//}
+
+	void ShowInfo()
+	{
+		PRINT_T(this->t);
+		PRINT_T(this->v);
+	}
+};
+
+// 模板类传参开始
+void DoShowPersonInfo(Person<string, short> &p)
+{
+	p.ShowInfo();
+}
+
+void DoShowPersonInfo(Person<string, short> *p)
+{
+	p->ShowInfo();
+}
+template <class T1, class T2>
+void DoShowPersonInfo(Person<T1, T2> *p)
+{
+	p->ShowInfo();
+}
+
+// 模板类传参结束
+//===================模板类结束
+//*******************模板相关结束****************************
 
 
 /*
@@ -475,7 +540,7 @@ void Test12_1()
  模板方法part2
  模板方法 泛型优势
 */
-void Test12_2() 
+void Test12_2()
 {
 	PRINT_T("===Test12_2");
 	float a = 15;
@@ -490,7 +555,7 @@ void Test12_2()
  模板方法part3
  模板方法 比较一下
 */
-void Test12_3() 
+void Test12_3()
 {
 	PRINT_T("===Test12_3");
 	float a = 16;
@@ -502,12 +567,12 @@ void Test12_3()
  模板方法part4
  特定类型具体化操作
 */
-void Test12_4() 
+void Test12_4()
 {
 	PRINT_T("===Test12_4");
 	PlayerBase* p_kobe = new KobePlayer("KOBE", 19, '0');
 	PlayerBase* p_jordon = new JorDonPlayer("JORDON", 35, '0');
-	PlayerBase* px = Compare(p_kobe, p_jordon);
+	PlayerBase* px = Compare<PlayerBase>(p_kobe, p_jordon);
 	PRINT_T(px->get_m_name());
 
 	delete p_kobe;
@@ -517,6 +582,27 @@ void Test12_4()
 
 }
 
+/*
+ 模板类part1
+*/
+void Test12_5()
+{
+	PRINT_T("===Test12_5");
+	Person<string, short> person1("李宁", 25);
+	Person<string, short> person2("李小双", 20);
+	person1.ShowInfo();
+	person2.ShowInfo();
+}
+/*
+ 模板类part2
+*/
+void Test12_6()
+{
+	Person<string, short> p1("赵本山", 25);
+	Person<string, int> p2("陈佩斯",30);
+	DoShowPersonInfo(p1);
+	DoShowPersonInfo(&p2);
+}
 int main()
 {
 	PRINT_T("===main()");
@@ -546,9 +632,11 @@ int main()
 	//Test10_2(); //【二进制写】二进制数据写到外部磁盘
 	//Test10_3(); //【二进制读】二进制数据去取到内存对象中
 	//Test11(); //【内存函数】malloc calloc realloc 练习
-	Test12_1(); //【模板方法】相同方法签名（伪签名）优先调用普通方法
-	Test12_2(); //【模板方法】泛型优势
-	Test12_3(); //【模板方法】练习一下
-	Test12_4(); //【模板方法】特定类型具体化操作
+	//Test12_1(); //【模板方法】相同方法签名（伪签名）优先调用普通方法
+	//Test12_2(); //【模板方法】泛型优势
+	//Test12_3(); //【模板方法】练习一下
+	//Test12_4(); //【模板方法】特定类型具体化操作
+	//Test12_5();//【模板类】part1
+	Test12_6();//【模板类】传参
 	return 1;
 }
