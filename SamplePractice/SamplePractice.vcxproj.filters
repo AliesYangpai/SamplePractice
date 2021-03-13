@@ -152,5 +152,8 @@
     <ClInclude Include="demo_lib_operate\lib_operate_mem_heap\operate_mem_heap_method.h">
       <Filter>头文件</Filter>
     </ClInclude>
+    <ClInclude Include="demo_templet_self\bean\student.hpp">
+      <Filter>头文件</Filter>
+    </ClInclude>
   </ItemGroup>
 </Project>

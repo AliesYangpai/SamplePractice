@@ -12,6 +12,7 @@ extern "C" {
 #include "demo_player/player_method.h"
 #include "demo_computer_components/component_work_method.h"
 #include "demo_file_operate/order_file_operate.h"
+#include "demo_templet_self/bean/student.hpp"
 using namespace std;
 #define PRINT_T(T) cout << T << endl
 /*
@@ -590,8 +591,8 @@ void Test12_5()
 	PRINT_T("===Test12_5");
 	Person<string, short> person1("李宁", 25);
 	Person<string, short> person2("李小双", 20);
-	Person<string, short> *p_person1 = new Person<string,short>("李宁", 20);
-	Person<string, int> *p_person2 = new Person<string, int>("李小双",15);
+	Person<string, short> *p_person1 = new Person<string, short>("李宁", 20);
+	Person<string, int> *p_person2 = new Person<string, int>("李小双", 15);
 	person1.ShowInfo();
 	person2.ShowInfo();
 
@@ -603,10 +604,45 @@ void Test12_5()
 */
 void Test12_6()
 {
+	PRINT_T("===Test12_6");
 	Person<string, short> p1("赵本山", 25);
-	Person<string, int> p2("陈佩斯",30);
+	Person<string, int> p2("陈佩斯", 30);
 	DoShowPersonInfo(p1);
 	DoShowPersonInfo(&p2);
+}
+
+/*
+ 模板类part3
+ .h .c ---> .hpp 
+ 合并实现
+*/
+void Test12_7() 
+{
+	PRINT_T("===Test12_6");
+	Student<string, short> * stu1 = new Student<string, short>("扁鹊",55);
+	stu1->ShowInfo();
+	
+	Student<string, short> * stu2 = new Student<string, short>("华佗", 40);
+	stu2->ShowInfo();
+	
+	Student<string, short> * stu3 = new Student<string, short>("孙思邈",35);
+	stu3->ShowInfo();
+
+	Student<string, short> * stu4 = new Student<string, short>("张仲景",20);
+	stu4->ShowInfo();
+
+
+	delete stu1;
+	stu1 = NULL;
+
+	delete stu2;
+	stu2 = NULL;
+	
+	delete stu3;
+	stu3 = NULL;
+	
+	delete stu4;
+	stu4 = NULL;
 }
 int main()
 {
@@ -641,7 +677,8 @@ int main()
 	//Test12_2(); //【模板方法】泛型优势
 	//Test12_3(); //【模板方法】练习一下
 	//Test12_4(); //【模板方法】特定类型具体化操作
-	Test12_5();//【模板类】part1
+	//Test12_5();//【模板类】part1
 	//Test12_6();//【模板类】传参
+	Test12_7();//【模板类】.h .cpp --->.hpp
 	return 1;
 }
