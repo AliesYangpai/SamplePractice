@@ -13,6 +13,7 @@ extern "C" {
 #include "demo_computer_components/component_work_method.h"
 #include "demo_file_operate/order_file_operate.h"
 #include "demo_templet_self/bean/student.hpp"
+#include "demo_templet_self/bean/teacher.hpp"
 using namespace std;
 #define PRINT_T(T) cout << T << endl
 /*
@@ -644,6 +645,19 @@ void Test12_7()
 	delete stu4;
 	stu4 = NULL;
 }
+
+/*
+ 模板类part4
+ 在普通类中加入模板方法
+*/
+void Test12_8() 
+{
+	PRINT_T("===Test12_8");
+	Teacher * teacher = new Teacher("张仲景", 55);
+	teacher->ShowInfo();
+	teacher->ShowToPlay<string,short>("金匮要略",1500);
+	delete teacher;
+}
 int main()
 {
 	PRINT_T("===main()");
@@ -679,6 +693,7 @@ int main()
 	//Test12_4(); //【模板方法】特定类型具体化操作
 	//Test12_5();//【模板类】part1
 	//Test12_6();//【模板类】传参
-	Test12_7();//【模板类】.h .cpp --->.hpp
+	//Test12_7();//【模板类】.h .cpp --->.hpp
+	Test12_8();//【类模板】普通类中加入模板方法
 	return 1;
 }

@@ -155,5 +155,8 @@
     <ClInclude Include="demo_templet_self\bean\student.hpp">
       <Filter>头文件</Filter>
     </ClInclude>
+    <ClInclude Include="demo_templet_self\bean\teacher.hpp">
+      <Filter>头文件</Filter>
+    </ClInclude>
   </ItemGroup>
 </Project>
