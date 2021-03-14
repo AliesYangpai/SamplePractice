@@ -1,0 +1,79 @@
+#define _CRT_SECURE_NO_WARNINGS 1
+#include "operate_stl_vector.h"
+
+void ShowPrintData(int data)
+{
+	PRINT_T(data);
+}
+
+
+void GenerateVectorIntDataAndShow()
+{
+	int arr[] = { 11,22,33,44,55,66,77,88,99 };
+	vector<int> *p_list = new vector<int>();
+
+	int arrCount = sizeof(arr) / sizeof(arr[0]);
+	for (size_t i = 0; i < arrCount; i++)
+	{
+		p_list->push_back(arr[i]);
+	}
+	////  遍历---第一种
+	//vector<int>::iterator begin = p_list->begin();// 指向容器中的首元素的指针
+	//vector<int>::iterator end = p_list->end(); // 指向容器中的最后一个元素的下一个位置
+	//while (begin != end)
+	//{
+	//	PRINT_T(*begin);
+	//	begin++;
+	//}
+
+	////  遍历---第二种
+	//for (vector<int> ::iterator p_value = p_list->begin(); p_value < p_list->end(); p_value++)
+	//{
+	//	PRINT_T(*p_value);
+	//}
+
+	// 遍历---第三种 使用stl提供的遍历算法 for_earch (源码中也是指针++，判断首元素地址与last+1)
+	for_each(p_list->begin(), p_list->end(), ShowPrintData);
+	delete p_list;
+}
+
+
+void AddDataVector(vector<int> * p_list, int param)
+{
+	PRINT_T("===AddDataVector");
+	p_list->push_back(param);
+}
+void DelDataVector(vector<int> * p_list, int param)
+{
+	PRINT_T("===DelDataVector");
+	for (vector<int>::iterator p_value = p_list->begin(); p_value != p_list->end(); p_value++)
+	{
+		if (*p_value == param)
+		{
+			p_list->erase(p_value);
+			break;
+		}
+	}
+}
+void UpdateDataVector(vector<int> * p_list, int param,int index)
+{
+	PRINT_T("===UpdateDataVector");
+	int count = 0;
+	for (vector<int>::iterator p_value = p_list->begin(); p_value != p_list->end(); p_value++)
+	{
+		if (count == index)
+		{
+			*p_value = param;
+			break;
+		}
+		count++;
+	}
+}
+void ShowDataVector(vector<int> * p_list)
+{
+	PRINT_T("===ShowDataVector");
+	for (vector<int>::iterator p_value = p_list->begin(); p_value != p_list->end(); p_value++)
+	{
+		PRINT_T(*p_value);
+	}
+}

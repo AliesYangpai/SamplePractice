@@ -14,6 +14,7 @@ extern "C" {
 #include "demo_file_operate/order_file_operate.h"
 #include "demo_templet_self/bean/student.hpp"
 #include "demo_templet_self/bean/teacher.hpp"
+#include "demo_lib_operate/lib_operate_stl/operate_stl_vector.h"
 using namespace std;
 #define PRINT_T(T) cout << T << endl
 /*
@@ -658,6 +659,39 @@ void Test12_8()
 	teacher->ShowToPlay<string,short>("金匮要略",1500);
 	delete teacher;
 }
+
+/*
+ stl vector的简单使用 
+*/
+void Test13_1() 
+{
+	PRINT_T("===Test13_1");
+	GenerateVectorIntDataAndShow();
+}
+
+/*
+ stl vector 基本类型的增删改查
+*/
+void Test13_2() 
+{
+	PRINT_T("===Test13_2");
+	vector<int> *p_vector = new vector<int>();
+
+
+	// 增
+	AddDataVector(p_vector, 11);
+	AddDataVector(p_vector, 22);
+	AddDataVector(p_vector, 33);
+	AddDataVector(p_vector, 44);
+	AddDataVector(p_vector, 55);
+	// 删
+	DelDataVector(p_vector, 55);
+	// 改
+	UpdateDataVector(p_vector, 333, 2);
+	// 查
+	ShowDataVector(p_vector);
+	delete p_vector;
+}
 int main()
 {
 	PRINT_T("===main()");
@@ -686,14 +720,16 @@ int main()
 	//Test10_1(); //【文件读】文本读到内存
 	//Test10_2(); //【二进制写】二进制数据写到外部磁盘
 	//Test10_3(); //【二进制读】二进制数据去取到内存对象中
-	//Test11(); //【内存函数】malloc calloc realloc 练习
+	//Test11();   //【内存函数】malloc calloc realloc 练习
 	//Test12_1(); //【模板方法】相同方法签名（伪签名）优先调用普通方法
 	//Test12_2(); //【模板方法】泛型优势
 	//Test12_3(); //【模板方法】练习一下
 	//Test12_4(); //【模板方法】特定类型具体化操作
-	//Test12_5();//【模板类】part1
-	//Test12_6();//【模板类】传参
-	//Test12_7();//【模板类】.h .cpp --->.hpp
-	Test12_8();//【类模板】普通类中加入模板方法
+	//Test12_5(); //【模板类】part1
+	//Test12_6(); //【模板类】传参
+	//Test12_7(); //【模板类】.h .cpp --->.hpp
+	//Test12_8(); //【类模板】普通类中加入模板方法
+	//Test13_1(); //【stl vector】最简单的使用
+	Test13_2();//【stl vector】增删改查
 	return 1;
 }
