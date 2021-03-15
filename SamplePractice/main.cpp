@@ -692,6 +692,38 @@ void Test13_2()
 	ShowDataVector(p_vector);
 	delete p_vector;
 }
+
+/*
+ stl vector 自定义数据类型增删改查
+*/
+void Test13_3() 
+{
+	PRINT_T("===Test13_3");
+	vector<Menu*> * p_menus = new vector<Menu*>();
+	Menu* menu1 = new Menu("白菜","翡翠白菜",15);
+	Menu* menu2 = new Menu("电脑", "二手电脑", 500);
+	Menu* menu3 = new Menu("报纸","废旧报纸",6);
+	Menu* menu4 = new Menu("木板","梨花木木板",100);
+	Menu* menu5 = new Menu("稀饭","8宝稀饭",3);
+
+	AddDataMenuVector(p_menus, menu1);
+	AddDataMenuVector(p_menus, menu2);
+	AddDataMenuVector(p_menus, menu3);
+	AddDataMenuVector(p_menus, menu4);
+	AddDataMenuVector(p_menus, menu5);
+
+	DelDataMenuVector(p_menus, "木板");
+	UpdateDataMenuVector(p_menus, "稀饭","醪糟南瓜稀饭");
+
+	ShowDataMenuVector(p_menus);
+
+	delete menu1;
+	delete menu2;
+	delete menu3;
+	delete menu4;
+	delete menu5;
+	delete p_menus;
+}
 int main()
 {
 	PRINT_T("===main()");
@@ -730,6 +762,7 @@ int main()
 	//Test12_7(); //【模板类】.h .cpp --->.hpp
 	//Test12_8(); //【类模板】普通类中加入模板方法
 	//Test13_1(); //【stl vector】最简单的使用
-	Test13_2();//【stl vector】增删改查
+	//Test13_2(); //【stl vector】基本类型 增删改查
+	Test13_3(); //【stl vector】自定义类型 增删改查
 	return 1;
 }

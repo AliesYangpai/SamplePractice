@@ -77,3 +77,42 @@ void ShowDataVector(vector<int> * p_list)
 		PRINT_T(*p_value);
 	}
 }
+
+
+// stl vector自定义类型的增删改查
+void AddDataMenuVector(vector<Menu*> * p_list, Menu* p_menu) 
+{
+	p_list->push_back(p_menu);
+}
+// 按照名称删除
+void DelDataMenuVector(vector<Menu*> * p_list, string targetName)
+{
+	for (vector<Menu*>::iterator p_value= p_list->begin(); p_value != p_list->end(); p_value++)
+	{
+		string name = (*p_value)->get_m_name();
+		if (name == targetName)
+		{
+			p_list->erase(p_value);
+			break;
+		}
+	}
+}
+// 按照名称更新数据
+void UpdateDataMenuVector(vector<Menu*> * p_list, string targetName, string content) 
+{
+	for (vector<Menu*>::iterator p_value = p_list->begin(); p_value != p_list->end(); p_value++)
+	{
+		if ((*p_value)->get_m_name() == targetName) 
+		{
+			(*p_value)->set_m_content(content);
+			break;
+		}
+	}
+}
+void ShowDataMenuVector(vector<Menu*> *p_list) 
+{
+	for (vector<Menu*>::iterator p_value = p_list->begin(); p_value != p_list->end(); p_value++)
+	{
+		(*p_value)->ShowInfo();
+	}
+}
