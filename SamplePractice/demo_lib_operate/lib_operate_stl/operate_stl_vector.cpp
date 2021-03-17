@@ -90,7 +90,7 @@ void DelDataMenuVector(vector<Menu*> * p_list, string targetName)
 	for (vector<Menu*>::iterator p_value= p_list->begin(); p_value != p_list->end(); p_value++)
 	{
 		string name = (*p_value)->get_m_name();
-		if (name == targetName)
+		if (name.compare(targetName))
 		{
 			p_list->erase(p_value);
 			break;
@@ -102,13 +102,14 @@ void UpdateDataMenuVector(vector<Menu*> * p_list, string targetName, string cont
 {
 	for (vector<Menu*>::iterator p_value = p_list->begin(); p_value != p_list->end(); p_value++)
 	{
-		if ((*p_value)->get_m_name() == targetName) 
+		if ((*p_value)->get_m_name().compare(targetName)) 
 		{
 			(*p_value)->set_m_content(content);
 			break;
 		}
 	}
 }
+// 展示菜单数据
 void ShowDataMenuVector(vector<Menu*> *p_list) 
 {
 	for (vector<Menu*>::iterator p_value = p_list->begin(); p_value != p_list->end(); p_value++)
