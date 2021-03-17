@@ -12,6 +12,9 @@ void UpdateDataVector(vector<int> * p_list, int param,int index);
 void ShowDataVector(vector<int> * p_list);
 
 void AddDataMenuVector(vector<Menu*> * p_list, Menu* p_menu);
+void InsertDataMenuVector(vector<Menu*> * p_list, Menu* p_meue,int pos);
 void DelDataMenuVector(vector<Menu*> * p_list, string targetName); // 按照名称删除
 void UpdateDataMenuVector(vector<Menu*> * p_list, string targetName, string content); // 按照名称更新数据
 void ShowDataMenuVector(vector<Menu*> *p_list);
+void ShowDataMenuVector2(vector<Menu*> * p_list);
+void ShowDataMenuVector3(vector<Menu*> * p_list);

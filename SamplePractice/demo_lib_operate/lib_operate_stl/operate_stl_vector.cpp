@@ -84,6 +84,24 @@ void AddDataMenuVector(vector<Menu*> * p_list, Menu* p_menu)
 {
 	p_list->push_back(p_menu);
 }
+
+void InsertDataMenuVector(vector<Menu*> * p_list , Menu* p_menu, int pos) 
+{
+	int count = 0;
+	if (p_list->capacity() < pos)
+	{
+		return;
+	}
+	for (vector<Menu*>::iterator p_value = p_list->begin();p_value != p_list->end();p_value++) 
+	{
+		if (count == pos)
+		{
+			p_list->insert(p_value, p_menu);
+			break;
+		}
+		count++;
+	}
+}
 // °´ÕÕÃû³ÆÉ¾³ý
 void DelDataMenuVector(vector<Menu*> * p_list, string targetName)
 {
@@ -115,5 +133,20 @@ void ShowDataMenuVector(vector<Menu*> *p_list)
 	for (vector<Menu*>::iterator p_value = p_list->begin(); p_value != p_list->end(); p_value++)
 	{
 		(*p_value)->ShowInfo();
+	}
+}
+
+void ShowDataMenuVector2(vector<Menu*> * p_list) 
+{
+	for (size_t i = 0; i < p_list->size(); i++)
+	{
+		p_list->at(i)->ShowInfo();
+	}
+}
+void ShowDataMenuVector3(vector<Menu*> * p_list) 
+{
+	for (size_t i = 0; i < p_list->size(); i++)
+	{
+		(*p_list)[i]->ShowInfo();
 	}
 }

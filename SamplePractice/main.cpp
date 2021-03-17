@@ -705,6 +705,7 @@ void Test13_3()
 	Menu* menu3 = new Menu("±¨Ö½","·Ï¾É±¨Ö½",6);
 	Menu* menu4 = new Menu("Ä¾°å","Àæ»¨Ä¾Ä¾°å",100);
 	Menu* menu5 = new Menu("Ï¡·¹","8±¦Ï¡·¹",3);
+	Menu* menu6 = new Menu("ºº±¤", "¼¦Èâºº±¤", 20);
 
 	AddDataMenuVector(p_menus, menu1);
 	AddDataMenuVector(p_menus, menu2);
@@ -714,14 +715,17 @@ void Test13_3()
 
 	DelDataMenuVector(p_menus, "Ä¾°å");
 	UpdateDataMenuVector(p_menus, "Ï¡·¹","õ²ÔãÄÏ¹ÏÏ¡·¹");
-
 	ShowDataMenuVector(p_menus);
-
+	InsertDataMenuVector(p_menus, menu6, 3);
+	PRINT_T("===After insert");
+	ShowDataMenuVector2(p_menus);
+	//ShowDataMenuVector3(p_menus);
 	delete menu1;
 	delete menu2;
 	delete menu3;
 	delete menu4;
 	delete menu5;
+	delete menu6;
 	delete p_menus;
 }
 int main()
