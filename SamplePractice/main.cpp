@@ -15,6 +15,7 @@ extern "C" {
 #include "demo_templet_self/bean/student.hpp"
 #include "demo_templet_self/bean/teacher.hpp"
 #include "demo_lib_operate/lib_operate_stl/operate_stl_vector.h"
+#include "demo_lib_operate/lib_operate_stl/operate_stl_deque.h"
 using namespace std;
 #define PRINT_T(T) cout << T << endl
 /*
@@ -728,6 +729,28 @@ void Test13_3()
 	delete menu6;
 	delete p_menus;
 }
+
+/*
+ 双端队列练习
+*/
+void Test14()  
+{
+	PRINT_T("===Test14");
+	int arr[] = { 1,8,2,4,6,9,5,7,3 };
+	int count = sizeof(arr) / sizeof(arr[0]);
+	deque<int>* p_deque = new deque<int>();
+
+	for (size_t i = 0; i < count; i++)
+	{
+		AddDataDeque(p_deque,arr[i]);
+	}
+
+	ShowDataDeque(p_deque);
+
+	delete p_deque;
+	p_deque = NULL;
+
+}
 int main()
 {
 	PRINT_T("===main()");
@@ -767,6 +790,7 @@ int main()
 	//Test12_8(); //【类模板】普通类中加入模板方法
 	//Test13_1(); //【stl vector】最简单的使用
 	//Test13_2(); //【stl vector】基本类型 增删改查
-	Test13_3(); //【stl vector】自定义类型 增删改查
+	//Test13_3(); //【stl vector】自定义类型 增删改查
+	Test14(); //【stl deque】双端队列
 	return 1;
 }
