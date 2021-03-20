@@ -755,6 +755,14 @@ void Test14()
 }
 
 /*
+ 这里我们就按照菜单价格排序啦
+ 菜单价格比较的方法,用于list.sort的方法中的比较回调
+*/
+bool CompareMenu(Menu* p_menu1,Menu* p_menu2) 
+{
+	return p_menu1->get_m_price() < p_menu2->get_m_price();
+}
+/*
  双向链表练习
 */
 void Test15() 
@@ -773,13 +781,25 @@ void Test15()
 	AddDataMenuList(p_list, menu5);
 
 	ShowDataMenuList(p_list);
-	
+	ReverseDataMenuList(p_list);
+	ShowDataMenuList(p_list);
+	PRINT_T("===let's sort");
+
+	p_list->sort(CompareMenu); // 方法
+	ShowDataMenuList(p_list);
+
 	delete p_list;
+	p_list = NULL;
 	delete menu1;
+	menu1 = NULL;
 	delete menu2;
+	menu2 = NULL;
 	delete menu3;
+	menu3 = NULL;
 	delete menu4;
+	menu4 = NULL;
 	delete menu5;
+	menu5 = NULL;
 }
 int main()
 {

@@ -8,6 +8,18 @@ void AddDataMenuList(list<Menu*>* p_list, Menu* p_menu)
 	}
 }
 
+/*
+ 颠倒list中数据（reverse()作用是颠倒下list中的顺序）
+*/
+void ReverseDataMenuList(list<Menu*>* p_list) 
+{
+	if (p_list != NULL)
+	{
+		PRINT_T("===ReverseDataMenuList");
+		p_list->reverse();
+	}
+}
+
 void ShowDataMenuList(const list<Menu*>* p_list)
 {
 

@@ -8,4 +8,5 @@ using namespace std;
   在c++中list代表的是链表，这一点与java还是不一样的
 */
 void AddDataMenuList(list<Menu*>* p_list, Menu* p_menu);
+void ReverseDataMenuList(list<Menu*>* p_list);
 void ShowDataMenuList(const list<Menu*>* p_list);
