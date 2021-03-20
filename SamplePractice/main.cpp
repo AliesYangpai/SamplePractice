@@ -16,6 +16,7 @@ extern "C" {
 #include "demo_templet_self/bean/teacher.hpp"
 #include "demo_lib_operate/lib_operate_stl/operate_stl_vector.h"
 #include "demo_lib_operate/lib_operate_stl/operate_stl_deque.h"
+#include "demo_lib_operate/lib_operate_stl/operate_stl_list.h"
 using namespace std;
 #define PRINT_T(T) cout << T << endl
 /*
@@ -708,6 +709,7 @@ void Test13_3()
 	Menu* menu5 = new Menu("稀饭","8宝稀饭",3);
 	Menu* menu6 = new Menu("汉堡", "鸡肉汉堡", 20);
 
+
 	AddDataMenuVector(p_menus, menu1);
 	AddDataMenuVector(p_menus, menu2);
 	AddDataMenuVector(p_menus, menu3);
@@ -751,6 +753,34 @@ void Test14()
 	p_deque = NULL;
 
 }
+
+/*
+ 双向链表练习
+*/
+void Test15() 
+{
+	PRINT_T("===Test15");
+	Menu* menu1 = new Menu("苹果","洛川苹果",10);
+	Menu* menu2 = new Menu("桃子", "北京桃子", 20);
+	Menu* menu3 = new Menu("石榴","临潼石榴",30);
+	Menu* menu4 = new Menu("柿子", "山西柿子",40);
+	Menu* menu5 = new Menu("李子","广东李子",50);
+	list<Menu*>* p_list = new list<Menu*> ();
+	AddDataMenuList(p_list, menu1);
+	AddDataMenuList(p_list, menu2);
+	AddDataMenuList(p_list, menu3);
+	AddDataMenuList(p_list, menu4);
+	AddDataMenuList(p_list, menu5);
+
+	ShowDataMenuList(p_list);
+	
+	delete p_list;
+	delete menu1;
+	delete menu2;
+	delete menu3;
+	delete menu4;
+	delete menu5;
+}
 int main()
 {
 	PRINT_T("===main()");
@@ -791,6 +821,8 @@ int main()
 	//Test13_1(); //【stl vector】最简单的使用
 	//Test13_2(); //【stl vector】基本类型 增删改查
 	//Test13_3(); //【stl vector】自定义类型 增删改查
-	Test14(); //【stl deque】双端队列
+	//Test14(); //【stl deque】双端队列
+	Test15();//【stl list】双向链表 （在c++中list容器代表的是双向链表）
 	return 1;
+
 }

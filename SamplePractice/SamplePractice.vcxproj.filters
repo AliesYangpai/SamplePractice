@@ -93,6 +93,9 @@
     <ClCompile Include="demo_lib_operate\lib_operate_stl\operate_stl_deque.cpp">
       <Filter>源文件</Filter>
     </ClCompile>
+    <ClCompile Include="demo_lib_operate\lib_operate_stl\operate_stl_list.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="demo_sort\base_sort.h">
@@ -174,6 +177,9 @@
       <Filter>头文件</Filter>
     </ClInclude>
     <ClInclude Include="demo_lib_operate\lib_operate_stl\operate_stl_deque.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="demo_lib_operate\lib_operate_stl\operate_stl_list.h">
       <Filter>头文件</Filter>
     </ClInclude>
   </ItemGroup>
