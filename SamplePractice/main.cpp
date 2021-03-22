@@ -17,8 +17,11 @@ extern "C" {
 #include "demo_lib_operate/lib_operate_stl/operate_stl_vector.h"
 #include "demo_lib_operate/lib_operate_stl/operate_stl_deque.h"
 #include "demo_lib_operate/lib_operate_stl/operate_stl_list.h"
+#include "demo_lib_operate/lib_operate_stl/operate_stl_set.h"
+#include "demo_lib_operate/lib_operate_stl/operate_stl_map.h"
 using namespace std;
 #define PRINT_T(T) cout << T << endl
+
 /*
  int arr[] 冒泡排序
 */
@@ -67,7 +70,6 @@ void Test04()
 	SelectionSortArrayInt(arr, size, 0);
 	PrintArrayInt(arr, size);
 }
-
 
 /*
  C++中的继承,多态传参那点事儿 虚函数指针
@@ -162,6 +164,7 @@ void Test07_3()
 	int count = sizeof(arr) / sizeof(arr[0]);
 	PrintArrayChar(arr, count);
 }
+
 /*
   字符串追加（全量追加）
 */
@@ -174,6 +177,7 @@ void Test07_4()
 	int size = sizeof(arr) / sizeof(arr[0]);
 	PrintArrayChar(arr, size);
 }
+
 /*
   字符串追加（按量追加）
 */
@@ -188,6 +192,7 @@ void Test07_5()
 	int size = sizeof(arr) / sizeof(arr[0]);
 	PrintArrayChar(arr, size);
 }
+
 /*
  字符换比较（全量比较）
 */
@@ -211,6 +216,7 @@ void Test07_7()
 	int ret = Do_strncmp(name1, name2, 3);
 	PRINT_T(ret);
 }
+
 /*
  字符串查找（全量查找）
 */
@@ -230,6 +236,7 @@ void Test07_8()
 	PRINT_T(p_ret + 2);
 
 }
+
 /*
  字符串截取
 */
@@ -318,6 +325,7 @@ void Test08_4()
 	PrintArrayInt(arr1, sizeof(arr1) / sizeof(arr1[0]));
 
 }
+
 /*
   组装电脑
 */
@@ -371,6 +379,7 @@ void Test10_0()
 	delete p_order;
 	p_order = NULL;
 }
+
 /*
   读文件 【读取文本到内存】
 */
@@ -394,6 +403,7 @@ void Test10_2()
 	delete order;
 	order = NULL;
 }
+
 /*
  读文件 【读二进制到内存中（对象中）】
 */
@@ -516,6 +526,7 @@ void DoShowPersonInfo(Person<string, short> *p)
 {
 	p->ShowInfo();
 }
+
 template <class T1, class T2>
 void DoShowPersonInfo(Person<T1, T2> *p)
 {
@@ -568,6 +579,7 @@ void Test12_3()
 	float* x = Compare<float>(&a, &b);
 	PRINT_T(*x);
 }
+
 /*
  模板方法part4
  特定类型具体化操作
@@ -603,6 +615,7 @@ void Test12_5()
 	delete p_person1;
 	delete p_person2;
 }
+
 /*
  模板类part2
 */
@@ -617,22 +630,22 @@ void Test12_6()
 
 /*
  模板类part3
- .h .c ---> .hpp 
+ .h .c ---> .hpp
  合并实现
 */
-void Test12_7() 
+void Test12_7()
 {
 	PRINT_T("===Test12_6");
-	Student<string, short> * stu1 = new Student<string, short>("扁鹊",55);
+	Student<string, short> * stu1 = new Student<string, short>("扁鹊", 55);
 	stu1->ShowInfo();
-	
+
 	Student<string, short> * stu2 = new Student<string, short>("华佗", 40);
 	stu2->ShowInfo();
-	
-	Student<string, short> * stu3 = new Student<string, short>("孙思邈",35);
+
+	Student<string, short> * stu3 = new Student<string, short>("孙思邈", 35);
 	stu3->ShowInfo();
 
-	Student<string, short> * stu4 = new Student<string, short>("张仲景",20);
+	Student<string, short> * stu4 = new Student<string, short>("张仲景", 20);
 	stu4->ShowInfo();
 
 
@@ -641,10 +654,10 @@ void Test12_7()
 
 	delete stu2;
 	stu2 = NULL;
-	
+
 	delete stu3;
 	stu3 = NULL;
-	
+
 	delete stu4;
 	stu4 = NULL;
 }
@@ -653,19 +666,19 @@ void Test12_7()
  模板类part4
  在普通类中加入模板方法
 */
-void Test12_8() 
+void Test12_8()
 {
 	PRINT_T("===Test12_8");
 	Teacher * teacher = new Teacher("张仲景", 55);
 	teacher->ShowInfo();
-	teacher->ShowToPlay<string,short>("金匮要略",1500);
+	teacher->ShowToPlay<string, short>("金匮要略", 1500);
 	delete teacher;
 }
 
 /*
- stl vector的简单使用 
+ stl vector的简单使用
 */
-void Test13_1() 
+void Test13_1()
 {
 	PRINT_T("===Test13_1");
 	GenerateVectorIntDataAndShow();
@@ -674,7 +687,7 @@ void Test13_1()
 /*
  stl vector 基本类型的增删改查
 */
-void Test13_2() 
+void Test13_2()
 {
 	PRINT_T("===Test13_2");
 	vector<int> *p_vector = new vector<int>();
@@ -698,15 +711,15 @@ void Test13_2()
 /*
  stl vector 自定义数据类型增删改查
 */
-void Test13_3() 
+void Test13_3()
 {
 	PRINT_T("===Test13_3");
 	vector<Menu*> * p_menus = new vector<Menu*>();
-	Menu* menu1 = new Menu("白菜","翡翠白菜",15);
+	Menu* menu1 = new Menu("白菜", "翡翠白菜", 15);
 	Menu* menu2 = new Menu("电脑", "二手电脑", 500);
-	Menu* menu3 = new Menu("报纸","废旧报纸",6);
-	Menu* menu4 = new Menu("木板","梨花木木板",100);
-	Menu* menu5 = new Menu("稀饭","8宝稀饭",3);
+	Menu* menu3 = new Menu("报纸", "废旧报纸", 6);
+	Menu* menu4 = new Menu("木板", "梨花木木板", 100);
+	Menu* menu5 = new Menu("稀饭", "8宝稀饭", 3);
 	Menu* menu6 = new Menu("汉堡", "鸡肉汉堡", 20);
 
 
@@ -717,7 +730,7 @@ void Test13_3()
 	AddDataMenuVector(p_menus, menu5);
 
 	DelDataMenuVector(p_menus, "木板");
-	UpdateDataMenuVector(p_menus, "稀饭","醪糟南瓜稀饭");
+	UpdateDataMenuVector(p_menus, "稀饭", "醪糟南瓜稀饭");
 	ShowDataMenuVector(p_menus);
 	InsertDataMenuVector(p_menus, menu6, 3);
 	PRINT_T("===After insert");
@@ -735,7 +748,7 @@ void Test13_3()
 /*
  双端队列练习
 */
-void Test14()  
+void Test14()
 {
 	PRINT_T("===Test14");
 	int arr[] = { 1,8,2,4,6,9,5,7,3 };
@@ -744,7 +757,7 @@ void Test14()
 
 	for (size_t i = 0; i < count; i++)
 	{
-		AddDataDeque(p_deque,arr[i]);
+		AddDataDeque(p_deque, arr[i]);
 	}
 
 	ShowDataDeque(p_deque);
@@ -758,22 +771,23 @@ void Test14()
  这里我们就按照菜单价格排序啦
  菜单价格比较的方法,用于list.sort的方法中的比较回调
 */
-bool CompareMenu(Menu* p_menu1,Menu* p_menu2) 
+bool CompareMenu(Menu* p_menu1, Menu* p_menu2)
 {
 	return p_menu1->get_m_price() < p_menu2->get_m_price();
 }
+
 /*
  双向链表练习
 */
-void Test15() 
+void Test15()
 {
 	PRINT_T("===Test15");
-	Menu* menu1 = new Menu("苹果","洛川苹果",10);
+	Menu* menu1 = new Menu("苹果", "洛川苹果", 10);
 	Menu* menu2 = new Menu("桃子", "北京桃子", 20);
-	Menu* menu3 = new Menu("石榴","临潼石榴",30);
-	Menu* menu4 = new Menu("柿子", "山西柿子",40);
-	Menu* menu5 = new Menu("李子","广东李子",50);
-	list<Menu*>* p_list = new list<Menu*> ();
+	Menu* menu3 = new Menu("石榴", "临潼石榴", 30);
+	Menu* menu4 = new Menu("柿子", "山西柿子", 40);
+	Menu* menu5 = new Menu("李子", "广东李子", 50);
+	list<Menu*>* p_list = new list<Menu*>();
 	AddDataMenuList(p_list, menu1);
 	AddDataMenuList(p_list, menu2);
 	AddDataMenuList(p_list, menu3);
@@ -801,6 +815,87 @@ void Test15()
 	delete menu5;
 	menu5 = NULL;
 }
+
+/*
+ set集合练习（c++中set集合数据不重复，并且自动排序）
+*/
+void Test16()
+{
+	PRINT_T("===Test16");
+	set<int>* p_set = new set<int>();
+	InsertDataSet(p_set, 5);
+	InsertDataSet(p_set, 2);
+	InsertDataSet(p_set, 8);
+	InsertDataSet(p_set, 4);
+	InsertDataSet(p_set, 1);
+
+	ShowDataSet(p_set);
+
+	int testCount = 2;
+	set<int> ::iterator p_value = FindDataSet(p_set, testCount);
+	if (p_value == p_set->end())
+	{
+		PRINT_T("未找到数据:");
+	}
+	else
+	{
+		PRINT_T("已找到数据:");
+	}
+	delete p_set;
+}
+
+/*
+ map集合练习
+*/
+void Test17()
+{
+	PRINT_T("===Test17");
+	map<string*, Menu*>* p_map = new map<string*, Menu*>();
+	Menu* menu1 = new Menu("苹果", "洛川苹果", 10);
+	Menu* menu2 = new Menu("桃子", "北京桃子", 20);
+	Menu* menu3 = new Menu("黄瓜", "上海黄瓜", 30);
+	Menu* menu4 = new Menu("粽子", "武汉粽子", 40);
+	Menu* menu5 = new Menu("牛肉", "神州牛肉", 50);
+
+	string key_a = "水果";
+	string key_b = "蔬菜";
+	string key_c = "粮油";
+	string key_d = "肉类";
+	InsertDataMenuMap(p_map, &key_a, menu1);
+	InsertDataMenuMap(p_map, &key_a, menu2);
+	InsertDataMenuMap(p_map, &key_b, menu3);
+	InsertDataMenuMap(p_map, &key_c, menu4);
+	InsertDataMenuMap(p_map, &key_d, menu5);
+	ShowDataMenuMap(p_map);
+
+	PRINT_T("===删除");
+	DeletDataMenuMap(p_map, &key_c);
+	ShowDataMenuMap(p_map);
+
+	PRINT_T("===更新");
+	UpdateDataMenuMap(p_map, &key_a, menu2);
+	ShowDataMenuMap(p_map);
+
+	PRINT_T("===删除");
+	DeletDataMenuMap(p_map, &key_d);
+	ShowDataMenuMap(p_map);
+
+	delete p_map;
+	p_map = NULL;
+	delete menu1;
+	menu1 = NULL;
+	delete menu2;
+	menu2 = NULL;
+	delete menu3;
+	menu3 = NULL;
+	delete menu4;
+	menu4 = NULL;
+	delete menu5;
+	menu5 = NULL;
+
+
+}
+
 int main()
 {
 	PRINT_T("===main()");
@@ -841,8 +936,10 @@ int main()
 	//Test13_1(); //【stl vector】最简单的使用
 	//Test13_2(); //【stl vector】基本类型 增删改查
 	//Test13_3(); //【stl vector】自定义类型 增删改查
-	//Test14(); //【stl deque】双端队列
-	Test15();//【stl list】双向链表 （在c++中list容器代表的是双向链表）
+	//Test14();   //【stl deque】双端队列
+	//Test15();   //【stl list】双向链表 （在c++中list容器代表的是双向链表）
+	//Test16();   //【stl set】set集合，不重复且已order
+	Test17(); //【stl map】map集合
 	return 1;
 
 }

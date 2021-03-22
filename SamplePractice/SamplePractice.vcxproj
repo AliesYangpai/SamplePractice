@@ -140,6 +140,8 @@
     <ClCompile Include="demo_lib_operate\lib_operate_stl\bean\menu.cpp" />
     <ClCompile Include="demo_lib_operate\lib_operate_stl\operate_stl_deque.cpp" />
     <ClCompile Include="demo_lib_operate\lib_operate_stl\operate_stl_list.cpp" />
+    <ClCompile Include="demo_lib_operate\lib_operate_stl\operate_stl_map.cpp" />
+    <ClCompile Include="demo_lib_operate\lib_operate_stl\operate_stl_set.cpp" />
     <ClCompile Include="demo_lib_operate\lib_operate_stl\operate_stl_vector.cpp" />
     <ClCompile Include="demo_player\bean\player_base.cpp" />
     <ClCompile Include="demo_player\bean\player_base_basketball.cpp" />
@@ -169,6 +171,8 @@
     <ClInclude Include="demo_lib_operate\lib_operate_stl\bean\menu.h" />
     <ClInclude Include="demo_lib_operate\lib_operate_stl\operate_stl_deque.h" />
     <ClInclude Include="demo_lib_operate\lib_operate_stl\operate_stl_list.h" />
+    <ClInclude Include="demo_lib_operate\lib_operate_stl\operate_stl_map.h" />
+    <ClInclude Include="demo_lib_operate\lib_operate_stl\operate_stl_set.h" />
     <ClInclude Include="demo_lib_operate\lib_operate_stl\operate_stl_vector.h" />
     <ClInclude Include="demo_player\bean\player_base.h" />
     <ClInclude Include="demo_player\bean\player_base_basketball.h" />
