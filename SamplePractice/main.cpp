@@ -19,6 +19,7 @@ extern "C" {
 #include "demo_lib_operate/lib_operate_stl/operate_stl_list.h"
 #include "demo_lib_operate/lib_operate_stl/operate_stl_set.h"
 #include "demo_lib_operate/lib_operate_stl/operate_stl_map.h"
+#include "demo_lib_operate/lib_operate_stl/operate_stl_algorithm.h"
 using namespace std;
 #define PRINT_T(T) cout << T << endl
 
@@ -896,6 +897,175 @@ void Test17()
 
 }
 
+
+/*
+  **************************algorithm算法相关练习 开始**************************
+*/
+
+/*
+ 普通函数
+*/
+void CommonFunShowAlgotithmData(Menu* p_menu)
+{
+	p_menu->ShowInfo();
+}
+void CommonFunShowAlgotithmDatasss(Menu p_menu) 
+{
+	p_menu.ShowInfo();
+}
+/*
+ 函数对象
+*/
+class CommonFunObj
+{
+public:
+	void operator()(Menu* p_menu)
+	{
+		p_menu->ShowInfo();
+	}
+};
+
+
+/*
+ for_each 遍历练习
+*/
+void Test18_1()
+{
+	PRINT_T("===Test18_1");
+	vector<Menu*>* p_vector = new vector<Menu*>();
+	Menu* menu1 = new Menu("苹果", "洛川苹果", 10);
+	Menu* menu2 = new Menu("桃子", "北京桃子", 20);
+	Menu* menu3 = new Menu("黄瓜", "上海黄瓜", 30);
+	Menu* menu4 = new Menu("粽子", "武汉粽子", 40);
+	Menu* menu5 = new Menu("牛肉", "神州牛肉", 50);
+
+	AddAlogrithmDatas(p_vector, menu1);
+	AddAlogrithmDatas(p_vector, menu2);
+	AddAlogrithmDatas(p_vector, menu3);
+	AddAlogrithmDatas(p_vector, menu4);
+	AddAlogrithmDatas(p_vector, menu5);
+
+	// 第一种：for_each 传入普通函数
+	PRINT_T("第一种：for_each 传入普通函数");
+	for_each(p_vector->begin(), p_vector->end(), CommonFunShowAlgotithmData);
+
+	// 第一种：for_each 传入仿函数
+	PRINT_T("第一种：for_each 传入仿函数");
+	for_each(p_vector->begin(), p_vector->end(), CommonFunObj());
+
+	delete p_vector;
+	p_vector = NULL;
+	delete menu1;
+	menu1 = NULL;
+	delete menu2;
+	menu2 = NULL;
+	delete menu3;
+	menu3 = NULL;
+	delete menu4;
+	menu4 = NULL;
+	delete menu5;
+	menu5 = NULL;
+}
+
+/*
+ transform 搬运处理
+*/
+//void Test18_2() 
+//{
+//	PRINT_T("===Test18_2");
+//	vector<Menu*>* p_vector = new vector<Menu*>();
+//	Menu* menu1 = new Menu("苹果", "洛川苹果", 10);
+//	Menu* menu2 = new Menu("桃子", "北京桃子", 20);
+//	Menu* menu3 = new Menu("黄瓜", "上海黄瓜", 30);
+//	Menu* menu4 = new Menu("粽子", "武汉粽子", 40);
+//	Menu* menu5 = new Menu("牛肉", "神州牛肉", 50);
+//
+//	AddAlogrithmDatas(p_vector, menu1);
+//	AddAlogrithmDatas(p_vector, menu2);
+//	AddAlogrithmDatas(p_vector, menu3);
+//	AddAlogrithmDatas(p_vector, menu4);
+//	AddAlogrithmDatas(p_vector, menu5);
+//
+//	
+//	vector<Menu*>* p_vector2 = new vector<Menu*>();
+//	p_vector2->resize(p_vector->size()); // 这里一定要预留空间
+//	transform(p_vector->begin(), p_vector->end(), p_vector2->begin(),CommonFunObj());
+//
+//	PRINT_T("===打印p_vector2 中的数据");
+//	for_each(p_vector2->begin(), p_vector2->end(),CommonFunObj());
+//
+//	delete p_vector;
+//	p_vector = NULL;
+//
+//	delete p_vector2;
+//	p_vector2 = NULL;
+//	delete menu1;
+//	menu1 = NULL;
+//	delete menu2;
+//	menu2 = NULL;
+//	delete menu3;
+//	menu3 = NULL;
+//	delete menu4;
+//	menu4 = NULL;
+//	delete menu5;
+//	menu5 = NULL;
+//}
+
+/*
+ find用法
+*/
+void Test18_3()
+{
+	PRINT_T("===Test18_3");
+	deque<Menu>* p_deque = new deque<Menu>();
+	Menu* menu1 = new Menu("苹果", "洛川苹果", 10);
+	Menu* menu2 = new Menu("桃子", "北京桃子", 20);
+	Menu* menu3 = new Menu("黄瓜", "上海黄瓜", 30);
+	Menu* menu4 = new Menu("粽子", "武汉粽子", 40);
+	Menu* menu5 = new Menu("牛肉", "神州牛肉", 50);
+	
+	p_deque->push_back(*menu1);
+	p_deque->push_back(*menu2);
+	p_deque->push_back(*menu3);
+	p_deque->push_back(*menu4);
+	p_deque->push_back(*menu5);
+
+	PRINT_T("===初次全部打印");
+	for_each(p_deque->begin(), p_deque->end(), CommonFunShowAlgotithmDatasss);
+
+	// 这里必须要运算符重载一下
+
+	find_if
+	deque<Menu>::iterator p_iterator = find(p_deque->begin(), p_deque->end(), "桃子");
+	if (p_iterator != p_deque->end())
+	{
+		PRINT_T("。。。找到了。。。");
+		p_iterator->ShowInfo();
+	}
+	else
+	{
+		PRINT_T("未找到数据");
+	}
+
+	delete p_deque;
+	p_deque = NULL;
+	delete menu1;
+	menu1 = NULL;
+	delete menu2;
+	menu2 = NULL;
+	delete menu3;
+	menu3 = NULL;
+	delete menu4;
+	menu4 = NULL;
+	delete menu5;
+	menu5 = NULL;
+}
+
+
+/*
+  **************************algorithm算法相关练习 结束**************************
+*/
+
 int main()
 {
 	PRINT_T("===main()");
@@ -939,7 +1109,10 @@ int main()
 	//Test14();   //【stl deque】双端队列
 	//Test15();   //【stl list】双向链表 （在c++中list容器代表的是双向链表）
 	//Test16();   //【stl set】set集合，不重复且已order
-	Test17(); //【stl map】map集合
+	//Test17();   //【stl map】map集合
+	//Test18_1(); //【stl for_each】遍历算法 普通函数 与 仿函数
+	//Test18_2(); //【stl transform】搬运转化 (!!! 有问题，需要确认修改)
+	Test18_3();// 【stl find】查找元素
 	return 1;
 
 }

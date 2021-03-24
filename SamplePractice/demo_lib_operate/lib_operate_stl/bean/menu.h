@@ -21,4 +21,5 @@ public:
 	string get_m_name();
 	string get_m_content();
 	float get_m_price();
+	bool operator==(string p_param);
 };

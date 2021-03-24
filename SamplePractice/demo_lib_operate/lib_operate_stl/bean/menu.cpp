@@ -38,3 +38,10 @@ void Menu::ShowInfo()
 {
 	cout << this->m_name << this->m_content   << this->m_price << endl;
 }
+
+
+bool Menu::operator==(string p_param) 
+{
+	return this->m_name.compare(p_param);
+}
+//bool operator==(string param);
