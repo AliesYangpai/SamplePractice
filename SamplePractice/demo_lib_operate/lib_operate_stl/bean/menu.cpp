@@ -42,6 +42,5 @@ void Menu::ShowInfo()
 
 bool Menu::operator==(string p_param) 
 {
-	return this->m_name.compare(p_param);
+	return this->m_name == p_param; // 这里不能使用compare要使用“==”判断
 }
-//bool operator==(string param);

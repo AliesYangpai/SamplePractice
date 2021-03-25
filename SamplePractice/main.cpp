@@ -902,26 +902,30 @@ void Test17()
   **************************algorithm算法相关练习 开始**************************
 */
 
-/*
- 普通函数
-*/
-void CommonFunShowAlgotithmData(Menu* p_menu)
-{
-	p_menu->ShowInfo();
-}
-void CommonFunShowAlgotithmDatasss(Menu p_menu) 
-{
-	p_menu.ShowInfo();
-}
-/*
- 函数对象
-*/
-class CommonFunObj
+class FunObjForEachArgsPointer
 {
 public:
 	void operator()(Menu* p_menu)
 	{
 		p_menu->ShowInfo();
+	}
+};
+
+class FunObjForEachArgsObj
+{
+public:
+	void operator()(Menu menu)
+	{
+		menu.ShowInfo();
+	}
+};
+
+class FunObjTransform
+{
+public:
+	Menu* operator()(Menu* p_menu)
+	{
+		return p_menu;
 	}
 };
 
@@ -946,12 +950,12 @@ void Test18_1()
 	AddAlogrithmDatas(p_vector, menu5);
 
 	// 第一种：for_each 传入普通函数
-	PRINT_T("第一种：for_each 传入普通函数");
-	for_each(p_vector->begin(), p_vector->end(), CommonFunShowAlgotithmData);
-
-	// 第一种：for_each 传入仿函数
 	PRINT_T("第一种：for_each 传入仿函数");
-	for_each(p_vector->begin(), p_vector->end(), CommonFunObj());
+	for_each(p_vector->begin(), p_vector->end(), FunObjForEachArgsPointer());
+
+	// 第二种：for_each 传入仿函数
+	//PRINT_T("第一种：for_each 传入普通函数");
+	//for_each(p_vector->begin(), p_vector->end(), FunObj());
 
 	delete p_vector;
 	p_vector = NULL;
@@ -970,46 +974,46 @@ void Test18_1()
 /*
  transform 搬运处理
 */
-//void Test18_2() 
-//{
-//	PRINT_T("===Test18_2");
-//	vector<Menu*>* p_vector = new vector<Menu*>();
-//	Menu* menu1 = new Menu("苹果", "洛川苹果", 10);
-//	Menu* menu2 = new Menu("桃子", "北京桃子", 20);
-//	Menu* menu3 = new Menu("黄瓜", "上海黄瓜", 30);
-//	Menu* menu4 = new Menu("粽子", "武汉粽子", 40);
-//	Menu* menu5 = new Menu("牛肉", "神州牛肉", 50);
-//
-//	AddAlogrithmDatas(p_vector, menu1);
-//	AddAlogrithmDatas(p_vector, menu2);
-//	AddAlogrithmDatas(p_vector, menu3);
-//	AddAlogrithmDatas(p_vector, menu4);
-//	AddAlogrithmDatas(p_vector, menu5);
-//
-//	
-//	vector<Menu*>* p_vector2 = new vector<Menu*>();
-//	p_vector2->resize(p_vector->size()); // 这里一定要预留空间
-//	transform(p_vector->begin(), p_vector->end(), p_vector2->begin(),CommonFunObj());
-//
-//	PRINT_T("===打印p_vector2 中的数据");
-//	for_each(p_vector2->begin(), p_vector2->end(),CommonFunObj());
-//
-//	delete p_vector;
-//	p_vector = NULL;
-//
-//	delete p_vector2;
-//	p_vector2 = NULL;
-//	delete menu1;
-//	menu1 = NULL;
-//	delete menu2;
-//	menu2 = NULL;
-//	delete menu3;
-//	menu3 = NULL;
-//	delete menu4;
-//	menu4 = NULL;
-//	delete menu5;
-//	menu5 = NULL;
-//}
+void Test18_2()
+{
+	PRINT_T("===Test18_2");
+	vector<Menu*>* p_vector = new vector<Menu*>();
+	Menu* menu1 = new Menu("苹果", "洛川苹果", 10);
+	Menu* menu2 = new Menu("桃子", "北京桃子", 20);
+	Menu* menu3 = new Menu("黄瓜", "上海黄瓜", 30);
+	Menu* menu4 = new Menu("粽子", "武汉粽子", 40);
+	Menu* menu5 = new Menu("牛肉", "神州牛肉", 50);
+
+	AddAlogrithmDatas(p_vector, menu1);
+	AddAlogrithmDatas(p_vector, menu2);
+	AddAlogrithmDatas(p_vector, menu3);
+	AddAlogrithmDatas(p_vector, menu4);
+	AddAlogrithmDatas(p_vector, menu5);
+
+
+	vector<Menu*>* p_vector2 = new vector<Menu*>();
+	p_vector2->resize(p_vector->size()); // 这里一定要预留空间
+	transform(p_vector->begin(), p_vector->end(), p_vector2->begin(), FunObjTransform()); // 这里的仿函数要返回数据
+
+	PRINT_T("===打印p_vector2 中的数据");
+	for_each(p_vector2->begin(), p_vector2->end(), FunObjForEachArgsPointer());
+
+	delete p_vector;
+	p_vector = NULL;
+
+	delete p_vector2;
+	p_vector2 = NULL;
+	delete menu1;
+	menu1 = NULL;
+	delete menu2;
+	menu2 = NULL;
+	delete menu3;
+	menu3 = NULL;
+	delete menu4;
+	menu4 = NULL;
+	delete menu5;
+	menu5 = NULL;
+}
 
 /*
  find用法
@@ -1023,7 +1027,7 @@ void Test18_3()
 	Menu* menu3 = new Menu("黄瓜", "上海黄瓜", 30);
 	Menu* menu4 = new Menu("粽子", "武汉粽子", 40);
 	Menu* menu5 = new Menu("牛肉", "神州牛肉", 50);
-	
+
 	p_deque->push_back(*menu1);
 	p_deque->push_back(*menu2);
 	p_deque->push_back(*menu3);
@@ -1031,12 +1035,12 @@ void Test18_3()
 	p_deque->push_back(*menu5);
 
 	PRINT_T("===初次全部打印");
-	for_each(p_deque->begin(), p_deque->end(), CommonFunShowAlgotithmDatasss);
+	for_each(p_deque->begin(), p_deque->end(), FunObjForEachArgsObj());
 
 	// 这里必须要运算符重载一下
 
-	find_if
-	deque<Menu>::iterator p_iterator = find(p_deque->begin(), p_deque->end(), "桃子");
+
+	deque<Menu>::iterator p_iterator = find(p_deque->begin(), p_deque->end(), "桃子");// 这里需要重写操作符
 	if (p_iterator != p_deque->end())
 	{
 		PRINT_T("。。。找到了。。。");
