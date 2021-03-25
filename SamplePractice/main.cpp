@@ -902,6 +902,9 @@ void Test17()
   **************************algorithm算法相关练习 开始**************************
 */
 
+/*
+ 仿函数 参数为指针
+*/
 class FunObjForEachArgsPointer
 {
 public:
@@ -911,6 +914,9 @@ public:
 	}
 };
 
+/*
+ 仿函数 参数为对象
+*/
 class FunObjForEachArgsObj
 {
 public:
@@ -920,12 +926,32 @@ public:
 	}
 };
 
+/*
+ 仿函数 转换时候使用
+*/
 class FunObjTransform
 {
 public:
 	Menu* operator()(Menu* p_menu)
 	{
 		return p_menu;
+	}
+};
+
+//仿函数 谓词
+class FunObjFindIf
+{
+private:
+	string m_name;
+public:
+	FunObjFindIf(string name)
+	{
+		this->m_name = name;
+	}
+
+	bool operator()(Menu* p_menu)
+	{
+		return this->m_name == p_menu->get_m_name();
 	}
 };
 
@@ -1065,7 +1091,53 @@ void Test18_3()
 	menu5 = NULL;
 }
 
+/*
+ find_if 用法 （个人觉得 better than find）
+*/
 
+void Test18_4()
+{
+	PRINT_T("===Test18_4");
+	list<Menu*>* p_list = new list<Menu*>();
+	Menu* menu1 = new Menu("苹果", "洛川苹果", 10);
+	Menu* menu2 = new Menu("桃子", "北京桃子", 20);
+	Menu* menu3 = new Menu("黄瓜", "上海黄瓜", 30);
+	Menu* menu4 = new Menu("粽子", "武汉粽子", 40);
+	Menu* menu5 = new Menu("牛肉", "神州牛肉", 50);
+
+	AddAlogrithmDatas(p_list, menu1);
+	AddAlogrithmDatas(p_list, menu2);
+	AddAlogrithmDatas(p_list, menu3);
+	AddAlogrithmDatas(p_list, menu4);
+	AddAlogrithmDatas(p_list, menu5);
+
+	for_each(p_list->begin(), p_list->end(), FunObjForEachArgsPointer());
+	PRINT_T("=== 开始find_if");
+	string keyWord = "牛肉";
+	
+	list<Menu*>::iterator p_it = find_if(p_list->begin(), p_list->end(), FunObjFindIf(keyWord));
+	if (p_it == p_list->end())
+	{
+		PRINT_T("未找到数据");
+	}
+	else
+	{
+		(*p_it)->ShowInfo();
+	}
+
+	delete p_list;
+	p_list = NULL;
+	delete menu1;
+	menu1 = NULL;
+	delete menu2;
+	menu2 = NULL;
+	delete menu3;
+	menu3 = NULL;
+	delete menu4;
+	menu4 = NULL;
+	delete menu5;
+	menu5 = NULL;
+}
 /*
   **************************algorithm算法相关练习 结束**************************
 */
@@ -1116,7 +1188,8 @@ int main()
 	//Test17();   //【stl map】map集合
 	//Test18_1(); //【stl for_each】遍历算法 普通函数 与 仿函数
 	//Test18_2(); //【stl transform】搬运转化 (!!! 有问题，需要确认修改)
-	Test18_3();// 【stl find】查找元素
+	//Test18_3(); //【stl find】查找元素
+	Test18_4(); //【stl find_if】查找元素
 	return 1;
 
 }

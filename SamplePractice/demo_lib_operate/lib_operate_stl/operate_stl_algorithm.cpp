@@ -15,3 +15,11 @@ void AddAlogrithmDatas(deque<Menu*>* p_deque, Menu* p_menu)
 		p_deque->push_back(p_menu);
 	}
 }
+
+void AddAlogrithmDatas(list<Menu*>* p_list, Menu* p_menu) 
+{
+	if (p_list != NULL)
+	{
+		p_list->push_back(p_menu);
+	}
+}
