@@ -914,7 +914,7 @@ public:
 	}
 };
 
-class FunElementBase
+class FunElementShort
 {
 public:
 	void operator()(short element)
@@ -965,6 +965,7 @@ public:
 	}
 };
 
+//仿函数 谓词,按条件查找价格
 class FunFindPrice
 {
 private:
@@ -982,7 +983,32 @@ public:
 	}
 };
 
+//仿函数 谓词,按条件升序或者降序
+class FunSort
+{
 
+private:
+	char m_tag;
+public:
+	FunSort(char tag)
+	{
+		this->m_tag = tag;
+	}
+	bool operator()(Menu* p_m1, Menu* p_m2)
+	{
+
+		bool ret;
+		if (m_tag == 1) // 升序
+		{
+			ret = p_m1->get_m_price() < p_m2->get_m_price();
+		}
+		else
+		{
+			ret = p_m1->get_m_price() > p_m2->get_m_price();
+		}
+		return ret;
+	}
+};
 
 
 /*
@@ -1180,14 +1206,12 @@ void Test18_5()
 	p_list->push_back(3);
 	p_list->push_back(7);
 
-	for_each(p_list->begin(), p_list->end(), FunElementBase());
+	for_each(p_list->begin(), p_list->end(), FunElementShort());
 	PRINT_T("count");
 	int num = count(p_list->begin(), p_list->end(), p_list->front());
 	cout << p_list->front() << "有" << num << "个" << endl;
 	delete p_list;
 	p_list = NULL;
-
-
 
 	list<Menu*>* p_list_menus = new list<Menu*>();
 	Menu* menu1 = new Menu("苹果", "洛川苹果", 10);
@@ -1208,6 +1232,125 @@ void Test18_5()
 	PRINT_T(menu_count);
 
 	delete p_list_menus; p_list_menus = NULL;
+	delete menu1; menu1 = NULL;
+	delete menu2; menu2 = NULL;
+	delete menu3; menu3 = NULL;
+	delete menu4; menu4 = NULL;
+	delete menu5; menu5 = NULL;
+}
+
+/*
+ sort 的用法 排序
+*/
+void Test18_6()
+{
+	PRINT_T("===Test18_6");
+	vector<Menu*>* p_vector = new vector<Menu*>();
+	Menu* menu1 = new Menu("苹果", "洛川苹果", 10);
+	Menu* menu2 = new Menu("桃子", "北京桃子", 50);
+	Menu* menu3 = new Menu("黄瓜", "上海黄瓜", 50);
+	Menu* menu4 = new Menu("粽子", "武汉粽子", 40);
+	Menu* menu5 = new Menu("牛肉", "神州牛肉", 30);
+
+	AddAlogrithmDatas(p_vector, menu1);
+	AddAlogrithmDatas(p_vector, menu2);
+	AddAlogrithmDatas(p_vector, menu3);
+	AddAlogrithmDatas(p_vector, menu4);
+	AddAlogrithmDatas(p_vector, menu5);
+	for_each(p_vector->begin(), p_vector->end(), FunObjForEachArgsPointer());
+
+	PRINT_T(" sort");
+	sort(p_vector->begin(), p_vector->end(), FunSort(1));
+	for_each(p_vector->begin(), p_vector->end(), FunObjForEachArgsPointer());
+	delete p_vector; p_vector = NULL;
+	delete menu1; menu1 = NULL;
+	delete menu2; menu2 = NULL;
+	delete menu3; menu3 = NULL;
+	delete menu4; menu4 = NULL;
+	delete menu5; menu5 = NULL;
+}
+
+/*
+ random_shuffle 随机打乱顺序
+*/
+void Test18_7()
+{
+
+	PRINT_T("===Test18_7");
+	deque<Menu*>* p_deque = new deque<Menu*>();
+	Menu* menu1 = new Menu("苹果", "洛川苹果", 10);
+	Menu* menu2 = new Menu("桃子", "北京桃子", 20);
+	Menu* menu3 = new Menu("黄瓜", "上海黄瓜", 30);
+	Menu* menu4 = new Menu("粽子", "武汉粽子", 40);
+	Menu* menu5 = new Menu("牛肉", "神州牛肉", 50);
+
+	p_deque->push_back(menu1);
+	p_deque->push_back(menu2);
+	p_deque->push_back(menu3);
+	p_deque->push_back(menu4);
+	p_deque->push_back(menu5);
+	for_each(p_deque->begin(), p_deque->end(), FunObjForEachArgsPointer());
+	
+	PRINT_T("random_shuffle");
+	random_shuffle(p_deque->begin(), p_deque->end());
+	for_each(p_deque->begin(), p_deque->end(), FunObjForEachArgsPointer());
+	delete p_deque;
+	delete menu1; menu1 = NULL;
+	delete menu2; menu2 = NULL;
+	delete menu3; menu3 = NULL;
+	delete menu4; menu4 = NULL;
+	delete menu5; menu5 = NULL;
+}
+
+/*
+ merge 合并 （两个集合都是有序序列才能合并啊）
+*/
+void Test18_8() 
+{
+	PRINT_T("===Test18_8");
+	vector<short> p_v1;
+	
+	p_v1.push_back(1);
+	p_v1.push_back(2);
+	p_v1.push_back(3);
+	p_v1.push_back(4);
+	vector<short> p_v2;
+	p_v2.push_back(11);
+	p_v2.push_back(22);
+	p_v2.push_back(33);
+	p_v2.push_back(44);
+	vector<short> p_v_target;
+	p_v_target.resize(p_v1.size() + p_v2.size());
+	PRINT_T("merge");
+	merge(p_v1.begin(),p_v1.end(), p_v2.begin(),p_v2.end(),p_v_target.begin());
+	for_each(p_v_target.begin(), p_v_target.end(), FunElementShort());
+
+}
+
+/*
+ reverse 数据逆向排列
+*/
+void Test18_9() 
+{
+	PRINT_T("===Test18_7");
+	deque<Menu*>* p_deque = new deque<Menu*>();
+	Menu* menu1 = new Menu("苹果", "洛川苹果", 10);
+	Menu* menu2 = new Menu("桃子", "北京桃子", 20);
+	Menu* menu3 = new Menu("黄瓜", "上海黄瓜", 30);
+	Menu* menu4 = new Menu("粽子", "武汉粽子", 40);
+	Menu* menu5 = new Menu("牛肉", "神州牛肉", 50);
+
+	p_deque->push_back(menu1);
+	p_deque->push_back(menu2);
+	p_deque->push_back(menu3);
+	p_deque->push_back(menu4);
+	p_deque->push_back(menu5);
+	for_each(p_deque->begin(), p_deque->end(), FunObjForEachArgsPointer());
+
+	PRINT_T("reverse");
+	reverse(p_deque->begin(), p_deque->end());
+	for_each(p_deque->begin(), p_deque->end(), FunObjForEachArgsPointer());
+	delete p_deque;
 	delete menu1; menu1 = NULL;
 	delete menu2; menu2 = NULL;
 	delete menu3; menu3 = NULL;
@@ -1267,7 +1410,11 @@ int main()
 	//Test18_2(); //【stl transform】搬运转化 (!!! 有问题，需要确认修改)
 	//Test18_3(); //【stl find】查找元素
 	//Test18_4(); //【stl find_if】查找元素
-	Test18_5();//【stl count】统计某元素个数
+	//Test18_5(); //【stl count】统计某元素个数
+	//Test18_6(); //【stl sort】排序处理
+	//Test18_7(); //【stl random_shuffle】排序，随机处理
+	//Test18_8(); //【stl merge】升序合并
+	Test18_9(); //【stl reverse】集合中数据颠倒
 	return 1;
 
 }

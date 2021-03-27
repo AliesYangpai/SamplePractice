@@ -1,3 +1,20 @@
+/*
+ 需要掌握的算法：
+ 遍历：
+     for_each
+	 transform
+ 查找：
+	 find
+	 find_if
+	 adjacent_find ？？
+	 binary_search
+	 count
+	 count_if
+ 排序：
+	 sort
+	 random_shuffle
+	 reverse
+*/
 #pragma once
 #include <iostream>
 #include <vector>
