@@ -187,6 +187,9 @@
     <ClInclude Include="demo_templet_self\bean\student.hpp" />
     <ClInclude Include="demo_templet_self\bean\teacher.hpp" />
   </ItemGroup>
+  <ItemGroup>
+    <None Include="C:\Users\Administrator\Desktop\temp\weapons\C++\0X.C++大纲.xmind" />
+  </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
   </ImportGroup>
