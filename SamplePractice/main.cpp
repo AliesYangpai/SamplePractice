@@ -1010,6 +1010,21 @@ public:
 	}
 };
 
+class FunReplaceByCondition
+{
+private:
+	float m_price_condition;
+public:
+	FunReplaceByCondition(float price)
+	{
+		this->m_price_condition = price;
+	}
+
+	bool operator()(Menu* p_menu)
+	{
+		return 	p_menu->get_m_price() == m_price_condition;
+	}
+};
 
 /*
  for_each 遍历练习
@@ -1290,11 +1305,11 @@ void Test18_7()
 	p_deque->push_back(menu4);
 	p_deque->push_back(menu5);
 	for_each(p_deque->begin(), p_deque->end(), FunObjForEachArgsPointer());
-	
+
 	PRINT_T("random_shuffle");
 	random_shuffle(p_deque->begin(), p_deque->end());
 	for_each(p_deque->begin(), p_deque->end(), FunObjForEachArgsPointer());
-	delete p_deque;
+	delete p_deque; p_deque = NULL;
 	delete menu1; menu1 = NULL;
 	delete menu2; menu2 = NULL;
 	delete menu3; menu3 = NULL;
@@ -1305,11 +1320,11 @@ void Test18_7()
 /*
  merge 合并 （两个集合都是有序序列才能合并啊）
 */
-void Test18_8() 
+void Test18_8()
 {
 	PRINT_T("===Test18_8");
 	vector<short> p_v1;
-	
+
 	p_v1.push_back(1);
 	p_v1.push_back(2);
 	p_v1.push_back(3);
@@ -1322,7 +1337,7 @@ void Test18_8()
 	vector<short> p_v_target;
 	p_v_target.resize(p_v1.size() + p_v2.size());
 	PRINT_T("merge");
-	merge(p_v1.begin(),p_v1.end(), p_v2.begin(),p_v2.end(),p_v_target.begin());
+	merge(p_v1.begin(), p_v1.end(), p_v2.begin(), p_v2.end(), p_v_target.begin());
 	for_each(p_v_target.begin(), p_v_target.end(), FunElementShort());
 
 }
@@ -1330,7 +1345,7 @@ void Test18_8()
 /*
  reverse 数据逆向排列
 */
-void Test18_9() 
+void Test18_9()
 {
 	PRINT_T("===Test18_7");
 	deque<Menu*>* p_deque = new deque<Menu*>();
@@ -1357,6 +1372,106 @@ void Test18_9()
 	delete menu4; menu4 = NULL;
 	delete menu5; menu5 = NULL;
 }
+
+/*
+ copy拷贝数据到另一个集合中
+*/
+void Test18_10()
+{
+	PRINT_T("===Test18_10");
+	vector<Menu*>* p_vector = new vector<Menu*>();
+	Menu* menu1 = new Menu("苹果", "洛川苹果", 10);
+	Menu* menu2 = new Menu("桃子", "北京桃子", 20);
+	Menu* menu3 = new Menu("黄瓜", "上海黄瓜", 30);
+	Menu* menu4 = new Menu("粽子", "武汉粽子", 40);
+	Menu* menu5 = new Menu("牛肉", "神州牛肉", 50);
+	AddAlogrithmDatas(p_vector, menu1);
+	AddAlogrithmDatas(p_vector, menu2);
+	AddAlogrithmDatas(p_vector, menu3);
+	AddAlogrithmDatas(p_vector, menu4);
+	AddAlogrithmDatas(p_vector, menu5);
+	for_each(p_vector->begin(), p_vector->end(), FunObjForEachArgsPointer());
+
+	PRINT_T("copy");
+	vector<Menu*>* p_target = new vector<Menu*>();
+	p_target->resize(p_vector->size());
+	copy(p_vector->begin(), p_vector->end(), p_target->begin());
+	PRINT_T("打印copy数据");
+	for_each(p_target->begin(), p_target->end(), FunObjForEachArgsPointer());
+
+	delete p_target; p_target = NULL;
+	delete p_vector; p_vector = NULL;
+	delete menu1; menu1 = NULL;
+	delete menu2; menu2 = NULL;
+	delete menu3; menu3 = NULL;
+	delete menu4; menu4 = NULL;
+	delete menu5; menu5 = NULL;
+
+}
+
+/*
+ replace与replace_if的使用，将列表中指定的元素替换为新的元素
+ （这里为了方便演示，我们就使用replace_if的例子，演示替换自定义类型）
+*/
+void Test18_11()
+{
+	PRINT_T("===Test18_11");
+	deque<Menu*>* p_deque = new deque<Menu*>();
+	Menu* menu1 = new Menu("苹果", "洛川苹果", 10);
+	Menu* menu2 = new Menu("桃子", "北京桃子", 10);
+	Menu* menu3 = new Menu("黄瓜", "上海黄瓜", 30);
+	Menu* menu4 = new Menu("粽子", "武汉粽子", 40);
+	Menu* menu5 = new Menu("牛肉", "神州牛肉", 50);
+
+	p_deque->push_back(menu1);
+	p_deque->push_back(menu2);
+	p_deque->push_back(menu3);
+	p_deque->push_back(menu4);
+	p_deque->push_back(menu5);
+
+	for_each(p_deque->begin(), p_deque->end(), FunObjForEachArgsPointer());
+	PRINT_T("replace_if");
+	replace_if(p_deque->begin(), p_deque->end(), FunReplaceByCondition(10), new Menu("西瓜", "宁夏西瓜", 99));
+	for_each(p_deque->begin(), p_deque->end(), FunObjForEachArgsPointer());
+
+	delete p_deque; p_deque = NULL;
+	delete menu1; menu1 = NULL;
+	delete menu2; menu2 = NULL;
+	delete menu3; menu3 = NULL;
+	delete menu4; menu4 = NULL;
+	delete menu5; menu5 = NULL;
+}
+
+/*
+ swap交换两个容器中的元素
+  (只能交换同种类型的stl)
+*/
+void Test18_12()
+{
+	set<short>* p_set1 = new set<short>();
+	p_set1->insert(1);
+	p_set1->insert(2);
+	p_set1->insert(3);
+	p_set1->insert(4);
+
+	set<short>* p_set2 = new set<short>();
+	p_set2->insert(44);
+	p_set2->insert(22);
+	p_set2->insert(11);
+	p_set2->insert(33);
+
+	PRINT_T("交换前：");
+	for_each(p_set1->begin(), p_set1->end(), FunElementShort());
+	for_each(p_set2->begin(), p_set2->end(), FunElementShort());
+	PRINT_T("交换后：");
+	swap(p_set1, p_set2);
+	for_each(p_set1->begin(), p_set1->end(), FunElementShort());
+	for_each(p_set2->begin(), p_set2->end(), FunElementShort());
+
+	delete p_set1; p_set1 = NULL;
+	delete p_set2; p_set2 = NULL;
+}
+
 /*
   **************************algorithm算法相关练习 结束**************************
 */
@@ -1414,7 +1529,10 @@ int main()
 	//Test18_6(); //【stl sort】排序处理
 	//Test18_7(); //【stl random_shuffle】排序，随机处理
 	//Test18_8(); //【stl merge】升序合并
-	Test18_9(); //【stl reverse】集合中数据颠倒
+	//Test18_9(); //【stl reverse】集合中数据颠倒
+	//Test18_10();//【stl copy】集合拷贝算法
+	//Test18_11();//【stl replace_if】替换元素中目标元素为指定的元素
+	Test18_12(); //【stl swap】交换两个相同类型，stl中的元素
 	return 1;
 
 }
