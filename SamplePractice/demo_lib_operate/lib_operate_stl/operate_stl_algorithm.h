@@ -23,6 +23,7 @@
 #include <list>
 #include "bean/menu.h"
 #include <algorithm>
+#include <numeric>
 using namespace std;
 void AddAlogrithmDatas(vector<Menu*>* p_vector,Menu* p_menu);
 void AddAlogrithmDatas(deque<Menu*>* p_deque, Menu* p_menu);

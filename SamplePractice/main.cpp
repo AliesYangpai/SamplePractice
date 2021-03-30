@@ -1473,6 +1473,97 @@ void Test18_12()
 }
 
 /*
+ accumulate计算区间内元元素和
+ */
+void Test18_13()
+{
+	PRINT_T("===Test18_13");
+	vector<short>* p_vector = new vector<short>();
+	p_vector->push_back(1);
+	p_vector->push_back(2);
+	p_vector->push_back(3);
+	p_vector->push_back(4);
+	short allCount = accumulate(p_vector->begin(), p_vector->end(), 0);
+	PRINT_T(allCount);
+	delete p_vector; p_vector = NULL;
+}
+
+/*
+ fill将指定区间内的元素 进行数据替换
+*/
+void Test18_14()
+{
+	PRINT_T("===Test18_14");
+	list<short>* p_list = new list<short>();
+	p_list->resize(10);
+	for_each(p_list->begin(), p_list->end(), FunElementShort());
+	fill(p_list->begin(), p_list->end(), 20);
+	PRINT_T("fill");
+	for_each(p_list->begin(), p_list->end(), FunElementShort());
+	delete p_list; p_list = NULL;
+}
+
+/*
+ set_intersection求集合中的交集
+*/
+void Test18_15()
+{
+	PRINT_T("===Test18_15");
+	vector<short> p_v1;
+	vector<short> p_v2;
+	for (int i = 0; i < 10; i++)
+	{
+		p_v1.push_back(i);
+		p_v2.push_back(i + 2);
+	}
+	vector<short> p_v3;
+	p_v3.resize(min(p_v1.size(), p_v2.size())); // 交集取这两个集合的最小值
+
+	vector<short>::iterator p_end = set_intersection(p_v1.begin(), p_v1.end(), p_v2.begin(), p_v2.end(), p_v3.begin());
+	for_each(p_v3.begin(), p_end, FunElementShort());
+}
+
+/*
+ set_union求集合中的并集
+*/
+void Test18_16()
+{
+	PRINT_T("===Test18_16");
+	vector<short> p_v1;
+	vector<short> p_v2;
+	for (int i = 0; i < 10; i++)
+	{
+		p_v1.push_back(i);
+		p_v2.push_back(i + 2);
+	}
+	vector<short> p_v3;
+	p_v3.resize(p_v1.size() + p_v2.size()); // 交集取这两个集合的最小值
+
+	vector<short>::iterator p_end = set_union(p_v1.begin(), p_v1.end(), p_v2.begin(), p_v2.end(), p_v3.begin());
+	for_each(p_v3.begin(), p_end, FunElementShort());
+}
+
+/*
+ set_difference求补集
+*/
+void Test18_17() 
+{
+	PRINT_T("===Test18_17");
+	vector<short> p_v1;
+	vector<short> p_v2;
+	for (int i = 0; i < 10; i++)
+	{
+		p_v1.push_back(i);
+		p_v2.push_back(i + 2);
+	}
+	vector<short> p_v3;
+	p_v3.resize(max(p_v1.size(),p_v2.size())); // 交集取这两个集合的最小值
+	PRINT_T("p_v1和p_v2的补集"); // 参数对调
+	vector<short>::iterator p_end = set_difference(p_v1.begin(), p_v1.end(), p_v2.begin(), p_v2.end(), p_v3.begin());
+	for_each(p_v3.begin(), p_end, FunElementShort());
+
+}
+/*
   **************************algorithm算法相关练习 结束**************************
 */
 
@@ -1532,7 +1623,12 @@ int main()
 	//Test18_9(); //【stl reverse】集合中数据颠倒
 	//Test18_10();//【stl copy】集合拷贝算法
 	//Test18_11();//【stl replace_if】替换元素中目标元素为指定的元素
-	Test18_12(); //【stl swap】交换两个相同类型，stl中的元素
+	//Test18_12();//【stl swap】交换两个相同类型，stl中的元素
+	//Test18_13();//【stl accumulate】算数，将集合内指定的元素累加
+	//Test18_14();//【stl fill】算数，将区间内的元素重新复制
+	//Test18_15();//【stl set_intersection】算数，求交集
+	//Test18_16();//【stl set_union】算数，求并集
+	Test18_17(); //【stl set_union】算数，求补集
 	return 1;
 
 }
