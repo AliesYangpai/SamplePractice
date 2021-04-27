@@ -20,6 +20,7 @@ extern "C" {
 #include "demo_lib_operate/lib_operate_stl/operate_stl_set.h"
 #include "demo_lib_operate/lib_operate_stl/operate_stl_map.h"
 #include "demo_lib_operate/lib_operate_stl/operate_stl_algorithm.h"
+#include "demo_common_review/bean/apple.h"
 using namespace std;
 #define PRINT_T(T) cout << T << endl
 
@@ -1567,6 +1568,19 @@ void Test18_17()
   **************************algorithm算法相关练习 结束**************************
 */
 
+/*
+ 回顾练习
+ 创建一个对象
+*/
+void Test_review_01() 
+{
+	PRINT_T("===Test_review_01");
+	Apple* p_apple = new Apple(10, "富士苹果", 15.6F);
+	PRINT_T(p_apple->get_m_name());
+	PRINT_T(p_apple->get_m_price());
+	delete p_apple;
+	p_apple = NULL;
+}
 
 int main()
 {
@@ -1628,7 +1642,11 @@ int main()
 	//Test18_14();//【stl fill】算数，将区间内的元素重新复制
 	//Test18_15();//【stl set_intersection】算数，求交集
 	//Test18_16();//【stl set_union】算数，求并集
-	Test18_17(); //【stl set_union】算数，求补集
+	//Test18_17();//【stl set_union】算数，求补集
+
+    //==================================================
+	Test_review_01();//【review practice】创建对象
+
 	return 1;
 
 }
