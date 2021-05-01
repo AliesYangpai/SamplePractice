@@ -1575,11 +1575,30 @@ void Test18_17()
 void Test_review_01() 
 {
 	PRINT_T("===Test_review_01");
-	Apple* p_apple = new Apple(10, "富士苹果", 15.6F);
-	PRINT_T(p_apple->get_m_name());
-	PRINT_T(p_apple->get_m_price());
-	delete p_apple;
-	p_apple = NULL;
+	Apple* p_apple = new Apple("红富士1号","红富士");
+	p_apple->set_supplier("红富士工厂");
+	p_apple->set_price(11.5F);
+	cout << p_apple->get_supplier() << "\t" << p_apple->get_type() << "\t" << p_apple->get_price() << endl;
+	delete p_apple;p_apple = NULL;
+}
+
+/*
+ 回顾练习
+ 创建一个对象，含继承关系
+*/
+void Test_review_02() 
+{
+	PRINT_T("===Test_review_02");
+	Apple* p_1 = new Apple("红富士1号", "红富士",15.6F,"红富士工厂");
+	Apple* p_2 = new Apple("洛川1号", "洛川系列", 20.5F, "洛川老人家");
+	cout << p_1->get_supplier() << "\t" << p_1->get_type() << "\t" << p_1->get_price() << endl;
+	cout << p_2->get_supplier() << "\t" << p_2->get_type() << "\t" << p_2->get_price() << endl;
+	delete p_1; p_1 = NULL;
+	delete p_2; p_2 = NULL;
+
+	//Apple* p_2 = new Apple("洛川1号", "洛川系列", 20.5F, "洛川老人家");
+	//cout << p_2->get_supplier() << "\t" << p_2->get_type() << "\t" << p_2->get_price() << endl;
+	//delete p_2; p_2 = NULL;
 }
 
 int main()
@@ -1645,8 +1664,8 @@ int main()
 	//Test18_17();//【stl set_union】算数，求补集
 
     //==================================================
-	Test_review_01();//【review practice】创建对象
-
+	//Test_review_01();//【review practice】创建对象
+	Test_review_02();//【review practice】创建对象,含继承关系
 	return 1;
 
 }

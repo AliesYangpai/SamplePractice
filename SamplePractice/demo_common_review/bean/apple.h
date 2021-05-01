@@ -1,22 +1,20 @@
 #pragma once
 #include <iostream>
 #include <string.h>
+#include "friut.h"
 using namespace std;
-class Apple {
+class Apple :public Fruit{
+
 private:
-	int m_id;
-	string m_name;
-	float m_price;
-
+	float mPrice;
+	string mSupplier;
 public:
-	Apple();
 	~Apple();
-	Apple(int id, string name, float price);
-
-	void set_m_id(int id);
-	void set_m_name(string name);
-	void set_m_price(float price);
-	int get_m_id();
-	string get_m_name();
-	float get_m_price();
+	Apple();
+	Apple(string name, string type);
+	Apple(string name, string type, float price, string supplier);
+	void set_price(float price);
+	void set_supplier(string supplier);
+	float get_price();
+	string get_supplier();
 };
