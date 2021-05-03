@@ -21,6 +21,7 @@ extern "C" {
 #include "demo_lib_operate/lib_operate_stl/operate_stl_map.h"
 #include "demo_lib_operate/lib_operate_stl/operate_stl_algorithm.h"
 #include "demo_common_review/bean/apple.h"
+#include "demo_common_review/bean/peach.h"
 using namespace std;
 #define PRINT_T(T) cout << T << endl
 
@@ -1601,6 +1602,18 @@ void Test_review_02()
 	//delete p_2; p_2 = NULL;
 }
 
+/*
+ 回归练习
+ 日常创建对象的练习啦
+*/
+void Test_review_03()
+{
+	PRINT_T("===Test_review_03");
+	Peach* p_peach = new Peach("吐鲁番1桃","蟠桃",55.6F,"吐鲁番平价果蔬公司");
+	cout << "name :" << p_peach->get_name() << " supplier:" << p_peach->get_supplier() << endl;
+	delete p_peach; p_peach = NULL;
+}
+
 int main()
 {
 	PRINT_T("===main()");
@@ -1665,7 +1678,8 @@ int main()
 
     //==================================================
 	//Test_review_01();//【review practice】创建对象
-	Test_review_02();//【review practice】创建对象,含继承关系
+	//Test_review_02();//【review practice】创建对象，含继承关系
+	Test_review_03();//【review practice】创建对象，含继承关系。日常练习啦
 	return 1;
 
 }
