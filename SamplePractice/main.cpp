@@ -22,6 +22,7 @@ extern "C" {
 #include "demo_lib_operate/lib_operate_stl/operate_stl_algorithm.h"
 #include "demo_common_review/bean/apple.h"
 #include "demo_common_review/bean/peach.h"
+#include "demo_common_review/bean/bananaImmortal.h"
 using namespace std;
 #define PRINT_T(T) cout << T << endl
 
@@ -1603,7 +1604,7 @@ void Test_review_02()
 }
 
 /*
- 回归练习
+ 回顾练习
  日常创建对象的练习啦
 */
 void Test_review_03()
@@ -1612,6 +1613,27 @@ void Test_review_03()
 	Peach* p_peach = new Peach("吐鲁番1桃","蟠桃",55.6F,"吐鲁番平价果蔬公司");
 	cout << "name :" << p_peach->get_name() << " supplier:" << p_peach->get_supplier() << endl;
 	delete p_peach; p_peach = NULL;
+}
+
+
+void executeFun01(Banana* p_banana) 
+{
+	p_banana->show_banana_info();
+}
+/*
+ 回顾练习
+ 日常创建对象的练习啦
+ 加入继承的学习 普通函数重写，函数地址早绑定
+*/
+void Test_review_04() 
+{
+	PRINT_T("===Test_review_04");
+	Banana* p_b1 = new Banana("普蕉1号","普通蕉");
+	Banana* p_b2 = new BananaImmortal("仙人蕉1号", "仙人蕉","yellow immortal");
+	executeFun01(p_b1);
+	executeFun01(p_b2);
+	delete p_b1; p_b1 = NULL;
+	delete p_b2; p_b2 = NULL;
 }
 
 int main()
@@ -1679,7 +1701,8 @@ int main()
     //==================================================
 	//Test_review_01();//【review practice】创建对象
 	//Test_review_02();//【review practice】创建对象，含继承关系
-	Test_review_03();//【review practice】创建对象，含继承关系。日常练习啦
+	//Test_review_03();//【review practice】创建对象，含继承关系。日常练习啦
+	Test_review_04();//【review practice】创建对象，含继承关系。日常练习啦 函数地址早绑定
 	return 1;
 
 }

@@ -124,6 +124,8 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClCompile Include="demo_common_review\bean\apple.cpp" />
+    <ClCompile Include="demo_common_review\bean\banana.cpp" />
+    <ClCompile Include="demo_common_review\bean\bananaImmortal.cpp" />
     <ClCompile Include="demo_common_review\bean\fruit.cpp" />
     <ClCompile Include="demo_common_review\bean\peach.cpp" />
     <ClCompile Include="demo_computer_components\bean\component_base_computer.cpp" />
@@ -159,6 +161,8 @@
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="demo_common_review\bean\apple.h" />
+    <ClInclude Include="demo_common_review\bean\banana.h" />
+    <ClInclude Include="demo_common_review\bean\bananaImmortal.h" />
     <ClInclude Include="demo_common_review\bean\friut.h" />
     <ClInclude Include="demo_common_review\bean\peach.h" />
     <ClInclude Include="demo_common_review\holder.h" />

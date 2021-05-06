@@ -114,6 +114,12 @@
     <ClCompile Include="demo_common_review\bean\peach.cpp">
       <Filter>源文件</Filter>
     </ClCompile>
+    <ClCompile Include="demo_common_review\bean\banana.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="demo_common_review\bean\bananaImmortal.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="demo_sort\base_sort.h">
@@ -219,6 +225,12 @@
       <Filter>头文件</Filter>
     </ClInclude>
     <ClInclude Include="demo_common_review\bean\peach.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="demo_common_review\bean\banana.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="demo_common_review\bean\bananaImmortal.h">
       <Filter>头文件</Filter>
     </ClInclude>
   </ItemGroup>
