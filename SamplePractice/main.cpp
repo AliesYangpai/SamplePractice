@@ -1618,7 +1618,8 @@ void Test_review_03()
 
 void executeFun01(Banana* p_banana) 
 {
-	p_banana->show_banana_info();
+	p_banana->show_common_info(); // 普通函数
+	p_banana->show_banana_info(); // 虚函数
 }
 /*
  回顾练习
@@ -1634,6 +1635,19 @@ void Test_review_04()
 	executeFun01(p_b2);
 	delete p_b1; p_b1 = NULL;
 	delete p_b2; p_b2 = NULL;
+}
+
+/*
+ 巩固练习
+ 日常创建对象的练习啦
+ 对比虚函数与普通函数在LPS中的异同
+*/
+void Test_review_05() 
+{
+	PRINT_T("===Test_review_05");
+	Banana* p_b1 = new BananaImmortal("仙人蕉1号", "仙人蕉", "yellow immortal");
+	executeFun01(p_b1);
+	delete p_b1; p_b1 = NULL;
 }
 
 int main()
@@ -1702,7 +1716,8 @@ int main()
 	//Test_review_01();//【review practice】创建对象
 	//Test_review_02();//【review practice】创建对象，含继承关系
 	//Test_review_03();//【review practice】创建对象，含继承关系。日常练习啦
-	Test_review_04();//【review practice】创建对象，含继承关系。日常练习啦 函数地址早绑定
+	//Test_review_04();//【review practice】创建对象，含继承关系。日常练习啦 函数地址早绑定
+	Test_review_05();//【review practice】创建对象，含继承关系。日常练习啦 对比虚函数与普通函数的不同
 	return 1;
 
 }

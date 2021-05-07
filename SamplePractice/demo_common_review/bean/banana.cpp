@@ -20,7 +20,12 @@ string Banana::get_supplier()
 	return this->mSupplier;
 }
 
-void Banana::show_banana_info() 
+void Banana::show_common_info()
 { 
+	PRINT_T("===Banana show_common_info()");
+}
+
+ void Banana ::show_banana_info() 
+{
 	PRINT_T("===Banana show_banana_info()");
 }

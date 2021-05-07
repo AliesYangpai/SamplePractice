@@ -10,5 +10,6 @@ public:
 	
 	void set_supplier(string supplier);
 	string get_supplier();
-	void show_banana_info(); // 普通函数
+	void show_common_info(); // 普通函数
+	virtual void show_banana_info(); // 虚函数
 };

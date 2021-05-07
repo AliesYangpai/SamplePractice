@@ -9,5 +9,6 @@ public:
 	BananaImmortal(string name, string type, string color);
 	void set_color(string color);
 	string get_color();
-	void show_banana_info(); // 普通函数
+	void show_common_info(); // 普通函数
+	virtual void show_banana_info();
 };

@@ -20,7 +20,12 @@ string BananaImmortal::get_color()
 	return this->mColor;
 }
 
+void BananaImmortal::show_common_info()
+{
+	PRINT_T("===BananaImmortal show_common_info()");
+}
+
 void BananaImmortal::show_banana_info() 
 {
-	PRINT_T("===BananaImmortal show_banana_info()");
+	PRINT_T("===BananaImmortal show_banana_info");
 }
