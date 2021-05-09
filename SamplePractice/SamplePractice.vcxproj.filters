@@ -117,9 +117,6 @@
     <ClCompile Include="demo_common_review\bean\banana.cpp">
       <Filter>源文件</Filter>
     </ClCompile>
-    <ClCompile Include="demo_common_review\bean\bananaImmortal.cpp">
-      <Filter>源文件</Filter>
-    </ClCompile>
     <ClCompile Include="demo_common_review\bean\car\base_car.cpp">
       <Filter>源文件</Filter>
     </ClCompile>
@@ -127,6 +124,9 @@
       <Filter>源文件</Filter>
     </ClCompile>
     <ClCompile Include="demo_common_review\bean\car\tank_car.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="demo_common_review\bean\banana_immortal.cpp">
       <Filter>源文件</Filter>
     </ClCompile>
   </ItemGroup>
@@ -239,9 +239,6 @@
     <ClInclude Include="demo_common_review\bean\banana.h">
       <Filter>头文件</Filter>
     </ClInclude>
-    <ClInclude Include="demo_common_review\bean\bananaImmortal.h">
-      <Filter>头文件</Filter>
-    </ClInclude>
     <ClInclude Include="demo_common_review\bean\car\base_car.h">
       <Filter>头文件</Filter>
     </ClInclude>
@@ -249,6 +246,9 @@
       <Filter>头文件</Filter>
     </ClInclude>
     <ClInclude Include="demo_common_review\bean\car\tank_car.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="demo_common_review\bean\banana_immortal.h">
       <Filter>头文件</Filter>
     </ClInclude>
   </ItemGroup>

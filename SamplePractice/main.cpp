@@ -22,7 +22,7 @@ extern "C" {
 #include "demo_lib_operate/lib_operate_stl/operate_stl_algorithm.h"
 #include "demo_common_review/bean/apple.h"
 #include "demo_common_review/bean/peach.h"
-#include "demo_common_review/bean/bananaImmortal.h"
+#include "demo_common_review/bean/banana_immortal.h"
 #include "demo_common_review/bean/car/racing_car.h"
 #include "demo_common_review/bean/car/tank_car.h"
 using namespace std;
