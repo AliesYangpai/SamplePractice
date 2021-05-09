@@ -126,6 +126,9 @@
     <ClCompile Include="demo_common_review\bean\apple.cpp" />
     <ClCompile Include="demo_common_review\bean\banana.cpp" />
     <ClCompile Include="demo_common_review\bean\bananaImmortal.cpp" />
+    <ClCompile Include="demo_common_review\bean\car\base_car.cpp" />
+    <ClCompile Include="demo_common_review\bean\car\racing_car.cpp" />
+    <ClCompile Include="demo_common_review\bean\car\tank_car.cpp" />
     <ClCompile Include="demo_common_review\bean\fruit.cpp" />
     <ClCompile Include="demo_common_review\bean\peach.cpp" />
     <ClCompile Include="demo_computer_components\bean\component_base_computer.cpp" />
@@ -163,6 +166,9 @@
     <ClInclude Include="demo_common_review\bean\apple.h" />
     <ClInclude Include="demo_common_review\bean\banana.h" />
     <ClInclude Include="demo_common_review\bean\bananaImmortal.h" />
+    <ClInclude Include="demo_common_review\bean\car\base_car.h" />
+    <ClInclude Include="demo_common_review\bean\car\racing_car.h" />
+    <ClInclude Include="demo_common_review\bean\car\tank_car.h" />
     <ClInclude Include="demo_common_review\bean\friut.h" />
     <ClInclude Include="demo_common_review\bean\peach.h" />
     <ClInclude Include="demo_common_review\holder.h" />

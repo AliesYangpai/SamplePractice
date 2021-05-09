@@ -23,6 +23,8 @@ extern "C" {
 #include "demo_common_review/bean/apple.h"
 #include "demo_common_review/bean/peach.h"
 #include "demo_common_review/bean/bananaImmortal.h"
+#include "demo_common_review/bean/car/racing_car.h"
+#include "demo_common_review/bean/car/tank_car.h"
 using namespace std;
 #define PRINT_T(T) cout << T << endl
 
@@ -1621,6 +1623,15 @@ void executeFun01(Banana* p_banana)
 	p_banana->show_common_info(); // 普通函数
 	p_banana->show_banana_info(); // 虚函数
 }
+
+void excuteFunX(BaseCar* p_base_car) 
+{
+	PRINT_T(p_base_car->get_mName());
+	p_base_car->ShowCommonInfo();
+	p_base_car->ShowCarInfo();
+	p_base_car->DoWork();
+}
+
 /*
  回顾练习
  日常创建对象的练习啦
@@ -1648,6 +1659,23 @@ void Test_review_05()
 	Banana* p_b1 = new BananaImmortal("仙人蕉1号", "仙人蕉", "yellow immortal");
 	executeFun01(p_b1);
 	delete p_b1; p_b1 = NULL;
+}
+
+/*
+ 巩固练习
+ 日常创建对象的练习啦
+ 对比虚函数与普通函数在LPS中的异同
+ 加入了纯虚函数
+*/
+void Teat_review_06() 
+{
+	PRINT_T("===Test_review_06");
+	BaseCar* p_racing_car = new RacingCar("F1-001","Farrari");
+	BaseCar* p_tank_car = new TankCar("Watering-05","Enviroment Organization");
+	excuteFunX(p_racing_car);
+	excuteFunX(p_tank_car);
+	delete p_racing_car; p_racing_car = NULL;
+	delete p_tank_car; p_tank_car = NULL;
 }
 
 int main()
@@ -1717,7 +1745,8 @@ int main()
 	//Test_review_02();//【review practice】创建对象，含继承关系
 	//Test_review_03();//【review practice】创建对象，含继承关系。日常练习啦
 	//Test_review_04();//【review practice】创建对象，含继承关系。日常练习啦 函数地址早绑定
-	Test_review_05();//【review practice】创建对象，含继承关系。日常练习啦 对比虚函数与普通函数的不同
+	//Test_review_05();//【review practice】创建对象，含继承关系。日常练习啦 对比虚函数与普通函数的不同
+	Teat_review_06();//【review practice】创建对象，含继承关系。日常练习啦 对比虚函数与普通函数的不同，加入纯虚函数
 	return 1;
 
 }
