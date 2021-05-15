@@ -27,6 +27,7 @@ extern "C" {
 #include "demo_common_review/bean/car/tank_car.h"
 #include "demo_common_review/bean/train/high_speed_train.h"
 #include "demo_common_review/bean/train/steam_locomotive.h"
+#include "demo_templet_self/bean/wrap_toy.hpp"
 using namespace std;
 #define PRINT_T(T) cout << T << endl
 
@@ -1676,7 +1677,7 @@ void Test_review_05()
  对比虚函数与普通函数在LPS中的异同
  加入了纯虚函数
 */
-void Teat_review_06() 
+void Test_review_06() 
 {
 	PRINT_T("===Test_review_06");
 	BaseCar* p_racing_car = new RacingCar("F1-001","Farrari");
@@ -1693,7 +1694,7 @@ void Teat_review_06()
  对比虚函数与普通函数在LPS中的异同
  加入了纯虚函数 ,在BaseTrain.cpp中写入了春虚函数实现，这是无效的！！！
 */
-void Teat_review_07()
+void Test_review_07()
 {
 	PRINT_T("===Test_review_07");
 	BaseTrain* p_train1 = new SteamLocomotive("工业1号");
@@ -1702,6 +1703,21 @@ void Teat_review_07()
 	excuteFunX(p_train2);
 	delete p_train1; p_train1 = NULL;
 	delete p_train2; p_train2 = NULL;
+}
+
+/*
+ 巩固练习
+ 日常创建对象练习啦
+ 模板分文件编写练习
+*/
+void Test_review_08() 
+{
+	PRINT_T("===Test_review_08");
+	WrapToy<string, short>* p_wrap_toy = new WrapToy<string, short>("恐龙勇士", 120);
+	p_wrap_toy->ShowCommonInfo();
+	p_wrap_toy->set_mT1("老鼠勇士");
+	p_wrap_toy->ShowCommonInfo();
+	delete p_wrap_toy; p_wrap_toy = NULL;
 }
 int main()
 {
@@ -1771,8 +1787,9 @@ int main()
 	//Test_review_03();//【review practice】创建对象，含继承关系。日常练习啦
 	//Test_review_04();//【review practice】创建对象，含继承关系。日常练习啦 函数地址早绑定
 	//Test_review_05();//【review practice】创建对象，含继承关系。日常练习啦 对比虚函数与普通函数的不同
-	//Teat_review_06();//【review practice】创建对象，含继承关系。日常练习啦 对比虚函数与普通函数的不同，加入纯虚函数
-	Teat_review_07();//【review practice】创建对象，含继承关系。日常练习啦 对比虚函数与普通函数的不同，加入纯虚函数
+	//Test_review_06();//【review practice】创建对象，含继承关系。日常练习啦 对比虚函数与普通函数的不同，加入纯虚函数
+	//Test_review_07();//【review practice】创建对象，含继承关系。日常练习啦 对比虚函数与普通函数的不同，加入纯虚函数
+	Test_review_08();//【review practice】创建对象。日常练习啦。模板的分文件编写
 	return 1;
 
 }

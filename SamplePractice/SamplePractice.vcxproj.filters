@@ -269,5 +269,8 @@
     <ClInclude Include="demo_common_review\bean\train\steam_locomotive.h">
       <Filter>头文件</Filter>
     </ClInclude>
+    <ClInclude Include="demo_templet_self\bean\wrap_toy.hpp">
+      <Filter>头文件</Filter>
+    </ClInclude>
   </ItemGroup>
 </Project>

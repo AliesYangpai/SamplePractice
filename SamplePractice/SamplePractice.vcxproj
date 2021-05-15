@@ -209,6 +209,7 @@
     <ClInclude Include="demo_lib_operate\lib_operate_str\operate_string_method.h" />
     <ClInclude Include="demo_templet_self\bean\student.hpp" />
     <ClInclude Include="demo_templet_self\bean\teacher.hpp" />
+    <ClInclude Include="demo_templet_self\bean\wrap_toy.hpp" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
