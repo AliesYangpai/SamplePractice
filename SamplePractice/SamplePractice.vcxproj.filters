@@ -129,6 +129,15 @@
     <ClCompile Include="demo_common_review\bean\banana_immortal.cpp">
       <Filter>源文件</Filter>
     </ClCompile>
+    <ClCompile Include="demo_common_review\bean\train\base_train.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="demo_common_review\bean\train\high_speed_train.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="demo_common_review\bean\train\SteamLocomotive.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="demo_sort\base_sort.h">
@@ -249,6 +258,15 @@
       <Filter>头文件</Filter>
     </ClInclude>
     <ClInclude Include="demo_common_review\bean\banana_immortal.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="demo_common_review\bean\train\base_train.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="demo_common_review\bean\train\high_speed_train.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="demo_common_review\bean\train\steam_locomotive.h">
       <Filter>头文件</Filter>
     </ClInclude>
   </ItemGroup>

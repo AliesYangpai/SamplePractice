@@ -25,6 +25,8 @@ extern "C" {
 #include "demo_common_review/bean/banana_immortal.h"
 #include "demo_common_review/bean/car/racing_car.h"
 #include "demo_common_review/bean/car/tank_car.h"
+#include "demo_common_review/bean/train/high_speed_train.h"
+#include "demo_common_review/bean/train/steam_locomotive.h"
 using namespace std;
 #define PRINT_T(T) cout << T << endl
 
@@ -106,7 +108,7 @@ void Test06_1()
 	ShowPlayerSkills(&iverson);
 	ShowYourSelf(jordon);
 	ShowPlayerSkills(&jordon);
-}
+} 
 
 /*
  C++中的继承，纯虚函数（类似java中的抽象函数）
@@ -1632,6 +1634,13 @@ void excuteFunX(BaseCar* p_base_car)
 	p_base_car->DoWork();
 }
 
+void excuteFunX(BaseTrain* p_train) 
+{
+	PRINT_T(p_train->get_name());
+	p_train->ShowCommonInfo();
+	p_train->ShowTrainInfo();
+	p_train->doWork();
+}
 /*
  回顾练习
  日常创建对象的练习啦
@@ -1678,6 +1687,22 @@ void Teat_review_06()
 	delete p_tank_car; p_tank_car = NULL;
 }
 
+/*
+ 巩固练习
+ 日常创建对象的练习啦
+ 对比虚函数与普通函数在LPS中的异同
+ 加入了纯虚函数 ,在BaseTrain.cpp中写入了春虚函数实现，这是无效的！！！
+*/
+void Teat_review_07()
+{
+	PRINT_T("===Test_review_07");
+	BaseTrain* p_train1 = new SteamLocomotive("工业1号");
+	BaseTrain* p_train2 = new HighSpeedTrain("高铁G-series 001");
+	excuteFunX(p_train1);
+	excuteFunX(p_train2);
+	delete p_train1; p_train1 = NULL;
+	delete p_train2; p_train2 = NULL;
+}
 int main()
 {
 	PRINT_T("===main()");
@@ -1746,7 +1771,8 @@ int main()
 	//Test_review_03();//【review practice】创建对象，含继承关系。日常练习啦
 	//Test_review_04();//【review practice】创建对象，含继承关系。日常练习啦 函数地址早绑定
 	//Test_review_05();//【review practice】创建对象，含继承关系。日常练习啦 对比虚函数与普通函数的不同
-	Teat_review_06();//【review practice】创建对象，含继承关系。日常练习啦 对比虚函数与普通函数的不同，加入纯虚函数
+	//Teat_review_06();//【review practice】创建对象，含继承关系。日常练习啦 对比虚函数与普通函数的不同，加入纯虚函数
+	Teat_review_07();//【review practice】创建对象，含继承关系。日常练习啦 对比虚函数与普通函数的不同，加入纯虚函数
 	return 1;
 
 }
