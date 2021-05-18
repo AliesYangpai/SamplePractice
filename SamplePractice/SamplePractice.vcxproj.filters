@@ -138,6 +138,15 @@
     <ClCompile Include="demo_common_review\bean\train\SteamLocomotive.cpp">
       <Filter>源文件</Filter>
     </ClCompile>
+    <ClCompile Include="demo_common_review\bean\ship\base_ship.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="demo_common_review\bean\ship\submarine.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="demo_common_review\bean\ship\warcraft.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="demo_sort\base_sort.h">
@@ -270,6 +279,15 @@
       <Filter>头文件</Filter>
     </ClInclude>
     <ClInclude Include="demo_templet_self\bean\wrap_toy.hpp">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="demo_common_review\bean\ship\base_ship.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="demo_common_review\bean\ship\submarine.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="demo_common_review\bean\ship\warcraft.h">
       <Filter>头文件</Filter>
     </ClInclude>
   </ItemGroup>

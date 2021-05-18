@@ -28,6 +28,8 @@ extern "C" {
 #include "demo_common_review/bean/train/high_speed_train.h"
 #include "demo_common_review/bean/train/steam_locomotive.h"
 #include "demo_templet_self/bean/wrap_toy.hpp"
+#include "demo_common_review/bean/ship/submarine.h"
+#include "demo_common_review/bean/ship/warcraft.h"
 using namespace std;
 #define PRINT_T(T) cout << T << endl
 
@@ -1642,6 +1644,15 @@ void excuteFunX(BaseTrain* p_train)
 	p_train->ShowTrainInfo();
 	p_train->doWork();
 }
+
+void excuteFunX(BaseShip* p_ship)
+{
+	PRINT_T(p_ship->get_mName());
+	p_ship->showCommonInfo();
+	p_ship->showShipInfo();
+	p_ship->doWork();
+}
+
 /*
  回顾练习
  日常创建对象的练习啦
@@ -1719,6 +1730,24 @@ void Test_review_08()
 	p_wrap_toy->ShowCommonInfo();
 	delete p_wrap_toy; p_wrap_toy = NULL;
 }
+
+/*
+ 巩固练习
+ 日常创建对象练习啦
+ 模板分文件编写练习
+*/
+void Test_review_09() 
+{
+	PRINT_T("===Test_review_09");
+	BaseShip* p_1 = new Submarine("鲨鱼号");
+	excuteFunX(p_1);
+	delete p_1; p_1 = NULL;
+
+	BaseShip* p_2 = new WarCraft("公主号");
+	excuteFunX(p_2);
+	delete p_2; p_2 = NULL;
+}
+
 int main()
 {
 	PRINT_T("===main()");
@@ -1789,7 +1818,8 @@ int main()
 	//Test_review_05();//【review practice】创建对象，含继承关系。日常练习啦 对比虚函数与普通函数的不同
 	//Test_review_06();//【review practice】创建对象，含继承关系。日常练习啦 对比虚函数与普通函数的不同，加入纯虚函数
 	//Test_review_07();//【review practice】创建对象，含继承关系。日常练习啦 对比虚函数与普通函数的不同，加入纯虚函数
-	Test_review_08();//【review practice】创建对象。日常练习啦。模板的分文件编写
+	//Test_review_08();//【review practice】创建对象。日常练习啦。模板的分文件编写
+	Test_review_09();//【review practice】创建对象。日常练习啦。模板的分文件编写
 	return 1;
 
 }
