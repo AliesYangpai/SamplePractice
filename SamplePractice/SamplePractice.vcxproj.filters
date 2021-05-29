@@ -245,9 +245,6 @@
     <ClInclude Include="demo_common_review\bean\apple.h">
       <Filter>头文件</Filter>
     </ClInclude>
-    <ClInclude Include="demo_common_review\holder.h">
-      <Filter>头文件</Filter>
-    </ClInclude>
     <ClInclude Include="demo_common_review\bean\friut.h">
       <Filter>头文件</Filter>
     </ClInclude>
@@ -288,6 +285,9 @@
       <Filter>头文件</Filter>
     </ClInclude>
     <ClInclude Include="demo_common_review\bean\ship\warcraft.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="demo_common_review\holder_common_review.h">
       <Filter>头文件</Filter>
     </ClInclude>
   </ItemGroup>

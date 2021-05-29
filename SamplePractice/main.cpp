@@ -20,16 +20,8 @@ extern "C" {
 #include "demo_lib_operate/lib_operate_stl/operate_stl_set.h"
 #include "demo_lib_operate/lib_operate_stl/operate_stl_map.h"
 #include "demo_lib_operate/lib_operate_stl/operate_stl_algorithm.h"
-#include "demo_common_review/bean/apple.h"
-#include "demo_common_review/bean/peach.h"
-#include "demo_common_review/bean/banana_immortal.h"
-#include "demo_common_review/bean/car/racing_car.h"
-#include "demo_common_review/bean/car/tank_car.h"
-#include "demo_common_review/bean/train/high_speed_train.h"
-#include "demo_common_review/bean/train/steam_locomotive.h"
 #include "demo_templet_self/bean/wrap_toy.hpp"
-#include "demo_common_review/bean/ship/submarine.h"
-#include "demo_common_review/bean/ship/warcraft.h"
+#include "demo_common_review/holder_common_review.h"
 using namespace std;
 #define PRINT_T(T) cout << T << endl
 

@@ -183,7 +183,7 @@
     <ClInclude Include="demo_common_review\bean\train\base_train.h" />
     <ClInclude Include="demo_common_review\bean\train\high_speed_train.h" />
     <ClInclude Include="demo_common_review\bean\train\steam_locomotive.h" />
-    <ClInclude Include="demo_common_review\holder.h" />
+    <ClInclude Include="demo_common_review\holder_common_review.h" />
     <ClInclude Include="demo_computer_components\bean\component_base_computer.h" />
     <ClInclude Include="demo_computer_components\bean\component_base_cpu.h" />
     <ClInclude Include="demo_computer_components\bean\component_base_gpu.h" />
