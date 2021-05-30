@@ -6,6 +6,7 @@ extern "C" {
 #include "demo_lib_operate/lib_operate_mem_heap/operate_mem_heap_method.h"
 }
 #include <iostream>
+#include <algorithm>
 #include "demo_print/base_print.h"
 #include "demo_geometry/Cube.h"
 #include "demo_player/bean/player_base_soccer.h"
@@ -1621,7 +1622,7 @@ void executeFun01(Banana* p_banana)
 	p_banana->show_banana_info(); // 虚函数
 }
 
-void excuteFunX(BaseCar* p_base_car) 
+void executeFunX(BaseCar* p_base_car) 
 {
 	PRINT_T(p_base_car->get_mName());
 	p_base_car->ShowCommonInfo();
@@ -1629,7 +1630,7 @@ void excuteFunX(BaseCar* p_base_car)
 	p_base_car->DoWork();
 }
 
-void excuteFunX(BaseTrain* p_train) 
+void executeFunX(BaseTrain* p_train) 
 {
 	PRINT_T(p_train->get_name());
 	p_train->ShowCommonInfo();
@@ -1637,7 +1638,7 @@ void excuteFunX(BaseTrain* p_train)
 	p_train->doWork();
 }
 
-void excuteFunX(BaseShip* p_ship)
+void executeFunX(BaseShip* p_ship)
 {
 	PRINT_T(p_ship->get_mName());
 	p_ship->showCommonInfo();
@@ -1685,8 +1686,8 @@ void Test_review_06()
 	PRINT_T("===Test_review_06");
 	BaseCar* p_racing_car = new RacingCar("F1-001","Farrari");
 	BaseCar* p_tank_car = new TankCar("Watering-05","Enviroment Organization");
-	excuteFunX(p_racing_car);
-	excuteFunX(p_tank_car);
+	executeFunX(p_racing_car);
+	executeFunX(p_tank_car);
 	delete p_racing_car; p_racing_car = NULL;
 	delete p_tank_car; p_tank_car = NULL;
 }
@@ -1702,8 +1703,8 @@ void Test_review_07()
 	PRINT_T("===Test_review_07");
 	BaseTrain* p_train1 = new SteamLocomotive("工业1号");
 	BaseTrain* p_train2 = new HighSpeedTrain("高铁G-series 001");
-	excuteFunX(p_train1);
-	excuteFunX(p_train2);
+	executeFunX(p_train1);
+	executeFunX(p_train2);
 	delete p_train1; p_train1 = NULL;
 	delete p_train2; p_train2 = NULL;
 }
@@ -1732,14 +1733,101 @@ void Test_review_09()
 {
 	PRINT_T("===Test_review_09");
 	BaseShip* p_1 = new Submarine("鲨鱼号");
-	excuteFunX(p_1);
+	executeFunX(p_1);
 	delete p_1; p_1 = NULL;
 
 	BaseShip* p_2 = new WarCraft("公主号");
-	excuteFunX(p_2);
+	executeFunX(p_2);
 	delete p_2; p_2 = NULL;
 }
 
+/*
+ 巩固练习--stl
+ vector 
+ stack 未完成
+ queue 未完成
+ deque 未完成
+*/
+void executeStlFunX(BaseShip* p_ship) 
+{
+	PRINT_T(p_ship->get_mName());
+	p_ship->showCommonInfo();
+	p_ship->showShipInfo();
+	p_ship->doWork();
+}
+
+
+void Test_review_10_stl() 
+{
+	PRINT_T("===Test_review_10_stl");
+//===vector:【TRAVERSING】
+	vector<BaseShip*>* p_vector = new vector<BaseShip*>();
+	p_vector->push_back(new WarCraft("公主号"));
+	p_vector->push_back(new WarCraft("寒鸦号"));
+	p_vector->push_back(new WarCraft("掠夺号"));
+	p_vector->push_back(new WarCraft("国王号"));
+	p_vector->push_back(new Submarine("鱼雷001号"));// we can add different child in vector<BaseShip*>* p_vector,BUT NOT DO IN JAVA   
+	PRINT_T("===vector: for");
+	for (vector<BaseShip*>::iterator pi = p_vector->begin(); pi != p_vector->end(); pi++)
+	{
+		//PRINT_T((*pi)->get_mName());
+		executeStlFunX(*pi);
+	}
+	PRINT_T("===vector: for_each");
+	for_each(p_vector->begin(), p_vector->end(), executeStlFunX);
+	// summarize:
+	// we can add different child in vector<BaseShip*>* p_vector,BUT NOT DO IN JAVA 
+	delete p_vector; p_vector = NULL;
+
+//===stack;【NO TRAVERSING】one port io
+	stack<BaseCar*>* p_stack = new stack<BaseCar*>();
+	p_stack->push(new RacingCar("法拉利001","法拉利"));
+	p_stack->push(new RacingCar("迈凯伦001","迈凯伦"));
+	p_stack->push(new RacingCar("红牛1号", "red bull"));
+    p_stack->push(new TankCar("清洁1号", "清洁公司"));
+	PRINT_T("===stack: while");
+	while (!p_stack->empty())
+	{
+		executeFunX(p_stack->top());
+		p_stack->pop();
+	}
+	delete p_stack; p_stack = NULL;
+	// summarize:
+    // NO TRAVERSING 
+	// because of FILO,only get element on TOP OF STACK 
+	// one port in out
+
+//===queue:【NO TRAVERSING】two port io
+	queue<BaseCar*>* p_queue = new queue<BaseCar*>();
+	p_queue->push(new RacingCar("法拉利001","法拉利"));
+	p_queue->push(new RacingCar("迈凯伦001","迈凯伦"));
+	p_queue->push(new RacingCar("红牛1号", "red bull"));
+	p_queue->push(new TankCar("清洁1号", "清洁公司"));
+	PRINT_T("===queue: while");
+	while (!p_queue->empty())
+	{
+		executeFunX(p_queue->front());
+		p_queue->pop();
+	}
+
+	delete p_queue; p_queue = NULL;
+	// summarize:
+	// NO TRAVERSING 
+	// because of FIFI,
+	// two port in out
+
+//===deque
+	deque<BaseTrain*>* p_deque = new deque<BaseTrain*>();
+	p_deque->push_back(new HighSpeedTrain("新干线1号"));
+	p_deque->push_back(new HighSpeedTrain("高铁1号"));
+	p_deque->push_back(new HighSpeedTrain("飞铁xxx"));
+	p_deque->push_front(new SteamLocomotive("烧煤1号"));
+	PRINT_T("===deque: for");
+	for (deque<BaseTrain*>::iterator pi_deque = p_deque->begin(); pi_deque != p_deque->end(); pi_deque++) {
+		executeFunX(*pi_deque);
+	}
+	delete p_deque; p_deque = NULL;
+}
 int main()
 {
 	PRINT_T("===main()");
@@ -1811,7 +1899,7 @@ int main()
 	//Test_review_06();//【review practice】创建对象，含继承关系。日常练习啦 对比虚函数与普通函数的不同，加入纯虚函数
 	//Test_review_07();//【review practice】创建对象，含继承关系。日常练习啦 对比虚函数与普通函数的不同，加入纯虚函数
 	//Test_review_08();//【review practice】创建对象。日常练习啦。模板的分文件编写
-	Test_review_09();//【review practice】创建对象。日常练习啦。模板的分文件编写
+	//Test_review_09();//【review practice】创建对象。日常练习啦。模板的分文件编写
+	Test_review_10_stl();// 【review practice】stl 日常练习啦
 	return 1;
-
 }

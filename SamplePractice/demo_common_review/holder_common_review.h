@@ -8,3 +8,7 @@
 #include "bean/train/steam_locomotive.h"
 #include "bean/ship/submarine.h"
 #include "bean/ship/warcraft.h"
+#include <vector> //¡¾TRAVERSING¡¿
+#include <stack>  //¡¾NO TRAVERSING¡¿
+#include <queue>  //¡¾NO TRAVERSING¡¿
+#include <deque>  //¡¾TRAVERSING¡¿
