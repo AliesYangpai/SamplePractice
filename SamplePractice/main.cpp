@@ -1756,6 +1756,13 @@ void executeStlFunX(BaseShip* p_ship)
 	p_ship->doWork();
 }
 
+/*
+ <vector> //【TRAVERSING】one port io
+ <stack>  //【NO TRAVERSING】one port io
+ <queue>  //【NO TRAVERSING】two port io
+ <deque>  //【TRAVERSING】complex
+ <list>   //【TRAVERSING】complex
+ */
 
 void Test_review_10_stl() 
 {
@@ -1827,6 +1834,21 @@ void Test_review_10_stl()
 		executeFunX(*pi_deque);
 	}
 	delete p_deque; p_deque = NULL;
+
+//===list
+	list<BaseTrain*>* p_list = new list<BaseTrain*>();
+	p_list->push_back(new HighSpeedTrain("希望号"));
+	p_list->push_back(new HighSpeedTrain("银色魔头号"));
+	p_list->push_back(new HighSpeedTrain("黑色魔头号"));
+	p_list->push_front(new SteamLocomotive("幽灵机车号"));
+	PRINT_T("===list:for");
+	list<BaseTrain*>::iterator p_iterator_list_begin = p_list->begin();
+	p_list->insert(p_iterator_list_begin,new SteamLocomotive("幽灵忍者号"));
+	for (list<BaseTrain*>::iterator pi =  p_list->begin(); pi!=p_list->end(); pi++)
+	{
+		executeFunX(*pi);
+	}
+	delete p_list; p_list == NULL;
 }
 int main()
 {

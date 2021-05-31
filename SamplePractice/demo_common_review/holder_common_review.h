@@ -12,3 +12,4 @@
 #include <stack>  //¡¾NO TRAVERSING¡¿
 #include <queue>  //¡¾NO TRAVERSING¡¿
 #include <deque>  //¡¾TRAVERSING¡¿
+#include <list>   //¡¾TRAVERSING¡¿
