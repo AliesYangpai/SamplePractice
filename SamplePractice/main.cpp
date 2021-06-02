@@ -1823,7 +1823,7 @@ void Test_review_10_stl()
 	// because of FIFI,
 	// two port in out
 
-//===deque
+//===deque【TRAVERSING】
 	deque<BaseTrain*>* p_deque = new deque<BaseTrain*>();
 	p_deque->push_back(new HighSpeedTrain("新干线1号"));
 	p_deque->push_back(new HighSpeedTrain("高铁1号"));
@@ -1835,7 +1835,7 @@ void Test_review_10_stl()
 	}
 	delete p_deque; p_deque = NULL;
 
-//===list
+//===list【TRAVERSING】
 	list<BaseTrain*>* p_list = new list<BaseTrain*>();
 	p_list->push_back(new HighSpeedTrain("希望号"));
 	p_list->push_back(new HighSpeedTrain("银色魔头号"));
@@ -1849,6 +1849,25 @@ void Test_review_10_stl()
 		executeFunX(*pi);
 	}
 	delete p_list; p_list == NULL;
+//===set【TRAVERSING】
+	set<short>* p_set = new set<short>();
+	p_set->insert(9);
+	p_set->insert(5);
+	p_set->insert(3);
+	p_set->insert(9);
+	p_set->insert(7);
+	PRINT_T("==set:for");
+	for (set<short>::iterator pi = p_set->begin(); pi != p_set->end();pi++) 
+	{
+		PRINT_T(*pi);
+	}
+	delete p_set; p_set = NULL;
+//===pari
+	pair<BaseTrain*, short> p1 = make_pair(new HighSpeedTrain("黑色魔头号"),99);
+	PRINT_T("===pair:");
+	executeFunX(p1.first);
+	PRINT_T(p1.second);
+
 }
 int main()
 {
