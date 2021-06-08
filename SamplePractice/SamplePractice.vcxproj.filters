@@ -147,6 +147,9 @@
     <ClCompile Include="demo_common_review\bean\ship\warcraft.cpp">
       <Filter>源文件</Filter>
     </ClCompile>
+    <ClCompile Include="demo_common_review\bean\gun\base_gun.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="demo_sort\base_sort.h">
@@ -288,6 +291,18 @@
       <Filter>头文件</Filter>
     </ClInclude>
     <ClInclude Include="demo_common_review\holder_common_review.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="demo_common_review\bean\fun_obj_common.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="demo_common_review\bean\gun\rife_gun.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="demo_common_review\bean\gun\shot_gun.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="demo_common_review\bean\gun\base_gun.h">
       <Filter>头文件</Filter>
     </ClInclude>
   </ItemGroup>

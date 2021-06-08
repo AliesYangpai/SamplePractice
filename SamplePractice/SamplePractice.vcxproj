@@ -130,6 +130,7 @@
     <ClCompile Include="demo_common_review\bean\car\racing_car.cpp" />
     <ClCompile Include="demo_common_review\bean\car\tank_car.cpp" />
     <ClCompile Include="demo_common_review\bean\fruit.cpp" />
+    <ClCompile Include="demo_common_review\bean\gun\base_gun.cpp" />
     <ClCompile Include="demo_common_review\bean\peach.cpp" />
     <ClCompile Include="demo_common_review\bean\ship\base_ship.cpp" />
     <ClCompile Include="demo_common_review\bean\ship\submarine.cpp" />
@@ -176,6 +177,10 @@
     <ClInclude Include="demo_common_review\bean\car\racing_car.h" />
     <ClInclude Include="demo_common_review\bean\car\tank_car.h" />
     <ClInclude Include="demo_common_review\bean\friut.h" />
+    <ClInclude Include="demo_common_review\bean\fun_obj_common.h" />
+    <ClInclude Include="demo_common_review\bean\gun\base_gun.h" />
+    <ClInclude Include="demo_common_review\bean\gun\rife_gun.h" />
+    <ClInclude Include="demo_common_review\bean\gun\shot_gun.h" />
     <ClInclude Include="demo_common_review\bean\peach.h" />
     <ClInclude Include="demo_common_review\bean\ship\base_ship.h" />
     <ClInclude Include="demo_common_review\bean\ship\submarine.h" />
