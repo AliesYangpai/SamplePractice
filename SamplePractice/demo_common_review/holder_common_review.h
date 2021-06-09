@@ -8,9 +8,12 @@
 #include "bean/train/steam_locomotive.h"
 #include "bean/ship/submarine.h"
 #include "bean/ship/warcraft.h"
+#include "bean/gun/rife_gun.h"
+#include "bean/gun/shot_gun.h"	
 #include <vector> //¡¾TRAVERSING¡¿
 #include <stack>  //¡¾NO TRAVERSING¡¿
 #include <queue>  //¡¾NO TRAVERSING¡¿
 #include <deque>  //¡¾TRAVERSING¡¿
 #include <list>   //¡¾TRAVERSING¡¿
 #include <set>    //¡¾TRAVERSING¡¿
+#include "bean/fun_work.h"

@@ -9,11 +9,19 @@
 #include "train/steam_locomotive.h"
 #include "ship/submarine.h"
 #include "ship/warcraft.h"
+#include "gun/base_gun.h"
+
 using namespace std;
-class FunShip01 {
+class FunWorkShowGun01 
+{
 public:
-	void operator()(BaseShip* p_ship) {
-		p_ship->showCommonInfo();
-		p_ship->doWork();
-	}
+	void operator()(BaseGun* p_gun);
+};
+
+class FunWorkFindTargetGun01
+{
+public:
+	string mKeyword;
+	FunWorkFindTargetGun01(string keyword);
+	bool operator()(BaseGun* p_gun);
 };

@@ -1,6 +1,6 @@
 #pragma once
 #include "base_gun.h"
-class RifeGun :BaseGun {
+class RifeGun :public BaseGun {
 public:
 	~RifeGun();
 	RifeGun(string name);

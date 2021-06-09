@@ -1,5 +1,6 @@
 #pragma once
 #include <iostream>
+#include <string>
 #define PRINT_T(T,F) cout << T << "\t" << F << endl;
 using namespace std;
 class BaseGun {

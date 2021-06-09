@@ -1646,6 +1646,14 @@ void executeFunX(BaseShip* p_ship)
 	p_ship->doWork();
 }
 
+void executeFunX(BaseGun* p_gun) 
+{
+	PRINT_T(p_gun->get_mName());
+	p_gun->showInfo();
+	p_gun->showInfo();
+	p_gun->doWork();
+}
+
 /*
  回顾练习
  日常创建对象的练习啦
@@ -1757,14 +1765,14 @@ void executeStlFunX(BaseShip* p_ship)
 }
 
 /*
+ 巩固练习--stl leve1 
  <vector> //【TRAVERSING】one port io
  <stack>  //【NO TRAVERSING】one port io
  <queue>  //【NO TRAVERSING】two port io
  <deque>  //【TRAVERSING】complex
  <list>   //【TRAVERSING】complex
  */
-
-void Test_review_10_stl() 
+void Test_review_10_stl_leve1() 
 {
 	PRINT_T("===Test_review_10_stl");
 //===vector:【TRAVERSING】
@@ -1862,13 +1870,50 @@ void Test_review_10_stl()
 		PRINT_T(*pi);
 	}
 	delete p_set; p_set = NULL;
-//===pari
+//===pari【NULL】
 	pair<BaseTrain*, short> p1 = make_pair(new HighSpeedTrain("黑色魔头号"),99);
 	PRINT_T("===pair:");
 	executeFunX(p1.first);
 	PRINT_T(p1.second);
 
 }
+
+/*
+ 巩固练习--stl leve2
+*/
+void Test_review_10_stl_leve2()
+{
+	PRINT_T("Test_review_10_stl_leve2");
+//【for_each】
+	vector<BaseGun*>* p_vector = new vector<BaseGun*>();
+	p_vector->push_back(new RifeGun("ju1"));
+	p_vector->push_back(new RifeGun("ju2"));
+	p_vector->push_back(new RifeGun("ju3"));
+	p_vector->push_back(new ShotGun("pen1"));
+	p_vector->push_back(new ShotGun("pen2"));
+	PRINT_T("===for_each FunWorkShowGun01");
+	for_each(p_vector->begin(), p_vector->end(),FunWorkShowGun01());
+	delete p_vector; p_vector = NULL;
+//【find_if】
+	deque<BaseGun*>* p_deque = new deque<BaseGun*>();
+	p_deque->push_back(new RifeGun("X1"));
+	p_deque->push_back(new RifeGun("X2"));
+	p_deque->push_back(new ShotGun("S1"));
+	p_deque->push_front(new ShotGun("S2"));
+	p_deque->push_back(new ShotGun("S3"));
+	PRINT_T("===find_if FunWorkShowGun01");
+	string keyword = "S3";
+	deque<BaseGun*>::iterator pi=find_if(p_deque->begin(), p_deque->end(),FunWorkFindTargetGun01(keyword));
+	if (pi== p_deque->end())
+	{
+		PRINT_T("No keyword for",keyword);
+	}
+	else
+	{
+		executeFunX(*pi);
+	}
+}
+
 int main()
 {
 	PRINT_T("===main()");
@@ -1941,6 +1986,7 @@ int main()
 	//Test_review_07();//【review practice】创建对象，含继承关系。日常练习啦 对比虚函数与普通函数的不同，加入纯虚函数
 	//Test_review_08();//【review practice】创建对象。日常练习啦。模板的分文件编写
 	//Test_review_09();//【review practice】创建对象。日常练习啦。模板的分文件编写
-	Test_review_10_stl();// 【review practice】stl 日常练习啦
+	//Test_review_10_stl_leve1(); //【review practice】stl 日常练习啦
+	Test_review_10_stl_leve2(); //【review practice】stl 日常练习啦
 	return 1;
 }

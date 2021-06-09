@@ -18,10 +18,10 @@ string BaseGun::get_mName()
 
 void BaseGun::showInfo() 
 {
-	PRINT_T(this->mName, "BaseGun showInfo");
+	PRINT_T("BaseGun", "showInfo()");
 }
 
 void BaseGun::showExtraInfo() 
 {
-	PRINT_T(this->mName, "BaseGun showExtraInfo");
+	PRINT_T("BaseGun", "showExtraInfo()");
 }
