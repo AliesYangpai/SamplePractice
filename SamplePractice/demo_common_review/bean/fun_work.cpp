@@ -18,4 +18,14 @@ bool FunWorkFindTargetGun01::operator()(BaseGun * p_gun)
 	return p_gun->get_mName() == this->mKeyword;
 }
 
+FunWorkTransformGun01::FunWorkTransformGun01(string keyword) 
+{
+	this->mKeyWord = keyword;
+}
+
+BaseGun* FunWorkTransformGun01:: operator()(BaseGun* p_gun)
+{
+	p_gun->set_mName(this->mKeyWord);
+	return p_gun;
+}
 

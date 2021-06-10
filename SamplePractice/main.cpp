@@ -1772,7 +1772,7 @@ void executeStlFunX(BaseShip* p_ship)
  <deque>  //【TRAVERSING】complex
  <list>   //【TRAVERSING】complex
  */
-void Test_review_10_stl_leve1() 
+void Test_review_10_stl_level1() 
 {
 	PRINT_T("===Test_review_10_stl");
 //===vector:【TRAVERSING】
@@ -1881,9 +1881,9 @@ void Test_review_10_stl_leve1()
 /*
  巩固练习--stl leve2
 */
-void Test_review_10_stl_leve2()
+void Test_review_10_stl_level2()
 {
-	PRINT_T("Test_review_10_stl_leve2");
+	PRINT_T("Test_review_10_stl_level2");
 //【for_each】
 	vector<BaseGun*>* p_vector = new vector<BaseGun*>();
 	p_vector->push_back(new RifeGun("ju1"));
@@ -1912,6 +1912,21 @@ void Test_review_10_stl_leve2()
 	{
 		executeFunX(*pi);
 	}
+//【transform】
+	list<BaseGun*>* p_list = new list<BaseGun*>();
+	p_list->push_back(new RifeGun("aa"));
+	p_list->push_back(new RifeGun("BB"));
+	p_list->push_back(new ShotGun("aa"));
+	p_list->push_back(new ShotGun("aa"));
+	list<BaseGun*>* p_new = new list<BaseGun*>();
+	p_new->resize(p_list->size());// 先提前开辟空间
+	string keyWord = "KK";
+	PRINT_T("===transform FunWorkTransformGun01");
+	transform(p_list->begin(), p_list->end(), p_new->begin(),FunWorkTransformGun01(keyWord));
+	for_each(p_new->begin(), p_new->end(), FunWorkShowGun01());
+
+	delete p_list; p_list = NULL;
+	delete p_list; p_list = NULL;
 }
 
 int main()
@@ -1986,7 +2001,7 @@ int main()
 	//Test_review_07();//【review practice】创建对象，含继承关系。日常练习啦 对比虚函数与普通函数的不同，加入纯虚函数
 	//Test_review_08();//【review practice】创建对象。日常练习啦。模板的分文件编写
 	//Test_review_09();//【review practice】创建对象。日常练习啦。模板的分文件编写
-	//Test_review_10_stl_leve1(); //【review practice】stl 日常练习啦
-	Test_review_10_stl_leve2(); //【review practice】stl 日常练习啦
+	//Test_review_10_stl_level1(); //【review practice】stl 日常练习啦
+	Test_review_10_stl_level2(); //【review practice】stl 日常练习啦
 	return 1;
 }

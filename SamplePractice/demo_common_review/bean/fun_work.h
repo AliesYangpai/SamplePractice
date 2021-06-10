@@ -25,3 +25,10 @@ public:
 	FunWorkFindTargetGun01(string keyword);
 	bool operator()(BaseGun* p_gun);
 };
+
+class FunWorkTransformGun01 {
+public:
+	string mKeyWord;
+	FunWorkTransformGun01(string keyword);
+	BaseGun* operator()(BaseGun* p_gun);
+};
