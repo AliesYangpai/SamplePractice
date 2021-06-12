@@ -29,3 +29,13 @@ BaseGun* FunWorkTransformGun01:: operator()(BaseGun* p_gun)
 	return p_gun;
 }
 
+FunWorkCountIfLessPriceData::FunWorkCountIfLessPriceData(float price)
+{
+	this->mPrice = price;
+}
+
+bool FunWorkCountIfLessPriceData::operator()(BaseToy* p_toy)
+{
+	return p_toy->get_mPrice() < this->mPrice;
+}
+

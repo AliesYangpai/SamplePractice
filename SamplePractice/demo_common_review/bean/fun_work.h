@@ -10,6 +10,8 @@
 #include "ship/submarine.h"
 #include "ship/warcraft.h"
 #include "gun/base_gun.h"
+#include "toy/base_toy.h"
+
 
 using namespace std;
 class FunWorkShowGun01 
@@ -31,4 +33,12 @@ public:
 	string mKeyWord;
 	FunWorkTransformGun01(string keyword);
 	BaseGun* operator()(BaseGun* p_gun);
+};
+
+class FunWorkCountIfLessPriceData 
+{
+public:
+	float mPrice;
+	FunWorkCountIfLessPriceData(float price);
+	bool operator()(BaseToy* p_toy);
 };

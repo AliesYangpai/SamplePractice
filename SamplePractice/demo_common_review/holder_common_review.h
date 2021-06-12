@@ -10,10 +10,14 @@
 #include "bean/ship/warcraft.h"
 #include "bean/gun/rife_gun.h"
 #include "bean/gun/shot_gun.h"	
+#include "bean/fun_work.h"
+#include "bean/toy/animal_toy.h"
+#include "bean/toy/car_toy.h"
+
 #include <vector> //¡¾TRAVERSING¡¿
 #include <stack>  //¡¾NO TRAVERSING¡¿
 #include <queue>  //¡¾NO TRAVERSING¡¿
 #include <deque>  //¡¾TRAVERSING¡¿
 #include <list>   //¡¾TRAVERSING¡¿
 #include <set>    //¡¾TRAVERSING¡¿
-#include "bean/fun_work.h"
+

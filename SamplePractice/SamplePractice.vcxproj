@@ -138,6 +138,9 @@
     <ClCompile Include="demo_common_review\bean\ship\base_ship.cpp" />
     <ClCompile Include="demo_common_review\bean\ship\submarine.cpp" />
     <ClCompile Include="demo_common_review\bean\ship\warcraft.cpp" />
+    <ClCompile Include="demo_common_review\bean\toy\animal_toy.cpp" />
+    <ClCompile Include="demo_common_review\bean\toy\base_toy.cpp" />
+    <ClCompile Include="demo_common_review\bean\toy\car_toy.cpp" />
     <ClCompile Include="demo_common_review\bean\train\base_train.cpp" />
     <ClCompile Include="demo_common_review\bean\train\high_speed_train.cpp" />
     <ClCompile Include="demo_common_review\bean\train\SteamLocomotive.cpp" />
@@ -188,6 +191,9 @@
     <ClInclude Include="demo_common_review\bean\ship\base_ship.h" />
     <ClInclude Include="demo_common_review\bean\ship\submarine.h" />
     <ClInclude Include="demo_common_review\bean\ship\warcraft.h" />
+    <ClInclude Include="demo_common_review\bean\toy\animal_toy.h" />
+    <ClInclude Include="demo_common_review\bean\toy\base_toy.h" />
+    <ClInclude Include="demo_common_review\bean\toy\car_toy.h" />
     <ClInclude Include="demo_common_review\bean\train\base_train.h" />
     <ClInclude Include="demo_common_review\bean\train\high_speed_train.h" />
     <ClInclude Include="demo_common_review\bean\train\steam_locomotive.h" />

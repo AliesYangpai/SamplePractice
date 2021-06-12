@@ -1912,6 +1912,7 @@ void Test_review_10_stl_level2()
 	{
 		executeFunX(*pi);
 	}
+	delete p_deque; p_deque = NULL;
 //¡¾transform¡¿
 	list<BaseGun*>* p_list = new list<BaseGun*>();
 	p_list->push_back(new RifeGun("aa"));
@@ -1924,9 +1925,18 @@ void Test_review_10_stl_level2()
 	PRINT_T("===transform FunWorkTransformGun01");
 	transform(p_list->begin(), p_list->end(), p_new->begin(),FunWorkTransformGun01(keyWord));
 	for_each(p_new->begin(), p_new->end(), FunWorkShowGun01());
-
 	delete p_list; p_list = NULL;
-	delete p_list; p_list = NULL;
+//¡¾count_if¡¿
+	vector<BaseToy*>* p_vector_toys = new vector<BaseToy*>();
+	p_vector_toys->push_back(new CarToy("lbjn",15.5));
+	p_vector_toys->push_back(new CarToy("fll",14.5));
+	p_vector_toys->push_back(new CarToy("mkl",19.0));
+	p_vector_toys->push_back(new AnimalToy("lion", 14.0));
+	PRINT_T("===count_if");
+	float filterPrice = 15;
+	int count = count_if(p_vector_toys->begin(), p_vector_toys->end(), FunWorkCountIfLessPriceData(filterPrice));
+	PRINT_T(count);
+	delete p_vector_toys; p_vector_toys = NULL;
 }
 
 int main()
