@@ -4,6 +4,7 @@ extern "C" {
 #include "demo_lib_operate/lib_operate_str/operate_string_method.h"
 #include "demo_lib_operate/lib_operate_mem/operate_mem_method.h"
 #include "demo_lib_operate/lib_operate_mem_heap/operate_mem_heap_method.h"
+#include "demo_common_review/sample/practice_sample_pointer.h"
 }
 #include <iostream>
 #include <algorithm>
@@ -1939,6 +1940,15 @@ void Test_review_10_stl_level2()
 	delete p_vector_toys; p_vector_toys = NULL;
 }
 
+/*
+  巩固练习--pointer  大小端
+*/
+void Test_review_11_pointer_01() 
+{
+	PRINT_T("===Test_review_11_pointer_01");
+	showDataBigOrSmallEndStorage();
+}
+
 int main()
 {
 	PRINT_T("===main()");
@@ -2012,6 +2022,7 @@ int main()
 	//Test_review_08();//【review practice】创建对象。日常练习啦。模板的分文件编写
 	//Test_review_09();//【review practice】创建对象。日常练习啦。模板的分文件编写
 	//Test_review_10_stl_level1(); //【review practice】stl 日常练习啦
-	Test_review_10_stl_level2(); //【review practice】stl 日常练习啦
+	//Test_review_10_stl_level2(); //【review practice】stl 日常练习啦
+	Test_review_11_pointer_01(); //【review practice】pointer 大小端验证 日常练习啦
 	return 1;
 }

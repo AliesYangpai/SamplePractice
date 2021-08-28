@@ -168,6 +168,9 @@
     <ClCompile Include="demo_common_review\bean\toy\animal_toy.cpp">
       <Filter>源文件</Filter>
     </ClCompile>
+    <ClCompile Include="demo_common_review\sample\practice_sample_pointer.c">
+      <Filter>源文件</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="demo_sort\base_sort.h">
@@ -330,6 +333,9 @@
       <Filter>头文件</Filter>
     </ClInclude>
     <ClInclude Include="demo_common_review\bean\toy\animal_toy.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="demo_common_review\sample\practice_sample_pointer.h">
       <Filter>头文件</Filter>
     </ClInclude>
   </ItemGroup>

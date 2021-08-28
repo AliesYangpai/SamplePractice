@@ -144,6 +144,7 @@
     <ClCompile Include="demo_common_review\bean\train\base_train.cpp" />
     <ClCompile Include="demo_common_review\bean\train\high_speed_train.cpp" />
     <ClCompile Include="demo_common_review\bean\train\SteamLocomotive.cpp" />
+    <ClCompile Include="demo_common_review\sample\practice_sample_pointer.c" />
     <ClCompile Include="demo_computer_components\bean\component_base_computer.cpp" />
     <ClCompile Include="demo_computer_components\bean\component_base_cpu.cpp" />
     <ClCompile Include="demo_computer_components\bean\component_base_gpu.cpp" />
@@ -198,6 +199,7 @@
     <ClInclude Include="demo_common_review\bean\train\high_speed_train.h" />
     <ClInclude Include="demo_common_review\bean\train\steam_locomotive.h" />
     <ClInclude Include="demo_common_review\holder_common_review.h" />
+    <ClInclude Include="demo_common_review\sample\practice_sample_pointer.h" />
     <ClInclude Include="demo_computer_components\bean\component_base_computer.h" />
     <ClInclude Include="demo_computer_components\bean\component_base_cpu.h" />
     <ClInclude Include="demo_computer_components\bean\component_base_gpu.h" />
