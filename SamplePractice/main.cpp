@@ -1972,6 +1972,31 @@ void Test_review_13_diy_str_len_01()
 	int count = diy_my_strlen(arr);
 	cout << "count:" << count << endl;
 }
+
+/*
+ ¹®¹ÌÁ·Ï°--strcpy ×Ö·û´®¿½±´
+*/
+void Test_review_12_lib_str_cpy_01() 
+{
+	PRINT_T("===Test_review_12_lib_str_cpy_01");
+	char arr1[30] = "9998877";
+	char  arr2[] = "pop";
+	Practice_strcpy(arr1, arr2);
+	cout << " arr1 :" << arr1 << endl;
+}
+
+/*
+ ¹®¹ÌÁ·Ï°---diy strcpy ×Ö·û´®¿½±´
+*/
+void Test_review_13_diy_str_cpy_01() 
+{
+	PRINT_T("===Test_review_13_diy_str_cpy_01");
+	char arr1[30] = "6666666";
+	char arr2[] = "hello";
+	diy_my_strcpy(arr1, arr2);
+	cout << "arr1 :" << arr1 << endl;
+}
+
 int main()
 {
 	PRINT_T("===main()");
@@ -2048,6 +2073,8 @@ int main()
 	//Test_review_10_stl_level2(); //¡¾review practice¡¿stl ÈÕ³£Á·Ï°À²
 	//Test_review_11_pointer_01(); //¡¾review practice¡¿pointer ´óĞ¡¶ËÑéÖ¤ ÈÕ³£Á·Ï°À²
 	//Test_review_12_lib_str_len_01(); //¡¾review practice¡¿str ×Ö·û´®Çó³¤¶È ÈÕ³£Á·Ï°À²
-	Test_review_13_diy_str_len_01(); //¡¾review practice¡¿str ×Ö·û´®Çó³¤¶È diy ÈÕ³£Á·Ï°À²
+	//Test_review_13_diy_str_len_01(); //¡¾review practice¡¿str diy ×Ö·û´®Çó³¤¶È ÈÕ³£Á·Ï°À²
+	//Test_review_12_lib_str_cpy_01(); //¡¾review practice¡¿str ×Ö·û´®¿½±´ ÈÕ³£Á·Ï°À²
+	Test_review_13_diy_str_cpy_01(); //¡¾review practice¡¿str diy ×Ö·û´®¿½±´ ÈÕ³£Á·Ï°À²
 	return 1;
 }

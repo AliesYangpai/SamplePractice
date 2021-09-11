@@ -68,3 +68,9 @@ int Practice_strlen(const char* p_c)
 {
 	return strlen(p_c);
 }
+
+// 11.Á·Ï°×Ö·û´®¿½±´
+char * Practice_strcpy(char * des, const char * src)
+{
+	return strcpy(des,src);
+}
