@@ -2,6 +2,7 @@
 extern "C" {
 #include "demo_sort/base_sort.h"
 #include "demo_lib_operate/lib_operate_str/operate_string_method.h"
+#include "demo_lib_operate/lib_operate_str/operate_string_diy_method.h"
 #include "demo_lib_operate/lib_operate_mem/operate_mem_method.h"
 #include "demo_lib_operate/lib_operate_mem_heap/operate_mem_heap_method.h"
 #include "demo_common_review/sample/practice_sample_pointer.h"
@@ -1949,6 +1950,28 @@ void Test_review_11_pointer_01()
 	showDataBigOrSmallEndStorage();
 }
 
+/*
+ 巩固练习--strlen 字符串长度
+*/
+void Test_review_12_lib_str_len_01() 
+{
+	PRINT_T("===Test_review_12_lib_str_len_01");
+	char arr1[] = "abcde";
+	int lenth = Practice_strlen(arr1);
+	PRINT_T(lenth);
+}
+
+/*
+ 巩固练习--diy strlen 字符串长度
+*/
+void Test_review_13_diy_str_len_01() 
+{
+	PRINT_T("===Test_review_13_diy_str_len_01");
+	// char arr[5] = "Hello"; 【attention】wrong init,'\0' also needs space to lay on,you have to give more than one space
+	char arr[] = "Hello";
+	int count = diy_my_strlen(arr);
+	cout << "count:" << count << endl;
+}
 int main()
 {
 	PRINT_T("===main()");
@@ -2023,6 +2046,8 @@ int main()
 	//Test_review_09();//【review practice】创建对象。日常练习啦。模板的分文件编写
 	//Test_review_10_stl_level1(); //【review practice】stl 日常练习啦
 	//Test_review_10_stl_level2(); //【review practice】stl 日常练习啦
-	Test_review_11_pointer_01(); //【review practice】pointer 大小端验证 日常练习啦
+	//Test_review_11_pointer_01(); //【review practice】pointer 大小端验证 日常练习啦
+	//Test_review_12_lib_str_len_01(); //【review practice】str 字符串求长度 日常练习啦
+	Test_review_13_diy_str_len_01(); //【review practice】str 字符串求长度 diy 日常练习啦
 	return 1;
 }

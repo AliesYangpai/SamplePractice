@@ -166,6 +166,7 @@
     <ClCompile Include="demo_lib_operate\lib_operate_stl\operate_stl_map.cpp" />
     <ClCompile Include="demo_lib_operate\lib_operate_stl\operate_stl_set.cpp" />
     <ClCompile Include="demo_lib_operate\lib_operate_stl\operate_stl_vector.cpp" />
+    <ClCompile Include="demo_lib_operate\lib_operate_str\operate_string_diy_method.c" />
     <ClCompile Include="demo_player\bean\player_base.cpp" />
     <ClCompile Include="demo_player\bean\player_base_basketball.cpp" />
     <ClCompile Include="demo_player\bean\player_basketball.cpp" />
@@ -221,6 +222,7 @@
     <ClInclude Include="demo_lib_operate\lib_operate_stl\operate_stl_map.h" />
     <ClInclude Include="demo_lib_operate\lib_operate_stl\operate_stl_set.h" />
     <ClInclude Include="demo_lib_operate\lib_operate_stl\operate_stl_vector.h" />
+    <ClInclude Include="demo_lib_operate\lib_operate_str\operate_string_diy_method.h" />
     <ClInclude Include="demo_player\bean\player_base.h" />
     <ClInclude Include="demo_player\bean\player_base_basketball.h" />
     <ClInclude Include="demo_player\bean\player_basketball.h" />

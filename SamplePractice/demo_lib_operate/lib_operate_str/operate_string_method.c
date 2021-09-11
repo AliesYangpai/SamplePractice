@@ -62,3 +62,9 @@ char* Do_strtok(char* str, const char* delim)
 	assert(delim != NULL);
 	return strtok(str, delim);
 }
+
+// 11.Á·Ï° Çó×Ö·û´®³¤¶È
+int Practice_strlen(const char* p_c)
+{
+	return strlen(p_c);
+}

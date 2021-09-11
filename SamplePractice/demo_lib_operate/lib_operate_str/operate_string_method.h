@@ -30,3 +30,5 @@ int Do_strncmp(const char* lhs, const char* rhs, size_t num);
 char* Do_strstr(const char* str,const char* substr);
 // 9.×Ö·û´®½ØÈ¡
 char* Do_strtok(char* str, const char* delim);
+
+int Practice_strlen(const char* p_c);

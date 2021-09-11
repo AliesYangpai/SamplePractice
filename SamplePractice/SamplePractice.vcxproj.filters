@@ -171,6 +171,9 @@
     <ClCompile Include="demo_common_review\sample\practice_sample_pointer.c">
       <Filter>源文件</Filter>
     </ClCompile>
+    <ClCompile Include="demo_lib_operate\lib_operate_str\operate_string_diy_method.c">
+      <Filter>源文件</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="demo_sort\base_sort.h">
@@ -336,6 +339,9 @@
       <Filter>头文件</Filter>
     </ClInclude>
     <ClInclude Include="demo_common_review\sample\practice_sample_pointer.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="demo_lib_operate\lib_operate_str\operate_string_diy_method.h">
       <Filter>头文件</Filter>
     </ClInclude>
   </ItemGroup>
