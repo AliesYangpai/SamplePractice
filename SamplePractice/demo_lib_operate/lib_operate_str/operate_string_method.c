@@ -63,7 +63,7 @@ char* Do_strtok(char* str, const char* delim)
 	return strtok(str, delim);
 }
 
-// 11.Á·Ï° Çó×Ö·û´®³¤¶È
+// 10.Á·Ï° Çó×Ö·û´®³¤¶È
 int Practice_strlen(const char* p_c)
 {
 	return strlen(p_c);
@@ -73,4 +73,10 @@ int Practice_strlen(const char* p_c)
 char * Practice_strcpy(char * des, const char * src)
 {
 	return strcpy(des,src);
+}
+
+// 12.×Ö·û´®×·¼ÓÁ·Ï°
+char * Practice_strcat(char * des, const char * src)
+{
+	return strcat(des,src);
 }

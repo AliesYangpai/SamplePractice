@@ -1953,9 +1953,9 @@ void Test_review_11_pointer_01()
 /*
  ¹®¹ÌÁ·Ï°--strlen ×Ö·û´®³¤¶È
 */
-void Test_review_12_lib_str_len_01() 
+void Test_review_12_lib_strlen_01() 
 {
-	PRINT_T("===Test_review_12_lib_str_len_01");
+	PRINT_T("===Test_review_12_lib_strlen_01");
 	char arr1[] = "abcde";
 	int lenth = Practice_strlen(arr1);
 	PRINT_T(lenth);
@@ -1964,9 +1964,9 @@ void Test_review_12_lib_str_len_01()
 /*
  ¹®¹ÌÁ·Ï°--diy strlen ×Ö·û´®³¤¶È
 */
-void Test_review_13_diy_str_len_01() 
+void Test_review_13_diy_strlen_01() 
 {
-	PRINT_T("===Test_review_13_diy_str_len_01");
+	PRINT_T("===Test_review_13_diy_strlen_01");
 	// char arr[5] = "Hello"; ¡¾attention¡¿wrong init,'\0' also needs space to lay on,you have to give more than one space
 	char arr[] = "Hello";
 	int count = diy_my_strlen(arr);
@@ -1976,9 +1976,9 @@ void Test_review_13_diy_str_len_01()
 /*
  ¹®¹ÌÁ·Ï°--strcpy ×Ö·û´®¿½±´
 */
-void Test_review_12_lib_str_cpy_01() 
+void Test_review_12_lib_strcpy_01() 
 {
-	PRINT_T("===Test_review_12_lib_str_cpy_01");
+	PRINT_T("===Test_review_12_lib_strcpy_01");
 	char arr1[30] = "9998877";
 	char  arr2[] = "pop";
 	Practice_strcpy(arr1, arr2);
@@ -1988,15 +1988,26 @@ void Test_review_12_lib_str_cpy_01()
 /*
  ¹®¹ÌÁ·Ï°---diy strcpy ×Ö·û´®¿½±´
 */
-void Test_review_13_diy_str_cpy_01() 
+void Test_review_13_diy_strcpy_01() 
 {
-	PRINT_T("===Test_review_13_diy_str_cpy_01");
+	PRINT_T("===Test_review_13_diy_strcpy_01");
 	char arr1[30] = "6666666";
 	char arr2[] = "hello";
 	diy_my_strcpy(arr1, arr2);
 	cout << "arr1 :" << arr1 << endl;
 }
 
+/*
+ ¹®¹ÌÁ·Ï°---lib strcat ×Ö·û´®×·¼Ó
+*/
+void Test_review_12_lib_strcat_01() 
+{
+	PRINT_T("===Test_review_12_lib_strcat_01");
+	char content[30] = "hello";
+	char target[] = "alie";
+    Practice_strcat(content, target);
+	cout << "content:" << content << endl;
+}
 int main()
 {
 	PRINT_T("===main()");
@@ -2072,9 +2083,10 @@ int main()
 	//Test_review_10_stl_level1(); //¡¾review practice¡¿stl ÈÕ³£Á·Ï°À²
 	//Test_review_10_stl_level2(); //¡¾review practice¡¿stl ÈÕ³£Á·Ï°À²
 	//Test_review_11_pointer_01(); //¡¾review practice¡¿pointer ´óÐ¡¶ËÑéÖ¤ ÈÕ³£Á·Ï°À²
-	//Test_review_12_lib_str_len_01(); //¡¾review practice¡¿str ×Ö·û´®Çó³¤¶È ÈÕ³£Á·Ï°À²
-	//Test_review_13_diy_str_len_01(); //¡¾review practice¡¿str diy ×Ö·û´®Çó³¤¶È ÈÕ³£Á·Ï°À²
-	//Test_review_12_lib_str_cpy_01(); //¡¾review practice¡¿str ×Ö·û´®¿½±´ ÈÕ³£Á·Ï°À²
-	Test_review_13_diy_str_cpy_01(); //¡¾review practice¡¿str diy ×Ö·û´®¿½±´ ÈÕ³£Á·Ï°À²
+	//Test_review_12_lib_strlen_01(); //¡¾review practice strlen¡¿str ×Ö·û´®Çó³¤¶È ÈÕ³£Á·Ï°À²
+	//Test_review_13_diy_strlen_01(); //¡¾review practice diy strlen¡¿str diy ×Ö·û´®Çó³¤¶È ÈÕ³£Á·Ï°À²
+	//Test_review_12_lib_strcpy_01(); //¡¾review practice strcpy¡¿str ×Ö·û´®¿½±´ ÈÕ³£Á·Ï°À²
+	//Test_review_13_diy_strcpy_01(); //¡¾review practice diy strcpy¡¿str diy ×Ö·û´®¿½±´ ÈÕ³£Á·Ï°À²
+	Test_review_12_lib_strcat_01(); //¡¾review practice¡¿str  ×Ö·û´®¿½±´ ÈÕ³£Á·Ï°À²
 	return 1;
 }

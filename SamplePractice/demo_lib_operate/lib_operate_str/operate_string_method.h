@@ -30,7 +30,9 @@ int Do_strncmp(const char* lhs, const char* rhs, size_t num);
 char* Do_strstr(const char* str,const char* substr);
 // 9.×Ö·û´®½ØÈ¡
 char* Do_strtok(char* str, const char* delim);
-// 10.Á·Ï°»ñÈ¡×Ö·û´®³¤¶È
+// 10.Á·Ï°-»ñÈ¡×Ö·û´®³¤¶È
 int Practice_strlen(const char* p_c);
-// 11.Á·Ï°×Ö·û´®¿½±´
+// 11.Á·Ï°-×Ö·û´®¿½±´
 char* Practice_strcpy(char * des, const char * src);
+// 12.Á·Ï°-×Ö·û´®×·¼Ó
+char* Practice_strcat(char* des, const char* src);

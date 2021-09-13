@@ -30,3 +30,17 @@ char * diy_my_strcpy(char * des, const char * src)
 	while (*des++ = *src++) { ; }
 	return des;
 }
+
+char * diy_my_strcat(char * des, const char * src)
+{
+	assert(des != NULL && src != NULL);
+		while (*des != '\0')
+		{
+			des++;
+		}
+		while (*des++ = *src++)
+		{
+			;
+		}
+	return des;
+}
