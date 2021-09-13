@@ -13,9 +13,9 @@ int  diy_my_strlen(const char* p)
 	return count;
 }
 
-char * diy_my_strcpy(char * des, const char * src)
+char * diy_my_strcpy(char * dst, const char * src)
 {
-	assert(des != NULL && src != NULL);
+	assert(dst != NULL && src != NULL);
 // method 1:
 	//while (*src != '\0')
 	//{
@@ -27,20 +27,22 @@ char * diy_my_strcpy(char * des, const char * src)
 	//return des;
 // method 2: 
 	// https://baike.baidu.com/item/%E8%BF%90%E7%AE%97%E7%AC%A6%E4%BC%98%E5%85%88%E7%BA%A7/4752611
-	while (*des++ = *src++) { ; }
-	return des;
+	while (*dst++ = *src++) { ; }
+	return dst;
 }
 
-char * diy_my_strcat(char * des, const char * src)
+char * diy_my_strcat(char * dst, const char * src)
 {
-	assert(des != NULL && src != NULL);
-		while (*des != '\0')
+	assert(dst != NULL && src != NULL);
+		while (*dst != '\0')
 		{
-			des++;
+			dst++;
 		}
-		while (*des++ = *src++)
-		{
-			;
-		}
-	return des;
+		while (*dst++ = *src++);
+		// while (*(dst++) = *(src++)); 
+		//   Set the character src points to to the character dst points to.
+		//   Increment both dst and src
+	    //   If the character was '\0', end the loop.
+	    //   Otherwise, repeat.
+	return dst;
 }
