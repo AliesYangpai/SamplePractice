@@ -2008,6 +2008,15 @@ void Test_review_12_lib_strcat_01()
     Practice_strcat(content, target);
 	cout << "content:" << content << endl;
 }
+
+/*
+ ¹®¹ÌÁ·Ï°---lib malloc ÄÚ´æ¿Õ¼äÉêÇë
+*/
+void Test_review_14_lib_malloc_01() 
+{
+	PRINT_T("===Test_review_14_lib_malloc_01");
+	showMalloc();
+}
 int main()
 {
 	PRINT_T("===main()");
@@ -2087,6 +2096,7 @@ int main()
 	//Test_review_13_diy_strlen_01(); //¡¾review practice diy strlen¡¿str diy ×Ö·û´®Çó³¤¶È ÈÕ³£Á·Ï°À²
 	//Test_review_12_lib_strcpy_01(); //¡¾review practice strcpy¡¿str ×Ö·û´®¿½±´ ÈÕ³£Á·Ï°À²
 	//Test_review_13_diy_strcpy_01(); //¡¾review practice diy strcpy¡¿str diy ×Ö·û´®¿½±´ ÈÕ³£Á·Ï°À²
-	Test_review_12_lib_strcat_01(); //¡¾review practice¡¿str  ×Ö·û´®¿½±´ ÈÕ³£Á·Ï°À²
+	//Test_review_12_lib_strcat_01(); //¡¾review practice¡¿str  ×Ö·û´®¿½±´ ÈÕ³£Á·Ï°À²
+	Test_review_14_lib_malloc_01(); //¡¾review practice¡¿malloc  ÄÚ´æÉêÇë ÈÕ³£Á·Ï°À² 
 	return 1;
 }

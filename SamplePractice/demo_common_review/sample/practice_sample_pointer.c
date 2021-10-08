@@ -24,3 +24,23 @@ void showArrPointer()
 	
 	char(*p)[3] = &arr2;
 }
+
+void showMalloc()
+{
+	const int count = 5;
+	int* p = malloc(count * sizeof(int));
+	if (p == NULL)
+	{
+		printf("p is NULL");
+		return;
+	}
+	for (size_t i = 0; i < count; i++)
+	{
+		*(p + i) = i;
+	}
+	for (size_t i = 0; i < count; i++)
+	{
+		printf("%d",p[i]);
+	}
+	free(p);
+}
