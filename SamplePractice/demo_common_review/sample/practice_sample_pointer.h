@@ -4,5 +4,5 @@
 void showDataBigOrSmallEndStorage();
 void showArrPointer();
 void showMalloc();
-//void showCalloc();
+void showCalloc();
 //void showRealloc();

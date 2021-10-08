@@ -43,4 +43,28 @@ void showMalloc()
 		printf("%d",p[i]);
 	}
 	free(p);
+	p = NULL;
+}
+
+void showCalloc()
+{
+	const int size = 5;
+	int* p = calloc(size, sizeof(int));
+	if (p == NULL)
+	{
+		printf("p is NULL");
+		return;
+	}
+	//for (size_t i = 0; i < size; i++)
+	//{
+	//	p[i] = i;
+	//}
+
+	for (size_t i = 0; i < size; i++)
+	{
+		printf("%d", p[i]);
+	}
+
+	free(p);
+	p = NULL;
 }

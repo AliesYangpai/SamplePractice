@@ -2017,6 +2017,16 @@ void Test_review_14_lib_malloc_01()
 	PRINT_T("===Test_review_14_lib_malloc_01");
 	showMalloc();
 }
+
+/*
+ 巩固练习---lib calloc 内存空间申请
+*/
+void Test_review_14_lib_calloc_01()
+{
+	PRINT_T("===Test_review_14_lib_calloc_01");
+	showCalloc();
+}
+
 int main()
 {
 	PRINT_T("===main()");
@@ -2097,6 +2107,7 @@ int main()
 	//Test_review_12_lib_strcpy_01(); //【review practice strcpy】str 字符串拷贝 日常练习啦
 	//Test_review_13_diy_strcpy_01(); //【review practice diy strcpy】str diy 字符串拷贝 日常练习啦
 	//Test_review_12_lib_strcat_01(); //【review practice】str  字符串拷贝 日常练习啦
-	Test_review_14_lib_malloc_01(); //【review practice】malloc  内存申请 日常练习啦 
+	//Test_review_14_lib_malloc_01(); //【review practice】malloc  内存申请 日常练习啦 
+	Test_review_14_lib_calloc_01();  //【review practice】calloc  内存申请 日常练习啦 
 	return 1;
 }
