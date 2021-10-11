@@ -6,6 +6,7 @@ extern "C" {
 #include "demo_lib_operate/lib_operate_mem/operate_mem_method.h"
 #include "demo_lib_operate/lib_operate_mem_heap/operate_mem_heap_method.h"
 #include "demo_common_review/sample/practice_sample_pointer.h"
+#include "demo_common_review/sample/practice_sample_allocate_memory_error.h"
 }
 #include <iostream>
 #include <algorithm>
@@ -2035,6 +2036,19 @@ void Test_review_14_lib_realloc_01()
 	showRealloc();
 }
 
+/*
+  巩固练习---内存操作的错误案例
+*/
+void Test_review_error_sample_01() 
+{
+	 error_1_no_pointer_check();
+	 error_2_pointer_out_of_bounds();
+	 error_3_free_pointer_not_mem_operate();
+	 error_4_pointer_change();
+	//void error_5_pointer_free_times();
+	//void error_6_pointer_forget_free();
+}
+
 int main()
 {
 	PRINT_T("===main()");
@@ -2118,5 +2132,6 @@ int main()
 	//Test_review_14_lib_malloc_01(); //【review practice】malloc  内存申请 日常练习啦 
 	//Test_review_14_lib_calloc_01(); //【review practice】calloc  内存申请 日常练习啦
 	Test_review_14_lib_realloc_01();//【review practice】realloc  内存申请 日常练习啦
+	Test_review_error_sample_01();//【review practice】error memory  内存操作的错误案例 日常练习啦
 	return 1;
 }
