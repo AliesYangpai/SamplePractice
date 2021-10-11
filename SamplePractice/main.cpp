@@ -2026,6 +2026,14 @@ void Test_review_14_lib_calloc_01()
 	PRINT_T("===Test_review_14_lib_calloc_01");
 	showCalloc();
 }
+/*
+ 巩固练习---lib realloc 重新申请空间
+*/
+void Test_review_14_lib_realloc_01() 
+{
+	PRINT_T("===Test_review_14_lib_realloc_01");
+	showRealloc();
+}
 
 int main()
 {
@@ -2108,6 +2116,7 @@ int main()
 	//Test_review_13_diy_strcpy_01(); //【review practice diy strcpy】str diy 字符串拷贝 日常练习啦
 	//Test_review_12_lib_strcat_01(); //【review practice】str  字符串拷贝 日常练习啦
 	//Test_review_14_lib_malloc_01(); //【review practice】malloc  内存申请 日常练习啦 
-	Test_review_14_lib_calloc_01();  //【review practice】calloc  内存申请 日常练习啦 
+	//Test_review_14_lib_calloc_01(); //【review practice】calloc  内存申请 日常练习啦
+	Test_review_14_lib_realloc_01();//【review practice】realloc  内存申请 日常练习啦
 	return 1;
 }
