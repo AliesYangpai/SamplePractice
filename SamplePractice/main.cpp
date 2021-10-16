@@ -2041,12 +2041,15 @@ void Test_review_14_lib_realloc_01()
 */
 void Test_review_error_sample_01() 
 {
+	PRINT_T("===Test_review_error_sample_01\n");
 	 error_1_no_pointer_check();
 	 error_2_pointer_out_of_bounds();
 	 error_3_free_pointer_not_mem_operate();
 	 error_4_pointer_change();
-	//void error_5_pointer_free_times();
-	//void error_6_pointer_forget_free();
+	 error_5_pointer_free_times();
+	 error_6_pointer_forget_free();
+	
+	 error_advance_fix_1_pass_pointer();
 }
 
 int main()
@@ -2131,7 +2134,7 @@ int main()
 	//Test_review_12_lib_strcat_01(); //【review practice】str  字符串拷贝 日常练习啦
 	//Test_review_14_lib_malloc_01(); //【review practice】malloc  内存申请 日常练习啦 
 	//Test_review_14_lib_calloc_01(); //【review practice】calloc  内存申请 日常练习啦
-	Test_review_14_lib_realloc_01();//【review practice】realloc  内存申请 日常练习啦
+	//Test_review_14_lib_realloc_01();//【review practice】realloc  内存申请 日常练习啦
 	Test_review_error_sample_01();//【review practice】error memory  内存操作的错误案例 日常练习啦
 	return 1;
 }
