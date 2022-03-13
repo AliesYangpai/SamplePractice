@@ -7,6 +7,7 @@ extern "C" {
 #include "demo_lib_operate/lib_operate_mem_heap/operate_mem_heap_method.h"
 #include "demo_common_review/sample/practice_sample_pointer.h"
 #include "demo_common_review/sample/practice_sample_allocate_memory_error.h"
+#include "demo_common_review/sample/practice_sample_base_01.h"
 }
 #include <iostream>
 #include <algorithm>
@@ -2052,6 +2053,15 @@ void Test_review_error_sample_01()
 	 error_advance_fix_1_pass_pointer();
 }
 
+/*
+最简单基本巩固练习
+*/
+void Test_review_sample_base() 
+{
+	PRINT_T("===Test_review_sample_base\n");
+	show_print_data();
+}
+
 int main()
 {
 	PRINT_T("===main()");
@@ -2135,6 +2145,7 @@ int main()
 	//Test_review_14_lib_malloc_01(); //【review practice】malloc  内存申请 日常练习啦 
 	//Test_review_14_lib_calloc_01(); //【review practice】calloc  内存申请 日常练习啦
 	//Test_review_14_lib_realloc_01();//【review practice】realloc  内存申请 日常练习啦
-	Test_review_error_sample_01();//【review practice】error memory  内存操作的错误案例 日常练习啦
+	//Test_review_error_sample_01(); //【review practice】error memory  内存操作的错误案例 日常练习啦
+	Test_review_sample_base(); //【review practice】sample_base 最简单的基本巩固练习 日常练习啦
 	return 1;
 }
