@@ -2059,8 +2059,11 @@ void Test_review_error_sample_01()
 void Test_review_sample_base() 
 {
 	PRINT_T("===Test_review_sample_base\n");
-	show_print_data();
+//	show_print_data_size(); // 基本类型元素大小
+	show_print_data_arr(); // 数据信息打印
 }
+
+
 
 int main()
 {
@@ -2147,5 +2150,6 @@ int main()
 	//Test_review_14_lib_realloc_01();//【review practice】realloc  内存申请 日常练习啦
 	//Test_review_error_sample_01(); //【review practice】error memory  内存操作的错误案例 日常练习啦
 	Test_review_sample_base(); //【review practice】sample_base 最简单的基本巩固练习 日常练习啦
+
 	return 1;
 }
